@@ -25,7 +25,7 @@
             </phone:Pivot.Background>
             
             <!--Home-->
-            <phone:PivotItem Header="Home">
+            <phone:PivotItem Header="Home" Foreground="White">
                 <phone:LongListSelector>
                     
                 </phone:LongListSelector>
