@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using PartyOn.Resources;
+using PartyOn.viewModels;
 
 namespace PartyOn
 {

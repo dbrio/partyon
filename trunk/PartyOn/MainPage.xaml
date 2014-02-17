@@ -11,9 +11,17 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
+    xmlns:activity="clr-namespace:PartyOn.viewModels"
     shell:SystemTray.IsVisible="True">
     
-    <Grid>
+    <phone:PhoneApplicationPage.Resources>
+        <activity:UserActivityViewModel x:Key="vmUserActivity" />
+        <DataTemplate x:Key="UserActivityTemplate">
+            <TextBlock Text="{Binding PhotoPost_UserFirstNamejjuytrffg}" />
+        </DataTemplate>
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid DataContext="{Binding  Source={StaticResource vmUserActivity}}">
         <Grid.Resources>
             
         </Grid.Resources>
@@ -23,6 +31,14 @@
             <phone:Pivot.Background>
                 <ImageBrush ImageSource="Resources/fondo.png"/>
             </phone:Pivot.Background>
+
+            <!--Activity-->
+            <phone:PivotItem Header="Activity">
+                <phone:LongListSelector ItemsSource="{Binding  UserActivityList}" ItemTemplate="{Binding UserActivityTemplate}">
+
+                </phone:LongListSelector>
+            </phone:PivotItem>
+            
             
             <!--Home-->
             <phone:PivotItem Header="Home" Foreground="White">
@@ -38,19 +54,13 @@
                 </phone:LongListSelector>
             </phone:PivotItem>
             
-            <!--Activity-->
-            <phone:PivotItem Header="Activity">
-                <phone:LongListSelector>
-                    
-                </phone:LongListSelector>
-            </phone:PivotItem>
+            <!--Actidaddddddddddddddddddddddddddddddddddd-->
             
             <!--HeyDj-->
             <phone:PivotItem Header="HeyDj">
                 <phone:LongListSelector>
                     
                 </phone:LongListSelector>
-
             </phone:PivotItem>
             
             <!--Profile-->
@@ -61,7 +71,7 @@
     
             </phone:PivotItem>
         </phone:Pivot>
-        
+        <Button Grid.Row="2" Content="Obtener Actividad" Command="{Binding GetUserActivityCommand}"/>
         
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
