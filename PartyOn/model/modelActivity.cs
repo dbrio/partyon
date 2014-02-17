@@ -8,6 +8,6 @@ namespace PartyOn.model
 {
    public class modelActivity
     {
-       public string UserFirstName { get; set; }
+        public string PhotoPost_UserFirstName { get; set; }
     }
 }
