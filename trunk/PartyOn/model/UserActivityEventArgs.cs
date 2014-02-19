@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace PartyOn.model
 {
-    class UserActivityEventArgs : EventArgs
+    public class UserActivityEventArgs : EventArgs
     {
-        public IList<modelActivity> ActivityResults { get; private set;  }
+        public IList<modelActivity> Results { get; private set; }
 
         public UserActivityEventArgs(IList<modelActivity> results)
         {
-            this.ActivityResults = results;
+            this.Results = results;
         }
     }
+
 }
