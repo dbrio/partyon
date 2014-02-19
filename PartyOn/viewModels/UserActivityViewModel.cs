@@ -16,19 +16,19 @@ namespace PartyOn.viewModels
         public ObservableCollection<modelActivity> UserActivityList
         {
             get {
-                if (userActivityList == null)
-                    {
-                        userActivityList = new ObservableCollection<modelActivity>();
-                    }
-                if (DesignerProperties.IsInDesignTool)
-                    {
-                        for (int i = 0; i < 20; i++)
+                    if (userActivityList == null)
                         {
-                            userActivityList.Add(new modelActivity { PhotoPost_UserFirstName = Guid.NewGuid().ToString() });
+                            userActivityList = new ObservableCollection<modelActivity>();
                         }
-                    }
-                return userActivityList; 
-             }
+                    if (DesignerProperties.IsInDesignTool)
+                        {
+                            for (int i = 0; i < 20; i++)
+                            {
+                                userActivityList.Add(new modelActivity { PhotoPost_UserFirstName = Guid.NewGuid().ToString() });
+                            }
+                        }
+                    return userActivityList; 
+                  }
             set
             {
                 userActivityList = value;
@@ -42,7 +42,7 @@ namespace PartyOn.viewModels
         {
             serviceModel.GetUserActivityCompleted += (s, a) =>
                 {
-                    UserActivityList = new ObservableCollection<modelActivity>(a.ActivityResults);
+                    UserActivityList = new ObservableCollection<modelActivity>(a.Results);
                 };
         }
 

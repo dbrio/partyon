@@ -6,25 +6,27 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:activity ="clr-namespace:PartyOn.viewModels"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    xmlns:activity="clr-namespace:PartyOn.viewModels"
     shell:SystemTray.IsVisible="True">
     
     <phone:PhoneApplicationPage.Resources>
         <activity:UserActivityViewModel x:Key="vmUserActivity" />
         <DataTemplate x:Key="UserActivityTemplate">
-            <TextBlock Text="{Binding PhotoPost_UserFirstNamejjuytrffg}" />
+            <StackPanel>
+                <TextBlock Text="{Binding PhotoPost_UserFirstName}" />
+                <TextBlock Text="{Binding PhotoPost_UserName}"/>
+            </StackPanel>
         </DataTemplate>
+        
     </phone:PhoneApplicationPage.Resources>
 
     <Grid DataContext="{Binding  Source={StaticResource vmUserActivity}}">
-        <Grid.Resources>
-            
-        </Grid.Resources>
+        
         
         <!--se define la interfas -->
         <phone:Pivot Foreground="White">
@@ -33,45 +35,43 @@
             </phone:Pivot.Background>
 
             <!--Activity-->
-            <phone:PivotItem Header="Activity">
-                <phone:LongListSelector ItemsSource="{Binding  UserActivityList}" ItemTemplate="{Binding UserActivityTemplate}">
+            <phone:PivotItem x:Name="Activity" Header="Activity">
+                <phone:LongListSelector  ItemsSource="{Binding  UserActivityList}" ItemTemplate="{StaticResource UserActivityTemplate}">
 
                 </phone:LongListSelector>
             </phone:PivotItem>
             
             
             <!--Home-->
-            <phone:PivotItem Header="Home" Foreground="White">
+            <phone:PivotItem x:Name="Home" Header="Home" Foreground="White">
                 <phone:LongListSelector>
                     
                 </phone:LongListSelector>
             </phone:PivotItem>
             
             <!--Trends-->
-            <phone:PivotItem Header="Trends">
+            <phone:PivotItem x:Name="Trends" Header="Trends">
                 <phone:LongListSelector>
                     
                 </phone:LongListSelector>
             </phone:PivotItem>
-            
-            <!--Actidaddddddddddddddddddddddddddddddddddd-->
-            
+                        
             <!--HeyDj-->
-            <phone:PivotItem Header="HeyDj">
+            <phone:PivotItem x:Name="HeyDj" Header="HeyDj">
                 <phone:LongListSelector>
                     
                 </phone:LongListSelector>
             </phone:PivotItem>
             
             <!--Profile-->
-            <phone:PivotItem Header="Profile">
+            <phone:PivotItem x:Name="Profile" Header="Profile">
                 <phone:LongListSelector>
                     
                 </phone:LongListSelector>
     
             </phone:PivotItem>
         </phone:Pivot>
-        <Button Grid.Row="2" Content="Obtener Actividad" Command="{Binding GetUserActivityCommand}"/>
+        <Button Height="100" Content="Obtener Actividad" Command="{Binding GetUserActivityCommand}"/>
         
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>

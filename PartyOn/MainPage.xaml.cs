@@ -28,6 +28,11 @@ namespace PartyOn
 
         }
 
+        private void PivotItem_ManipulationDelta(object sender, System.Windows.Input.ManipulationDeltaEventArgs e)
+        {
+
+        }
+
        
         // Código de ejemplo para compilar una ApplicationBar traducida
         //private void BuildLocalizedApplicationBar()
