@@ -14,6 +14,11 @@ namespace PartyOn.viewModels
         {
             this.action = action;
         }
+
+        public ActionCommand()
+        {
+            // TODO: Complete member initialization
+        }
         public bool CanExecute(object parameter)
         {
             return true;
