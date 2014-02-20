@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using PartyOn.Resources;
 using PartyOn.viewModels;
+using PartyOn.model;
 
 namespace PartyOn
 {
@@ -21,19 +22,20 @@ namespace PartyOn
 
             // Código de ejemplo para traducir ApplicationBar
             //BuildLocalizedApplicationBar();
+            serviceModel.GetUserActivity();
         }
 
-        private void post(object sender, EventArgs e)
+        ServiceModel serviceModel = new ServiceModel();
+        UserActivityViewModel userActivityViewModel = new UserActivityViewModel();
+        private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
         {
-
+            if (e.Item.Name == "Activity")
+            {
+                serviceModel.GetUserActivity();
+            }
         }
 
-        private void PivotItem_ManipulationDelta(object sender, System.Windows.Input.ManipulationDeltaEventArgs e)
-        {
-
-        }
-
-       
+        
         // Código de ejemplo para compilar una ApplicationBar traducida
         //private void BuildLocalizedApplicationBar()
         //{

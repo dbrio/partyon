@@ -17,9 +17,14 @@
     <phone:PhoneApplicationPage.Resources>
         <activity:UserActivityViewModel x:Key="vmUserActivity" />
         <DataTemplate x:Key="UserActivityTemplate">
+           
             <StackPanel>
-                <TextBlock Text="{Binding PhotoPost_UserFirstName}" />
-                <TextBlock Text="{Binding PhotoPost_UserName}"/>
+                <Image Width="320" Height="240"/>
+                <StackPanel Height="auto" Background="Black" Opacity=".4" >
+                    <TextBlock Text="{Binding PhotoPost_UserName}" />
+                    <TextBlock Text="{Binding PhotoPostDescription}"/>
+                    <TextBlock Text="{Binding PhotoPost_PlaceName}"/>
+                </StackPanel>
             </StackPanel>
         </DataTemplate>
         
@@ -29,14 +34,14 @@
         
         
         <!--se define la interfas -->
-        <phone:Pivot Foreground="White">
+        <phone:Pivot Foreground="White" LoadedPivotItem="Pivot_LoadedPivotItem" >
             <phone:Pivot.Background>
                 <ImageBrush ImageSource="Resources/fondo.png"/>
             </phone:Pivot.Background>
 
             <!--Activity-->
-            <phone:PivotItem x:Name="Activity" Header="Activity">
-                <phone:LongListSelector  ItemsSource="{Binding  UserActivityList}" ItemTemplate="{StaticResource UserActivityTemplate}">
+            <phone:PivotItem x:Name="Activity" Header="Activity" >
+                <phone:LongListSelector ItemsSource="{Binding  UserActivityList}" ItemTemplate="{StaticResource UserActivityTemplate}" Height="552" VerticalAlignment="Top">
 
                 </phone:LongListSelector>
             </phone:PivotItem>

@@ -30,8 +30,9 @@ namespace PartyOn.model
                     var query = from item in (JArray)doc["data"]
                                 select new modelActivity
                                 {
-                                    PhotoPost_UserFirstName = item["PhotoPost_UserFirstName"].Value<string>(),
                                     PhotoPost_UserName = item["PhotoPost_UserName"].Value<string>(),
+                                    PhotoPostDescription = item["PhotoPostDescription"].Value<string>(),
+                                    PhotoPost_PlaceName = item["PhotoPost_PlaceName"].Value<string>(),
                                 };
                     var results = query.ToList();
 
