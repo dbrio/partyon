@@ -33,6 +33,7 @@ namespace PartyOn.model
                                     PhotoPost_UserName = item["PhotoPost_UserName"].Value<string>(),
                                     PhotoPostDescription = item["PhotoPostDescription"].Value<string>(),
                                     PhotoPost_PlaceName = item["PhotoPost_PlaceName"].Value<string>(),
+                                    PhotoPostDateTime = item["PhotoPostDateTime"].Value<string>(),
                                 };
                     var results = query.ToList();
 
