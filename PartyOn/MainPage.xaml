@@ -76,7 +76,6 @@
     
             </phone:PivotItem>
         </phone:Pivot>
-        <Button Height="100" Content="Obtener Actividad" Command="{Binding GetUserActivityCommand}"/>
         
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>

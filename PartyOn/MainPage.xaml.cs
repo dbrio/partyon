@@ -22,16 +22,13 @@ namespace PartyOn
 
             // Código de ejemplo para traducir ApplicationBar
             //BuildLocalizedApplicationBar();
-            serviceModel.GetUserActivity();
         }
 
-        ServiceModel serviceModel = new ServiceModel();
-        UserActivityViewModel userActivityViewModel = new UserActivityViewModel();
         private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
         {
             if (e.Item.Name == "Activity")
             {
-                serviceModel.GetUserActivity();
+                (this.Resources["vmUserActivity"] as viewModels.UserActivityViewModel).GetUserActivityCommand.Execute(null);
             }
         }
 
