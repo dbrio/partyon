@@ -11,6 +11,18 @@ namespace PartyOn.viewModels
 {
    public class UserActivityViewModel : NotificationEnabledObject
     {
+        bool isBusy;
+
+        public bool IsBusy
+        {
+            get { return isBusy; }
+            set 
+            { 
+                isBusy = value;
+                OnPropertyChange();
+            }
+        }
+
         ObservableCollection<modelActivity> userActivityList;
 
         public ObservableCollection<modelActivity> UserActivityList
@@ -43,6 +55,7 @@ namespace PartyOn.viewModels
             serviceModel.GetUserActivityCompleted += (s, a) =>
                 {
                     UserActivityList = new ObservableCollection<modelActivity>(a.Results);
+                    IsBusy = false;
                 };
         }
 
@@ -55,6 +68,7 @@ namespace PartyOn.viewModels
                 {
                     getUserActivityCommand = new ActionCommand(() =>
                         {
+                            IsBusy = true;
                             serviceModel.GetUserActivity();
                         });
                 }

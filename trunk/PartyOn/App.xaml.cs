@@ -101,6 +101,11 @@ namespace PartyOn
             }
         }
 
+        public void addResource()
+        {
+            var resource = this.Resources;
+        }
+
         #region Inicialización de la aplicación telefónica
 
         // Evitar inicialización doble

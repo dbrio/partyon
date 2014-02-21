@@ -11,6 +11,8 @@ using PartyOn.Resources;
 using PartyOn.viewModels;
 using PartyOn.model;
 
+
+
 namespace PartyOn
 {
     public partial class MainPage : PhoneApplicationPage
@@ -24,11 +26,12 @@ namespace PartyOn
             //BuildLocalizedApplicationBar();
         }
 
+
         private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
         {
             if (e.Item.Name == "Activity")
             {
-                (this.Resources["vmUserActivity"] as viewModels.UserActivityViewModel).GetUserActivityCommand.Execute(null);
+                (App.Current.Resources["vmUserActivity"] as viewModels.UserActivityViewModel).GetUserActivityCommand.Execute(null);
             }
         }
 
