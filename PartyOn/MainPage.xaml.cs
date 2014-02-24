@@ -32,7 +32,8 @@ namespace PartyOn
             if (e.Item.Name == "Activity")
             {
                 (App.Current.Resources["vmUserActivity"] as viewModels.UserActivityViewModel).GetUserActivityCommand.Execute(null);
-            }
+            } 
+           
         }
 
         

@@ -24,12 +24,12 @@
 
         <DataTemplate x:Key="UserActivityTemplate">
             <StackPanel Margin="0,0,-12,0">
-                <Image Width="auto" Height="240" />
-                <StackPanel Background="#161616">
-                    <StackPanel Height="auto" Margin="10,10,0,10" Width="469">
+                <Image Source="http://partyonapp.com/upload_files/PhotoPosts/image_3.jpg" Width="auto" Height="auto" />
+                <StackPanel Background="#161616" Margin="0,0,0,20">
+                    <StackPanel Height="auto" Margin="10,10,10,10" Width="469" >
                         <TextBlock Foreground="#6E6E6E" Text="{Binding PhotoPost_UserName}"  Opacity="1"/>
                         <TextBlock Foreground="#6E6E6E" Text="{Binding PhotoPostDescription}"/>
-                        <TextBlock Foreground="#6E6E6E" Text="{Binding PhotoPost_PlaceName}"/>
+                        <TextBlock Foreground="#6E6E6E" Text="{Binding PhotoPost_PlaceName}"/> 
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
@@ -38,16 +38,16 @@
     </phone:PhoneApplicationPage.Resources>
 
     <Grid>
-        
+             
         <!--se define la interfas -->
-        <phone:Pivot Foreground="White" LoadedPivotItem="Pivot_LoadedPivotItem" >
+        <phone:Pivot  Foreground="White" LoadedPivotItem="Pivot_LoadedPivotItem">
             <phone:Pivot.Background>
                 <ImageBrush ImageSource="Resources/fondo.png" />
             </phone:Pivot.Background>
 
             <!--Activity-->
-            <phone:PivotItem x:Name="Activity" Header="Activity">
-                <phone:LongListSelector ItemsSource="{Binding  UserActivityList}" ItemTemplate="{StaticResource UserActivityTemplate}" Height="552" VerticalAlignment="Top">
+            <phone:PivotItem x:Name="Activity" Header="Activity" >
+                <phone:LongListSelector ItemsSource="{Binding  UserActivityList}" ItemTemplate="{StaticResource UserActivityTemplate}" Height="552" VerticalAlignment="Top" Margin="-12,0,-25,0">
 
                 </phone:LongListSelector>
             </phone:PivotItem>
