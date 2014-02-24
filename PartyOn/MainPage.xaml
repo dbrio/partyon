@@ -24,12 +24,12 @@
 
         <DataTemplate x:Key="UserActivityTemplate">
             <StackPanel Margin="0,0,-12,0">
-                <Image Source="http://partyonapp.com/upload_files/PhotoPosts/image_3.jpg" Width="auto" Height="auto" />
-                <StackPanel Background="#161616" Margin="0,0,0,20">
+                <Image Source="{Binding PhotoPostPhoto, StringFormat='http://partyonapp.com/upload_files/{0}'}"/>
+                <StackPanel Background="#161616" Margin="0,0,0,30">
                     <StackPanel Height="auto" Margin="10,10,10,10" Width="469" >
                         <TextBlock Foreground="#6E6E6E" Text="{Binding PhotoPost_UserName}"  Opacity="1"/>
                         <TextBlock Foreground="#6E6E6E" Text="{Binding PhotoPostDescription}"/>
-                        <TextBlock Foreground="#6E6E6E" Text="{Binding PhotoPost_PlaceName}"/> 
+                        <TextBlock Foreground="#6E6E6E" Text="{Binding PhotoPost_PlaceName}"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
@@ -40,14 +40,14 @@
     <Grid>
              
         <!--se define la interfas -->
-        <phone:Pivot  Foreground="White" LoadedPivotItem="Pivot_LoadedPivotItem">
+        <phone:Pivot Foreground="White" LoadedPivotItem="Pivot_LoadedPivotItem">
             <phone:Pivot.Background>
-                <ImageBrush ImageSource="Resources/fondo.png" />
+                <ImageBrush ImageSource="Resources/fondo.png" Opacity=".1" />
             </phone:Pivot.Background>
 
             <!--Activity-->
-            <phone:PivotItem x:Name="Activity" Header="Activity" >
-                <phone:LongListSelector ItemsSource="{Binding  UserActivityList}" ItemTemplate="{StaticResource UserActivityTemplate}" Height="552" VerticalAlignment="Top" Margin="-12,0,-25,0">
+            <phone:PivotItem x:Name="Activity" Header="Activity" Margin="0,10,0,0" >
+                <phone:LongListSelector ItemsSource="{Binding  UserActivityList}" ItemTemplate="{StaticResource UserActivityTemplate}" Height="580" VerticalAlignment="Top" Margin="-12,0,-25,0">
 
                 </phone:LongListSelector>
             </phone:PivotItem>
@@ -85,7 +85,7 @@
         
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" ForegroundColor="#958EAE"  Mode="Default" Opacity="0.6" BackgroundColor="Black">
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" ForegroundColor="#958EAE"  Mode="Default" Opacity="0.7" BackgroundColor="Black">
             <shell:ApplicationBarIconButton  Text="Post" IconUri="/Assets/AppBar/post.png"/>
             <shell:ApplicationBarIconButton  Text="Music" IconUri="/Assets/AppBar/music.png"/>
             <shell:ApplicationBarIconButton  IconUri="/Assets/AppBar/sync.png" Text="Refresh"/>
