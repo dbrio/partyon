@@ -23,7 +23,7 @@ namespace PartyOn.model
                 {
                     var result = a.Result;
 
-                    //LlNQ 
+                    //LlNQ
 
                     var doc = JObject.Parse(result);
 
@@ -34,6 +34,7 @@ namespace PartyOn.model
                                     PhotoPostDescription = item["PhotoPostDescription"].Value<string>(),
                                     PhotoPost_PlaceName = item["PhotoPost_PlaceName"].Value<string>(),
                                     PhotoPostDateTime = item["PhotoPostDateTime"].Value<string>(),
+                                    PhotoPostPhoto = item["PhotoPostPhoto"].Value<string>(),
                                 };
                     var results = query.ToList();
 
