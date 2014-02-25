@@ -35,7 +35,7 @@ namespace PartyOn.viewModels.homeV
 
         }
 
-       serviModelHome serviceModelHome = new serviModelHome();
+       serviceModelHome serviceModelHome = new serviceModelHome();
 
         public UserHomeViewModel()
        {
