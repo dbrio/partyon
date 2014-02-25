@@ -29,15 +29,16 @@ namespace PartyOn
 
         private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
         {
-            if (e.Item.Name == "Activity")
-            {
-                (App.Current.Resources["vmUserActivity"] as viewModels.UserActivityViewModel).GetUserActivityCommand.Execute(null);
-            } 
+            
 
             if(e.Item.Name =="Home")
             {
                 (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).GetUserHomeCommand.Execute(null);
             }
+            if (e.Item.Name == "Activity")
+            {
+                (App.Current.Resources["vmUserActivity"] as viewModels.UserActivityViewModel).GetUserActivityCommand.Execute(null);
+            } 
            
         }
 

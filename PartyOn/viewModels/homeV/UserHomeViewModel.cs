@@ -41,7 +41,7 @@ namespace PartyOn.viewModels.homeV
        {
            serviceModelHome.GetUserHomeComplete += (s, a) =>
                {
-                   UserHomeList = new ObservableCollection<modelHome>(a.Results);
+                   UserHomeList = new ObservableCollection<modelHome>(a.ResultsHome);
                    isBusy = false;
 
                };
