@@ -13,6 +13,8 @@
         <home:UserHomeViewModel x:Key="vmHome"/>
         <activity:UserActivityViewModel x:Key="vmUserActivity"/>
         <local:LocalizedStrings xmlns:local="clr-namespace:PartyOn" x:Key="LocalizedStrings"/>
+
+        
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

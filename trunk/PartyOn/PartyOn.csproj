@@ -102,7 +102,7 @@
     <Compile Include="model\activityM\ServiceModel.cs" />
     <Compile Include="model\activityM\UserActivityEventArgs.cs" />
     <Compile Include="model\homeM\modelHome.cs" />
-    <Compile Include="model\homeM\serviModelHome.cs" />
+    <Compile Include="model\homeM\serviceModelHome.cs" />
     <Compile Include="model\homeM\UserHomeEventArg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">

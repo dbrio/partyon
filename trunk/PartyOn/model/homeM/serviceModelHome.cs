@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PartyOn.model.homeM
 {
-    public class serviModelHome
+    public class serviceModelHome
     {
         public event EventHandler<UserHomeEventArg> GetUserHomeComplete;
 
@@ -31,6 +31,7 @@ namespace PartyOn.model.homeM
                                    {
                                        PlaceName = item["PlaceName"].Value<string>(),
                                        LastPhoto = item["LastPhoto"].Value<string>(),
+                                       PeopleNow = item["PeopleNow"].Value<int>(),
 
                                    };
                        var results = query.ToList();
