@@ -23,7 +23,7 @@ namespace PartyOn.model
                 {
                     var result = a.Result;
 
-                    //LlNQ
+                    //serialize Activity
 
                     var doc = JObject.Parse(result);
 

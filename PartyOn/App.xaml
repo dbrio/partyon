@@ -4,10 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
-    xmlns:activity ="clr-namespace:PartyOn.viewModels">
+    xmlns:activity ="clr-namespace:PartyOn.viewModels"
+    xmlns:home="clr-namespace:PartyOn.viewModels.homeV">
+    
     
     <!--Recursos de la aplicación-->
     <Application.Resources>
+        <home:UserHomeViewModel x:Key="vmHome"/>
         <activity:UserActivityViewModel x:Key="vmUserActivity"/>
         <local:LocalizedStrings xmlns:local="clr-namespace:PartyOn" x:Key="LocalizedStrings"/>
     </Application.Resources>
