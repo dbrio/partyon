@@ -8,11 +8,11 @@ namespace PartyOn.model.homeM
 {
    public class UserHomeEventArg: EventArgs
     {
-        public IList<modelHome> Results { get; private set; }
+        public IList<modelHome> ResultsHome { get; private set; }
 
         public UserHomeEventArg(IList<modelHome>results)
         {
-            this.Results = results;
+            this.ResultsHome = results;
         }
     }
 }
