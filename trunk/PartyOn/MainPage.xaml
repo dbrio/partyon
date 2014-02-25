@@ -13,7 +13,7 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True"
-    DataContext="{Binding  Source={StaticResource vmUserActivity}}">
+    DataContext="{Binding  Source={StaticResource vmHome}}">
     
     <shell:SystemTray.ProgressIndicator>
         <shell:ProgressIndicator IsIndeterminate="True"
@@ -21,10 +21,19 @@
     </shell:SystemTray.ProgressIndicator>
 
     <phone:PhoneApplicationPage.Resources>
+        <!--Template Home-->
+        <DataTemplate x:Key="UserHomeTemple">
+            <StackPanel>
+                <!--<Image x:Name="LastPhoto" Source="{Binding LastPhoto, StringFormat='http://partyonapp.com/upload_files/{0}'}"/>-->
+                <TextBlock Text="{Binding PlaceName}"/>
 
+            </StackPanel>
+        </DataTemplate>
+        
+        <!--Template Activity-->
         <DataTemplate x:Key="UserActivityTemplate">
             <StackPanel Margin="0,0,-12,0">
-                <Image Source="{Binding PhotoPostPhoto, StringFormat='http://partyonapp.com/upload_files/{0}'}"/>
+                <Image x:Name="PhotoPostPhoto" Source="{Binding PhotoPostPhoto, StringFormat='http://partyonapp.com/upload_files/{0}'}"/>
                 <StackPanel Background="#161616" Margin="0,0,0,30">
                     <StackPanel Height="auto" Margin="10,10,10,10" Width="469" >
                         <TextBlock Foreground="#6E6E6E" Text="{Binding PhotoPost_UserName}"  Opacity="1"/>
@@ -34,6 +43,8 @@
                 </StackPanel>
             </StackPanel>
         </DataTemplate>
+        
+       
         
     </phone:PhoneApplicationPage.Resources>
 
@@ -45,22 +56,18 @@
                 <ImageBrush ImageSource="Resources/fondo.png" Opacity=".1" />
             </phone:Pivot.Background>
 
-            <!--Activity-->
-            <phone:PivotItem x:Name="Activity" Header="Activity" Margin="0,10,0,0" >
-                <phone:LongListSelector ItemsSource="{Binding  UserActivityList}" ItemTemplate="{StaticResource UserActivityTemplate}" Height="580" VerticalAlignment="Top" Margin="-12,0,-25,0">
-
-                </phone:LongListSelector>
-            </phone:PivotItem>
-            
-            
             <!--Home-->
-            <phone:PivotItem x:Name="Home" Header="Home" >
-                <phone:LongListSelector>
-                    
-                </phone:LongListSelector>
+            <phone:PivotItem x:Name="Home" Header="Home">
+                <phone:LongListSelector ItemsSource="{Binding  UserHomeList}" ItemTemplate="{StaticResource UserHomeTemple}" Height="580" VerticalAlignment="Top" Margin="-12,0,-25,0"/>
             </phone:PivotItem>
-            
+
+            <!--Activity-->
+            <phone:PivotItem x:Name="Activity" Header="Activity" Margin="0,10,0,0" DataContext="{Binding Source={StaticResource vmUserActivity}}" >
+                <phone:LongListSelector ItemsSource="{Binding  UserActivityList}" ItemTemplate="{StaticResource UserActivityTemplate}" Height="580" VerticalAlignment="Top" Margin="-12,0,-25,0"/>
+            </phone:PivotItem>
+
             <!--Trends-->
+
             <phone:PivotItem x:Name="Trends" Header="Trends">
                 <phone:LongListSelector>
                     
