@@ -111,9 +111,9 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="viewModels\ActionCommand.cs" />
-    <Compile Include="viewModels\homeV\UserHomeViewModel.cs" />
+    <Compile Include="viewModels\UserHomeViewModel.cs" />
     <Compile Include="viewModels\NotificationEnabledObject.cs" />
-    <Compile Include="viewModels\activityV\UserActivityViewModel.cs" />
+    <Compile Include="viewModels\UserActivityViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
