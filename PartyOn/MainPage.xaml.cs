@@ -28,21 +28,12 @@ namespace PartyOn
         }
 
 
-       async private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
+       private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
         {
-            
-
+       
             if(e.Item.Name =="Home")
             {
                 (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).GetUserHomeCommand.Execute(null);
-
-                Geolocator geolocator = new Geolocator();
-                geolocator.DesiredAccuracy = PositionAccuracy.Default;
-                Geoposition myLocation = await geolocator.GetGeopositionAsync();
-                var latitude = myLocation.Coordinate.Latitude;
-                var longitude = myLocation.Coordinate.Longitude;
-
-                MessageBox.Show(longitude.ToString());
             }
             if (e.Item.Name == "Activity")
             {
