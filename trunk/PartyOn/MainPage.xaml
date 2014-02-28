@@ -171,7 +171,7 @@
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" ForegroundColor="#958EAE"  Mode="Default" Opacity="0.7" BackgroundColor="Black">
-            <shell:ApplicationBarIconButton  Text="Post" IconUri="/Assets/AppBar/post.png"/>
+            <shell:ApplicationBarIconButton  Text="Post" IconUri="/Assets/AppBar/post.png" />
             <shell:ApplicationBarIconButton  Text="Music" IconUri="/Assets/AppBar/music.png"/>
             <shell:ApplicationBarIconButton  IconUri="/Assets/AppBar/sync.png" Text="Refresh"/>
             <shell:ApplicationBarIconButton  IconUri="/Assets/AppBar/feature.settings.png" Text="Settings"/>
