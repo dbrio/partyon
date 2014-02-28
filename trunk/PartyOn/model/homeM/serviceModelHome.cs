@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Devices.Geolocation;
 
 namespace PartyOn.model.homeM
 {
@@ -12,9 +13,18 @@ namespace PartyOn.model.homeM
     {
         public event EventHandler<UserHomeEventArg> GetUserHomeComplete;
 
-        public void GetUserHome()
+        async public void GetUserHome()
         {
-            string uri = "http://partyonapp.com/API/datahome/?qLat=13.304746993829779&qLong=-87.1910797432877";
+            Geolocator geolocator = new Geolocator();
+            geolocator.DesiredAccuracy = PositionAccuracy.Default;
+            Geoposition myLocation = await geolocator.GetGeopositionAsync();
+            var PlaceLat = myLocation.Coordinate.Latitude;
+            var PlaceLong = myLocation.Coordinate.Longitude;
+
+            string uriJson = "http://partyonapp.com/API/datahome/";
+
+            string uri =  uriJson +"?qLat="+ PlaceLat +"&qLong="+ PlaceLong; 
+
             WebClient client = new WebClient();
             client.DownloadStringCompleted += (s, a) =>
                 {
