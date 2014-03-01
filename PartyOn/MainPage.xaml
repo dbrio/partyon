@@ -36,7 +36,7 @@
                         
                     </Grid.RowDefinitions>
                     
-                        <StackPanel Grid.Row="1" HorizontalAlignment="Center" >
+                        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Background="#333333" Width="500" Height="120" Opacity=".7">
                             <TextBlock Text="{Binding PlaceName}" FontSize="60" Foreground="White" HorizontalAlignment="Center"/>
                        </StackPanel>
                     
@@ -46,13 +46,13 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         
-                        <StackPanel  Margin="0,0,60,0" Grid.Column="0" HorizontalAlignment="Right">
+                        <StackPanel  Margin="0,0,80,0" Grid.Column="0" HorizontalAlignment="Right">
                             <TextBlock  Text="{Binding PeopleNow}" FontSize="32" Foreground="White"/>
                             <TextBlock  Text="Now" Foreground="#c3c3c3" />
                         </StackPanel>
                         
-                        <StackPanel Margin="0,0,60,0" Grid.Column="1" HorizontalAlignment="Left">
-                            <TextBlock  Text="24/2/2014" FontSize="32" Foreground="White"/>
+                        <StackPanel Margin="0,0,80,0" Grid.Column="1" HorizontalAlignment="Left">
+                            <TextBlock  Text="{Binding LastPostDate, StringFormat=DD/MM/YY}" FontSize="32" Foreground="White"/>
                             <TextBlock  Text="Fecha" Foreground="#c3c3c3" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Grid>
