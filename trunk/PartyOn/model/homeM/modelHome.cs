@@ -15,5 +15,6 @@ namespace PartyOn.model.homeM
             public string PlaceLat { get; set; }
             public int PlaceID { get; set; }
             public string PlaceLogo { get; set; }
+            public string LastPostDate { get; set; }
     }
 }
