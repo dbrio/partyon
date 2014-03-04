@@ -15,9 +15,113 @@
         <local:LocalizedStrings xmlns:local="clr-namespace:PartyOn" x:Key="LocalizedStrings"/>
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="0,0,0,30"/>
+            <Setter Property="Foreground" Value="#585858"/>
         </Style>
+
+        <!--Template Home-->
+        <DataTemplate x:Key="UserHomeTemple">
+            <Grid Margin="0,0,0,30">
+                <Image Width="520" Height="auto" x:Name="PhotoPostPhoto" Source="{Binding LastPhoto, StringFormat='http://partyonapp.com/upload_files/{0}'}" Opacity="0.9"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="100"/>
+
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" Background="#111111" Width="500" Height="120" Opacity=".7">
+                        <TextBlock Text="{Binding PlaceName}" FontSize="60" Foreground="White" HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel  Margin="0,0,80,0" Grid.Column="0" HorizontalAlignment="Right">
+                            <TextBlock  Text="{Binding PeopleNow}" FontSize="32" Foreground="White"/>
+                            <TextBlock  Text="Now" Foreground="#c3c3c3" />
+                        </StackPanel>
+
+                        <StackPanel Margin="0,0,80,0" Grid.Column="1" HorizontalAlignment="Left">
+                            <TextBlock  Text="{Binding LastPostDate, StringFormat=DD/MM/YY}" FontSize="32" Foreground="White"/>
+                            <TextBlock  Text="Fecha" Foreground="#c3c3c3" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+        </DataTemplate>
+
+
+
+        <!--Template Activity-->
+        <DataTemplate x:Key="UserActivityTemplate">
+
+            <Grid>
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--avatar-->
+                        <Ellipse Grid.Column="0" Width="60" Height="60" Margin="0,20,0,10" VerticalAlignment="Center" >
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="http://www.partyonapp.com/webapp/static/img/dbrio.png" x:Name="avatar"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+
+                        <TextBlock Grid.Column="1" Margin="0,0,0,5" Foreground="#6E6E6E" Text="{Binding PhotoPost_UserName}"  Opacity="1" FontSize="22" FontFamily="Segoe UI" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="2" Text="3 minutos" VerticalAlignment="Center" TextAlignment="Right" Margin="0,0,0,10" Foreground="#585858" />
+
+                    </Grid>
+
+
+
+                    <Image Grid.Row="1" VerticalAlignment="Top" Width="520" Height="auto" x:Name="PhotoPostPhoto" Source="{Binding PhotoPostPhoto, StringFormat='http://partyonapp.com/upload_files/{0}'}" Margin="0,0,0,10"/>
+                    <TextBlock Grid.Row="2" VerticalAlignment="Bottom"  Foreground="#6E6E6E" Text="{Binding PhotoPostDescription}" FontSize="22" TextWrapping="Wrap" FontFamily="Segoe UI" Margin="0,0,0,15"/>
+
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="{Binding PhotoPost_PlaceName}" FontFamily="Segoe UI"  Margin="0,0,0,10" Foreground="#585858"/>
+                    </Grid>
+
+                </Grid>
+                <Line Stroke="#333333" VerticalAlignment="Bottom" X1="500" StrokeThickness="1" Opacity=".8"/>
+
+            </Grid>
+        </DataTemplate>
         
+        <!--Template Place-->
+        <!--<DataTemplate x:Key="placeTemple">
+            <TextBlock Text="{Binding PlaceName}" FontSize="30" Foreground="White" HorizontalAlignment="Center"/>
+
+        </DataTemplate>-->
+        
+
+
+
     </Application.Resources>
+    
+    
 
     <Application.ApplicationLifetimeObjects>
         <!--Objeto requerido que controla los eventos de duración de la aplicación-->

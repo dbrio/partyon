@@ -7,14 +7,9 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using PartyOn.Resources;
-using PartyOn.viewModels;
-using PartyOn.model;
-using Windows.Devices.Geolocation;
+using PhoneApp1.Resources;
 
-
-
-namespace PartyOn
+namespace PhoneApp1
 {
     public partial class MainPage : PhoneApplicationPage
     {
@@ -27,34 +22,6 @@ namespace PartyOn
             //BuildLocalizedApplicationBar();
         }
 
-
-       private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
-        {
-       
-            if(e.Item.Name =="Home")
-            {
-                (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).GetUserHomeCommand.Execute(null);
-            }
-            if (e.Item.Name == "Activity")
-            {
-                (App.Current.Resources["vmUserActivity"] as viewModels.UserActivityViewModel).GetUserActivityCommand.Execute(null);
-            } 
-           
-        }
-
-       private void addPost(object sender, EventArgs e)
-       {
-           //NavigationService.Navigate(new Uri("/addPost.xaml",UriKind.Relative));
-       }
-
-       private void ApplicationBarIconButton_Click(object sender, EventArgs e)
-       {
-
-       }
-
-       
-
-        
         // Código de ejemplo para compilar una ApplicationBar traducida
         //private void BuildLocalizedApplicationBar()
         //{
