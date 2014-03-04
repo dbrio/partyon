@@ -24,97 +24,6 @@
     <phone:PhoneApplicationPage.Resources>
 
 
-        <!--Template Home-->
-        <DataTemplate x:Key="UserHomeTemple">
-            <Grid Margin="0,0,0,30">
-                <Image Width="520" Height="auto" x:Name="PhotoPostPhoto" Source="{Binding LastPhoto, StringFormat='http://partyonapp.com/upload_files/{0}'}" Opacity="0.9"/>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="200"/>
-                        <RowDefinition Height="80"/>
-                        <RowDefinition Height="100"/>
-
-                    </Grid.RowDefinitions>
-
-                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" Background="#111111" Width="500" Height="120" Opacity=".7">
-                        <TextBlock Text="{Binding PlaceName}" FontSize="60" Foreground="White" HorizontalAlignment="Center"/>
-                    </StackPanel>
-
-                    <Grid Grid.Row="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition />
-                        </Grid.ColumnDefinitions>
-
-                        <StackPanel  Margin="0,0,80,0" Grid.Column="0" HorizontalAlignment="Right">
-                            <TextBlock  Text="{Binding PeopleNow}" FontSize="32" Foreground="White"/>
-                            <TextBlock  Text="Now" Foreground="#c3c3c3" />
-                        </StackPanel>
-
-                        <StackPanel Margin="0,0,80,0" Grid.Column="1" HorizontalAlignment="Left">
-                            <TextBlock  Text="{Binding LastPostDate, StringFormat=DD/MM/YY}" FontSize="32" Foreground="White"/>
-                            <TextBlock  Text="Fecha" Foreground="#c3c3c3" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Grid>
-                </Grid>
-
-            </Grid>
-        </DataTemplate>
-
-        <!--Template Activity-->
-        <DataTemplate x:Key="UserActivityTemplate">
-            
-            <Grid>
-                
-                <Grid>
-                    
-                    <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="80"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="200"/>
-                        </Grid.ColumnDefinitions>
-
-                        <!--avatar-->
-                        <Ellipse Grid.Column="0" Width="60" Height="60" Margin="0,20,0,10" VerticalAlignment="Center">
-                            <Ellipse.Fill>
-                                <ImageBrush ImageSource="http://www.partyonapp.com/webapp/static/img/dbrio.png" x:Name="avatar"/>
-                            </Ellipse.Fill>
-                        </Ellipse>
-
-                        <TextBlock Grid.Column="1" Margin="0,0,0,5" Foreground="#6E6E6E" Text="{Binding PhotoPost_UserName}"  Opacity="1" FontSize="22" FontFamily="Segoe UI" VerticalAlignment="Center"/>
-                    </Grid>
-
-
-
-                    <Image Grid.Row="1" VerticalAlignment="Top" Width="520" Height="auto" x:Name="PhotoPostPhoto" Source="{Binding PhotoPostPhoto, StringFormat='http://partyonapp.com/upload_files/{0}'}" Margin="0,0,0,10"/>
-                    <TextBlock Grid.Row="2" VerticalAlignment="Bottom"  Foreground="#C3C3C3" Text="{Binding PhotoPostDescription}" FontSize="22" TextWrapping="Wrap" FontFamily="Segoe UI" Margin="0,0,0,25"/>
-
-                    <Grid Grid.Row="3">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        
-                        <TextBlock Grid.Column="0" Foreground="#6E6E6E" Text="{Binding PhotoPost_PlaceName}" FontSize="25" FontFamily="Segoe UI"  Margin="0,0,0,10"/>
-                        <TextBlock Grid.Column="1" Text="3 minutos" TextAlignment="Right" Margin="0,0,0,10"/>
-                    </Grid>
-
-                </Grid>
-                <Line Stroke="#333333" VerticalAlignment="Bottom" X1="500" StrokeThickness="1" Opacity=".7"/>
-
-            </Grid>
-        </DataTemplate>
-
-
-
     </phone:PhoneApplicationPage.Resources>
 
     <Grid Background="Transparent">
@@ -133,8 +42,6 @@
                         </ItemsPanelTemplate>
                     </Setter.Value>
                 </Setter>
-
-
             </Style>
         </Grid.Resources>
         <Grid.RowDefinitions>
@@ -144,12 +51,12 @@
 
         <!--se define la interfas -->
         <!--se define la interfas -->
-        <phone:Pivot Foreground="White" LoadedPivotItem="Pivot_LoadedPivotItem" Grid.Row="1">
+        <phone:Pivot Foreground="White" LoadedPivotItem="Pivot_LoadedPivotItem" Grid.Row="1" Background="Black">
             <phone:Pivot.HeaderTemplate>
                 <DataTemplate>
                     <Grid Height="85" Width="auto">
                         <StackPanel Background="Transparent" Margin="-23,0,0,0" HorizontalAlignment="Left" Width="auto" >
-                            <TextBlock Text="{Binding}" Margin="8,0,8,0" FontSize="50" FontFamily="Segoe UI Light"/>
+                            <TextBlock Text="{Binding}" Margin="8,0,8,0" FontSize="50" FontFamily="Segoe UI Light" Foreground="#F2F2F2"/>
 
                         </StackPanel>
                     </Grid>
@@ -161,13 +68,20 @@
             </phone:Pivot.Background>-->
 
             <!--Home-->
-            <phone:PivotItem x:Name="Home" Header="Home" Margin="0,0,-13,0">
-                <phone:LongListSelector ItemsSource="{Binding  UserHomeList}" ItemTemplate="{StaticResource UserHomeTemple}" Height="593" VerticalAlignment="Top" Margin="0,-13,0,0"/>
+            <phone:PivotItem x:Name="Home" Header="Home" Margin="0,0,-13,0" Background="Black">
+                <ListBox ItemsSource="{Binding  UserHomeList}" 
+                         ItemTemplate="{StaticResource UserHomeTemple}" 
+                         Height="593" VerticalAlignment="Top"
+ Margin="0,-13,0,0"/>
             </phone:PivotItem>
 
             <!--Activity-->
             <phone:PivotItem x:Name="Activity" Header="Activity"  DataContext="{Binding Source={StaticResource vmUserActivity}}" Margin="0,10,-13,0">
-                <phone:LongListSelector ItemsSource="{Binding  UserActivityList}" ItemTemplate="{StaticResource UserActivityTemplate}" Margin="0,-20,0,0" Height="600" VerticalAlignment="Top"/>
+                <ListBox ItemsSource="{Binding  UserActivityList}"
+                         ItemTemplate="{StaticResource UserActivityTemplate}" 
+                         Margin="0,-20,0,0" Height="600" 
+                         VerticalAlignment="Top"
+                         SelectedItem="http://www.google.com"/>
             </phone:PivotItem>
 
             <!--Trends-->
@@ -196,9 +110,9 @@
 
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" ForegroundColor="#958EAE"  Mode="Default" Opacity="0.7" BackgroundColor="Black">
-            <shell:ApplicationBarIconButton  Text="Post" IconUri="/Assets/AppBar/post.png" />
-            <shell:ApplicationBarIconButton  Text="Music" IconUri="/Assets/AppBar/music.png"/>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" ForegroundColor="#585858"  Mode="Default" BackgroundColor="Black" Opacity=".2">
+            <shell:ApplicationBarIconButton  Text="Post" IconUri="/Assets/AppBar/post.png" Click="addPost" />
+            <shell:ApplicationBarIconButton  Text="Music" IconUri="/Assets/AppBar/music.png" Click="ApplicationBarIconButton_Click"/>
             <shell:ApplicationBarIconButton  IconUri="/Assets/AppBar/sync.png" Text="Refresh"/>
             <shell:ApplicationBarIconButton  IconUri="/Assets/AppBar/feature.settings.png" Text="Settings"/>
         </shell:ApplicationBar>
