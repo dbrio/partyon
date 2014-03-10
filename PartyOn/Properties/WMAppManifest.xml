@@ -11,9 +11,12 @@
       <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
       <Capability Name="ID_CAP_LOCATION" />
       <Capability Name="ID_CAP_MAP" />
+      <Capability Name="ID_CAP_ISV_CAMERA" />
+      <Capability Name="ID_CAP_MEDIALIB_PHOTO" />
+      <Capability Name="ID_CAP_MICROPHONE" />
     </Capabilities>
     <Tasks>
-      <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
+      <DefaultTask Name="_default" NavigationPage="addPost.xaml" />
     </Tasks>
     <Tokens>
       <PrimaryToken TokenID="PartyOnToken" TaskName="_default">

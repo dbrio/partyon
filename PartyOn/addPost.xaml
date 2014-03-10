@@ -1,0 +1,38 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="PartyOn.addPost"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button Height="80" Click="Button_Click">Camara</Button>
+
+        <Ellipse 
+            Grid.Row="1"
+            Width="400"
+            Height="400" Margin="442.984,163.403,-362.985,124.596" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <Ellipse.RenderTransform>
+                <CompositeTransform Rotation="90"/>
+            </Ellipse.RenderTransform>
+            <Ellipse.Fill>
+                <VideoBrush x:Name="bruch"/>
+            </Ellipse.Fill>
+        </Ellipse>
+
+    </Grid>
+
+</phone:PhoneApplicationPage>
