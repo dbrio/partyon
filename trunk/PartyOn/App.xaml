@@ -54,6 +54,10 @@
 
             </Grid>
         </DataTemplate>
+        
+        <DataTemplate x:Key="addPost">
+            
+        </DataTemplate>
 
 
 

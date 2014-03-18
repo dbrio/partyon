@@ -154,6 +154,18 @@ namespace PartyOn
             }
         }
 
+       
+
+        private void cameraclick(object sender, EventArgs e)
+        {
+            camera.Show();
+        }
+
+        private void addPostClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("Aqui agregara el post");
+        }
+
      
     }
 }

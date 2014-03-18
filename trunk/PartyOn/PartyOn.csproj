@@ -144,6 +144,12 @@
     <Content Include="Assets\AppBar\basecircle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\AppBar\check.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\feature.camera.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\AppBar\music.png" />
     <Content Include="Assets\AppBar\edit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
