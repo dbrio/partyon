@@ -15,24 +15,18 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="300"/>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="150"/>
-        </Grid.RowDefinitions>
-        <ListBox Margin="15,0,15,0" BorderBrush="#1C1C1C" ItemTemplate="{StaticResource addPost}">
-            <ListBoxItem>Tabaco Bar</ListBoxItem>
-            <ListBoxItem>Tabaco Bar</ListBoxItem>
-            <ListBoxItem>Tabaco Bar</ListBoxItem>
-            <ListBoxItem>Tabaco Bar</ListBoxItem>
-            <ListBoxItem>Tabaco Bar</ListBoxItem>
+            <RowDefinition Height="303"/>
+            <RowDefinition Height="350"/>
             
-        </ListBox>
+        </Grid.RowDefinitions>
         
-        <Image Grid.Row="2" Margin="15">
+        
+        <Image Grid.Row="0" Margin="14,89,16,-59">
             
         </Image>
         
         <TextBox Grid.Row="1"
+                 Margin="0, 20, 0, 0"
                  Background="Black"
                  BorderBrush="#1C1C1C"
                  Name="message"
