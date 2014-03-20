@@ -28,12 +28,24 @@ namespace PartyOn
         public addPost()
         {
             InitializeComponent();
-
+            
+            
             camera = new CameraCaptureTask();
 
             camera.Completed += new EventHandler<PhotoResult>(camera_Complete);
 
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (NavigationContext.QueryString.ContainsKey("PlaceName"))
+            {
+                textPlace.Text= NavigationContext.QueryString["PlaceName"];
+            }
+        }
+
+      
+
         private static ManualResetEvent allDone = new ManualResetEvent(false);
 
         private void UploadData()

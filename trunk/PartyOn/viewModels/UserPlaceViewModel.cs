@@ -59,6 +59,16 @@ namespace PartyOn.viewModels
                };
        }
 
+        private string placeName;
+
+        public string PlaceName
+        {
+            get { return placeName; }
+            set { placeName = value;
+            OnPropertyChange();
+            }
+        }
+
         ActionCommand getUserPlaceCommand;
         public ActionCommand GetUserPlaceCommand
         {
@@ -69,11 +79,22 @@ namespace PartyOn.viewModels
                     getUserPlaceCommand = new ActionCommand(() =>
                         {
                             isBusy = true;
-                            serviceModelPlace.GetUserPlace();
+                            serviceModelPlace.GetUserPlace(PlaceName);
                         });
                 }
                 return getUserPlaceCommand;
             }
+        }
+
+        modelPlace selectedPlace;
+        public modelPlace SelectedPlace
+        {
+            get { return selectedPlace; }
+            set { selectedPlace = value;
+            OnPropertyChange();
+            }
+            
+
         }
     }
  }
