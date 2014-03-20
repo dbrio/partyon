@@ -104,6 +104,9 @@
     <Compile Include="model\activityM\modelActivity.cs" />
     <Compile Include="model\activityM\ServiceModel.cs" />
     <Compile Include="model\activityM\UserActivityEventArgs.cs" />
+    <Compile Include="model\getPlace\modelPlace.cs" />
+    <Compile Include="model\getPlace\serviceModelPlace.cs" />
+    <Compile Include="model\getPlace\UserPlaceEvertArg.cs" />
     <Compile Include="model\homeM\modelHome.cs" />
     <Compile Include="model\homeM\serviceModelHome.cs" />
     <Compile Include="model\homeM\UserHomeEventArg.cs" />
@@ -120,6 +123,7 @@
     <Compile Include="viewModels\UserHomeViewModel.cs" />
     <Compile Include="viewModels\NotificationEnabledObject.cs" />
     <Compile Include="viewModels\UserActivityViewModel.cs" />
+    <Compile Include="viewModels\UserPlaceViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

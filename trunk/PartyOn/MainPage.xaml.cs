@@ -44,7 +44,8 @@ namespace PartyOn
 
        private void addPost(object sender, EventArgs e)
        {
-           //NavigationService.Navigate(new Uri("/addPost.xaml",UriKind.Relative));
+           (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).GetUserPlaceCommand.Execute(null);
+           NavigationService.Navigate(new Uri("/place.xaml", UriKind.Relative));
        }
 
        private void ApplicationBarIconButton_Click(object sender, EventArgs e)
