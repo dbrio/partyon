@@ -19,8 +19,7 @@ namespace PartyOn
         {
             InitializeComponent();
 
-            CreateLocator();
-            
+            CreateLocator();           
             
         }
 
@@ -43,5 +42,23 @@ namespace PartyOn
 
             });
         }
+
+        private void listBoxPlace_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listBoxPlace.SelectedIndex == -1)
+                return;
+
+            
+            string uri = string.Format("/addPost.xaml?PlaceName={0}", listBoxPlace.SelectedItem);
+            NavigationService.Navigate(new Uri(uri, UriKind.Relative));
+
+            listBoxPlace.SelectedIndex = -1;
+        }
+
+        //private void listBoxPlace_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    string uri = string.Format("addPost.xaml?place={0}", listBoxPlace.ItemsSource);
+        //    NavigationService.Navigate(new Uri(uri, UriKind.Relative));
+        //}
     }
 }

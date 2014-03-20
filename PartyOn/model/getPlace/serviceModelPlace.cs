@@ -13,7 +13,7 @@ namespace PartyOn.model.getPlace
     {
         public event EventHandler<UserPlaceEvertArg> GetUserPlaceComplete;
 
-        async public void GetUserPlace()
+        async public void GetUserPlace(string PlaceName)
         {
             Geolocator geolocator = new Geolocator();
             geolocator.DesiredAccuracy = PositionAccuracy.Default;
