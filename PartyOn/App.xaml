@@ -5,19 +5,22 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:activity ="clr-namespace:PartyOn.viewModels"
-    xmlns:home="clr-namespace:PartyOn.viewModels.homeV">
+    xmlns:home="clr-namespace:PartyOn.viewModels.homeV"
+    xmlns:place="clr-namespace:PartyOn.viewModels">
     
     
     <!--Recursos de la aplicación-->
     <Application.Resources>
         <home:UserHomeViewModel x:Key="vmHome"/>
         <activity:UserActivityViewModel x:Key="vmUserActivity"/>
+        <place:UserPlaceViewModel x:Key="vmPlace"/>
         <local:LocalizedStrings xmlns:local="clr-namespace:PartyOn" x:Key="LocalizedStrings"/>
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="0,0,0,30"/>
             <Setter Property="Foreground" Value="#585858"/>
         </Style>
 
+        
         <!--Template Home-->
         <DataTemplate x:Key="UserHomeTemple">
             <Grid Margin="0,0,0,30">
@@ -55,11 +58,6 @@
             </Grid>
         </DataTemplate>
         
-        <DataTemplate x:Key="addPost">
-            
-        </DataTemplate>
-
-
 
         <!--Template Activity-->
         <DataTemplate x:Key="UserActivityTemplate">
@@ -113,6 +111,8 @@
 
             </Grid>
         </DataTemplate>
+        
+        
         
         <!--Template Place-->
         <!--<DataTemplate x:Key="placeTemple">
