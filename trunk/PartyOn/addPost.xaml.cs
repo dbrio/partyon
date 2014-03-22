@@ -46,91 +46,95 @@ namespace PartyOn
 
       
 
-        private static ManualResetEvent allDone = new ManualResetEvent(false);
-
-        private void UploadData()
-        {
-            string webpageContent = string.Empty;
-
-
-            Uri url = new Uri("http://192.168.2.8:8000/API/APIsaveplace/", UriKind.RelativeOrAbsolute);
-
-            HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create("http://192.168.2.8:8000/API/APIsaveplace/");
-            webRequest.ContentType = "application/x-www-form-urlencoded";
-            webRequest.Method = "POST";
-            //webRequest.ContentLength = byteArray.Length;
-
-            webRequest.BeginGetRequestStream(new AsyncCallback(GetRequestStreamCallback), webRequest);
-
-            //allDone.WaitOne();
-            
-
-            //WebClient webClient = new WebClient();
-            //webClient.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
-            //var uri = new Uri("http://127.0.0.1:8000/API/APIsaveplace", UriKind.Absolute);
-            //StringBuilder postData = new StringBuilder();
-            //postData.AppendFormat("{0}={1}", "PlaceName", HttpUtility.UrlEncode("Manguito2 desde WP8e"));
-            //postData.AppendFormat("&{0}={1}", "PlaceLat", HttpUtility.UrlEncode("27373.212"));
-            //postData.AppendFormat("&{0}={1}", "PlaceLong", HttpUtility.UrlEncode("87783312.12"));
-
-            //webClient.Headers[HttpRequestHeader.ContentLength] = postData.Length.ToString();
-            //webClient.UploadStringCompleted += new UploadStringCompletedEventHandler(webClient_UploadStringCompleted);
-            //webClient.UploadProgressChanged += webClient_UploadProgressChanged;
-            //webClient.UploadStringAsync(uri, "POST", postData.ToString());
-        }
-
-        private static void GetRequestStreamCallback(IAsyncResult asynchronousResult)
-        {
-            HttpWebRequest request = (HttpWebRequest)asynchronousResult.AsyncState;
-
-            Stream postStream = request.EndGetRequestStream(asynchronousResult);
-
-            string postData = "PlaceName=ManguitosWP82&PlaceLat=239231222&PlaceLong=98856578441";
-            byte[] byteArray = Encoding.UTF8.GetBytes(postData);
-
-            postStream.Write(byteArray, 0, postData.Length);
-            postStream.Close();
-
-            request.BeginGetResponse(new AsyncCallback(GetResponseCallback), request);
-
-        }
-
-
-        private static void GetResponseCallback(IAsyncResult asynchronousResult)
-        {
-            HttpWebRequest request = (HttpWebRequest)asynchronousResult.AsyncState;
-
-            HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(asynchronousResult);
-            Stream streamResponse = response.GetResponseStream();
-            StreamReader streamReader = new StreamReader(streamResponse);
-            string responseString = streamReader.ReadToEnd();
-            Console.WriteLine(responseString);
-            Deployment.Current.Dispatcher.BeginInvoke(() => MessageBox.Show(responseString, "Respuesta del servidor web.", MessageBoxButton.OK));
-            streamResponse.Close();
-            streamReader.Close();
-
-            response.Close();
-            //allDone.Set();
-        }
-
-        //void webClient_UploadProgressChanged(object sender, UploadProgressChangedEventArgs e)
+        //private static ManualResetEvent allDone = new ManualResetEvent(false);
+       
+        //private void UploadData()
         //{
-        //    Debug.WriteLine(string.Format("Progress: {0}", e.ProgressPercentage));
+        //    string webpageContent = string.Empty;
+
+
+        //    Uri url = new Uri("http://192.168.2.8:8000/API/APIsaveplace/", UriKind.RelativeOrAbsolute);
+
+        //    HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create("http://192.168.2.12:8000/API/savephotopost/");
+        //    webRequest.ContentType = "application/x-www-form-urlencoded";
+        //    webRequest.Method = "POST";
+        //    //webRequest.ContentLength = byteArray.Length;
+
+        //    webRequest.BeginGetRequestStream(new AsyncCallback(GetRequestStreamCallback), webRequest);
+
         //}
 
-        //private void webClient_UploadStringCompleted(object sender, UploadStringCompletedEventArgs e)
+        //private static void GetRequestStreamCallback(IAsyncResult asynchronousResult)
         //{
-        //    Debug.WriteLine("Completed.");
-        //    MessageBox.Show("Completado.");
+        //    HttpWebRequest request = (HttpWebRequest)asynchronousResult.AsyncState;
+
+        //    Stream postStream = request.EndGetRequestStream(asynchronousResult);
+
+        //    string postData = "PlaceName=ManguitosWP82&PlaceLat=239231222&PlaceLong=98856578441";
+        //    byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+
+        //    postStream.Write(byteArray, 0, postData.Length);
+        //    postStream.Close();
+
+        //    request.BeginGetResponse(new AsyncCallback(GetResponseCallback), request);
+
         //}
 
+
+        //private static void GetResponseCallback(IAsyncResult asynchronousResult)
+        //{
+        //    HttpWebRequest request = (HttpWebRequest)asynchronousResult.AsyncState;
+
+        //    HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(asynchronousResult);
+        //    Stream streamResponse = response.GetResponseStream();
+        //    StreamReader streamReader = new StreamReader(streamResponse);
+        //    string responseString = streamReader.ReadToEnd();
+        //    Console.WriteLine(responseString);
+        //    Deployment.Current.Dispatcher.BeginInvoke(() => MessageBox.Show(responseString, "Respuesta del servidor web.", MessageBoxButton.OK));
+        //    streamResponse.Close();
+        //    streamReader.Close();
+
+        //    response.Close();
+        //    //allDone.Set();
+        //}
 
         private void camera_Complete(object sender, PhotoResult e)
         {
             if(e.TaskResult==TaskResult.OK)
             {
-                UploadData();
+                //UploadData();
                 //GuardarEnAlmacenamientoAislado(e.ChosenPhoto);
+                byte[] byteArray;
+                try
+                {
+                    BitmapImage image = new BitmapImage();
+                    image.SetSource(e.ChosenPhoto);
+
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        WriteableBitmap btmMap = new WriteableBitmap(image);
+                        Extensions.SaveJpeg(btmMap, ms, image.PixelWidth, image.PixelHeight, 0, 100);
+
+                        byteArray = ms.ToArray();
+                    }
+
+                    Dictionary<string, object> data = new Dictionary<string, object>()
+                    {
+                        {"PhotoPostDateTime","2014-03-21"},
+                        {"PhotoPost_PlaceID","1"},
+                        {"PhotoPost_User","1"},
+                        {"PhotoPost_Lat","23232323"},
+                        {"PhotoPostLong","88888880"},
+                        {"PhotoPostDescription","Mocos desde windows phone yaaa...."},
+                        {"PhotoPostPhoto",byteArray},
+                    };
+                    PostSubmitter post = new PostSubmitter() { url = "http://192.168.2.12:8000/API/savephotopost/", parameters = data };
+                    post.Submit();
+                }
+                catch (ArgumentException x)
+                {
+                    Console.WriteLine(x.Message);
+                }
             }
         }
 
@@ -179,5 +183,108 @@ namespace PartyOn
         }
 
      
+    }
+
+    public class PostSubmitter
+    {
+        public Dictionary<string, object> parameters { get; set; }
+        string boundary = "----------" + DateTime.Now.Ticks.ToString();
+        public string url { get; set; }
+
+        public PostSubmitter() { }
+
+        public void Submit()
+        {
+            HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create("http://192.168.2.12:8000/API/savephotopost/");
+            myRequest.ContentType = string.Format("multipart/form-data; boundary={0}", boundary);
+            myRequest.Method = "POST";
+
+            myRequest.BeginGetRequestStream(new AsyncCallback(GetRequestStreamCallback), myRequest);
+        }
+
+        private void GetRequestStreamCallback(IAsyncResult asynchronousResult)
+        {
+            HttpWebRequest request = (HttpWebRequest)asynchronousResult.AsyncState;
+            Stream postStream = request.EndGetRequestStream(asynchronousResult);
+
+            //writeMultipartObject(postStream, parameters);
+            StreamWriter writer = new StreamWriter(postStream);
+            if (parameters != null)
+            {
+                foreach (var entry in parameters as Dictionary<string, object>)
+                {
+                    WriteEntry(writer, entry.Key, entry.Value);
+                }
+            }
+            writer.Write("--");
+            writer.Write(boundary);
+            writer.WriteLine("--");
+            writer.Flush();
+
+            postStream.Close();
+
+            request.BeginGetResponse(new AsyncCallback(GetREsponseCallback), request);
+        }
+
+        private void GetREsponseCallback(IAsyncResult asynchronousResult)
+        {
+            HttpWebRequest request = (HttpWebRequest)asynchronousResult.AsyncState;
+            HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(asynchronousResult);
+            Stream streamResponse = response.GetResponseStream();
+            StreamReader streamReader = new StreamReader(streamResponse);
+            string responseString = streamReader.ReadToEnd();
+            Console.WriteLine(responseString);
+            Deployment.Current.Dispatcher.BeginInvoke(() => MessageBox.Show(responseString, "Respuesta del servidor web.", MessageBoxButton.OK));
+            streamResponse.Close();
+            streamReader.Close();
+            response.Close();
+        }
+
+        public void writeMultipartObject(Stream stream, object data)
+        {
+            StreamWriter writer = new StreamWriter(stream);
+            if (data != null)
+            {
+                foreach (var entry in data as Dictionary<string, object>)
+                {
+                    WriteEntry(writer, entry.Key, entry.Value);
+                }
+            }
+            writer.Write("--");
+            writer.Write(boundary);
+            writer.WriteLine("--");
+            writer.Flush();
+        }
+        private void WriteEntry(StreamWriter writer, string key, object value)
+        {
+            if (value != null)
+            {
+                writer.Write("--");
+                writer.WriteLine(boundary);
+                if (value is byte[])
+                {
+                    byte[] ba = value as byte[];
+
+                    writer.WriteLine(@"Content-Disposition: form-data; name=""{0}""; filename=""{1}""", key, "sentPhoto.jpg");
+                    writer.WriteLine(@"Content-Type: application/octet-stream");
+                    //writer.WriteLine(@"Content-Type: image / jpeg");
+                    writer.WriteLine(@"Content-Length: " + ba.Length);
+                    writer.WriteLine();
+                    writer.Flush();
+                    Stream output = writer.BaseStream;
+
+                    output.Write(ba, 0, ba.Length);
+                    output.Flush();
+                    writer.WriteLine();
+                }
+                else
+                {
+                    writer.WriteLine(@"Content-Disposition: form-data; name=""{0}""", key);
+                    writer.WriteLine();
+                    writer.WriteLine(value.ToString());
+                }
+            }
+        }
+
     }
 }
