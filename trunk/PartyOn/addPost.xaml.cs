@@ -24,14 +24,14 @@ namespace PartyOn
     {
         private string nombreImagen = "imagen.jpg";
         private CameraCaptureTask camera = null;
-
+        byte[] byteArray;
         public addPost()
         {
             InitializeComponent();
             
             
             camera = new CameraCaptureTask();
-
+            camera.Show();
             camera.Completed += new EventHandler<PhotoResult>(camera_Complete);
 
         }
@@ -41,6 +41,10 @@ namespace PartyOn
             if (NavigationContext.QueryString.ContainsKey("PlaceName"))
             {
                 textPlace.Text= NavigationContext.QueryString["PlaceName"];
+            }
+            else
+            {
+                textPlace.Text = "Tabaco Bar 504";
             }
         }
 
@@ -104,11 +108,11 @@ namespace PartyOn
             {
                 //UploadData();
                 //GuardarEnAlmacenamientoAislado(e.ChosenPhoto);
-                byte[] byteArray;
                 try
                 {
                     BitmapImage image = new BitmapImage();
                     image.SetSource(e.ChosenPhoto);
+                    pvwPhoto.Source = image;
 
                     using (MemoryStream ms = new MemoryStream())
                     {
@@ -117,19 +121,6 @@ namespace PartyOn
 
                         byteArray = ms.ToArray();
                     }
-
-                    Dictionary<string, object> data = new Dictionary<string, object>()
-                    {
-                        {"PhotoPostDateTime","2014-03-21"},
-                        {"PhotoPost_PlaceID","1"},
-                        {"PhotoPost_User","1"},
-                        {"PhotoPost_Lat","23232323"},
-                        {"PhotoPostLong","88888880"},
-                        {"PhotoPostDescription","Mocos desde windows phone yaaa...."},
-                        {"PhotoPostPhoto",byteArray},
-                    };
-                    PostSubmitter post = new PostSubmitter() { url = "http://192.168.2.12:8000/API/savephotopost/", parameters = data };
-                    post.Submit();
                 }
                 catch (ArgumentException x)
                 {
@@ -145,30 +136,30 @@ namespace PartyOn
             
         }
 
-        private void GuardarEnAlmacenamientoAislado(System.IO.Stream streamImagen)
-        {
-            // Obtener instancia de Almacenamiento Aislado de la aplicacion.
-            using (IsolatedStorageFile isolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
-            {
-                // Eliminar la imagen si ya existe.
-                if (isolatedStorage.FileExists(nombreImagen))
-                {
-                    isolatedStorage.DeleteFile(nombreImagen);
-                }
+        //private void GuardarEnAlmacenamientoAislado(System.IO.Stream streamImagen)
+        //{
+        //    // Obtener instancia de Almacenamiento Aislado de la aplicacion.
+        //    using (IsolatedStorageFile isolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
+        //    {
+        //        // Eliminar la imagen si ya existe.
+        //        if (isolatedStorage.FileExists(nombreImagen))
+        //        {
+        //            isolatedStorage.DeleteFile(nombreImagen);
+        //        }
 
-                // Crear imagen en el Almacenamiento Aislado.
-                using (IsolatedStorageFileStream streamAlmacenamientoAislado = isolatedStorage.CreateFile(nombreImagen))
-                {
-                    // Obtener mapa de bits a partir del stream.
-                    BitmapImage bmpImagen = new BitmapImage();
-                    bmpImagen.SetSource(streamImagen);
+        //        // Crear imagen en el Almacenamiento Aislado.
+        //        using (IsolatedStorageFileStream streamAlmacenamientoAislado = isolatedStorage.CreateFile(nombreImagen))
+        //        {
+        //            // Obtener mapa de bits a partir del stream.
+        //            BitmapImage bmpImagen = new BitmapImage();
+        //            bmpImagen.SetSource(streamImagen);
 
-                    // Guardar mapa de bits en el Almacenamiento Aislado.
-                    WriteableBitmap wb = new WriteableBitmap(bmpImagen);
-                    wb.SaveJpeg(streamAlmacenamientoAislado, wb.PixelWidth, wb.PixelHeight, 0, 100);
-                }
-            }
-        }
+        //            // Guardar mapa de bits en el Almacenamiento Aislado.
+        //            WriteableBitmap wb = new WriteableBitmap(bmpImagen);
+        //            wb.SaveJpeg(streamAlmacenamientoAislado, wb.PixelWidth, wb.PixelHeight, 0, 100);
+        //        }
+        //    }
+        //}
 
        
 
@@ -179,7 +170,21 @@ namespace PartyOn
 
         private void addPostClick(object sender, EventArgs e)
         {
-            MessageBox.Show("Aqui agregara el post");
+            //MessageBox.Show("Aqui agregara el post");
+            //btnPost.IsEnabled = false;
+            Dictionary<string, object> data = new Dictionary<string, object>()
+                    {
+                        //{"PhotoPostDateTime", DateTime.Today},
+                        {"PhotoPost_PlaceID","1"},
+                        {"PhotoPost_User","1"},
+                        {"PhotoPost_Lat","23232323"},
+                        {"PhotoPostLong","88888880"},
+                        {"PhotoPostDescription",txtMessage.Text},
+                        {"PhotoPostPhoto",byteArray},
+                    };
+            PostSubmitter post = new PostSubmitter() { url = "http://192.168.2.12:8000/API/savephotopost/", parameters = data };
+            post.Submit();
+
         }
 
      
@@ -195,7 +200,7 @@ namespace PartyOn
 
         public void Submit()
         {
-            HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create("http://192.168.2.12:8000/API/savephotopost/");
+            HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create(new Uri(url));
             myRequest.ContentType = string.Format("multipart/form-data; boundary={0}", boundary);
             myRequest.Method = "POST";
 
