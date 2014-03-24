@@ -13,13 +13,12 @@ namespace PartyOn.model.homeM
     {
         public event EventHandler<UserHomeEventArg> GetUserHomeComplete;
 
-        async public void GetUserHome()
+         public void GetUserHome()
         {
-            Geolocator geolocator = new Geolocator();
-            geolocator.DesiredAccuracy = PositionAccuracy.Default;
-            Geoposition myLocation = await geolocator.GetGeopositionAsync();
-            var PlaceLat = myLocation.Coordinate.Latitude;
-            var PlaceLong = myLocation.Coordinate.Longitude;
+            MainPage geoLocation = new MainPage();
+
+            var PlaceLat = geoLocation.PlaceLat;
+            var PlaceLong = geoLocation.PlaceLong;
 
             string uriJson = "http://partyonapp.com/API/datahome/";
 

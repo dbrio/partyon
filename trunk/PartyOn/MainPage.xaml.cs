@@ -22,12 +22,36 @@ namespace PartyOn
         public MainPage()
         {
             InitializeComponent();
-
             // Código de ejemplo para traducir ApplicationBar
             //BuildLocalizedApplicationBar();
         }
 
 
+        async public void GetLocation()
+        {
+            Geolocator geolocator = new Geolocator();
+            geolocator.DesiredAccuracy = PositionAccuracy.Default;
+            Geoposition myLocation = await geolocator.GetGeopositionAsync();
+            PlaceLat = myLocation.Coordinate.Latitude;
+            PlaceLong = myLocation.Coordinate.Longitude;
+
+        }
+
+        double placeLat;
+
+        public double PlaceLat
+        {
+            get { return placeLat; }
+            set { placeLat = value; }
+        }
+        double placeLong;
+
+        public double PlaceLong
+        {
+            get { return placeLong; }
+            set { placeLong = value; }
+        }
+        
        private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
         {
        
