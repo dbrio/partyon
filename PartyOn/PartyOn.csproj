@@ -107,6 +107,7 @@
     <Compile Include="model\getPlace\modelPlace.cs" />
     <Compile Include="model\getPlace\serviceModelPlace.cs" />
     <Compile Include="model\getPlace\UserPlaceEvertArg.cs" />
+    <Compile Include="model\homeM\Gps.cs" />
     <Compile Include="model\homeM\modelHome.cs" />
     <Compile Include="model\homeM\serviceModelHome.cs" />
     <Compile Include="model\homeM\UserHomeEventArg.cs" />
