@@ -13,16 +13,12 @@ namespace PartyOn.model.homeM
     {
         public event EventHandler<UserHomeEventArg> GetUserHomeComplete;
 
-         public void GetUserHome()
+         public void GetUserHome(double latitud, double longitud)
         {
-            MainPage geoLocation = new MainPage();
-
-            var PlaceLat = geoLocation.PlaceLat;
-            var PlaceLong = geoLocation.PlaceLong;
 
             string uriJson = "http://partyonapp.com/API/datahome/";
 
-            string uri =  uriJson +"?qLat="+ PlaceLat +"&qLong="+ PlaceLong; 
+            string uri =  uriJson +"?qLat="+ latitud +"&qLong="+ longitud; 
 
             WebClient client = new WebClient();
             client.DownloadStringCompleted += (s, a) =>

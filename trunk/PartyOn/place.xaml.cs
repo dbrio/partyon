@@ -19,7 +19,7 @@ namespace PartyOn
         {
             InitializeComponent();
 
-            CreateLocator();           
+            //CreateLocator();           
             
         }
 

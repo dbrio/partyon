@@ -10,6 +10,8 @@ namespace PartyOn.viewModels.homeV
 {
     public class UserHomeViewModel:NotificationEnabledObject
     {
+        public double lati, longi;
+
         bool isBusy;
         public bool IsBusy
         {
@@ -57,7 +59,7 @@ namespace PartyOn.viewModels.homeV
                     getUserHomeCommand = new ActionCommand(() =>
                         {
                             isBusy = true;
-                            serviceModelHome.GetUserHome();
+                            serviceModelHome.GetUserHome(lati, longi);
                         });
                 }
                 return getUserHomeCommand;
