@@ -13,17 +13,13 @@ namespace PartyOn.model.getPlace
     {
         public event EventHandler<UserPlaceEvertArg> GetUserPlaceComplete;
 
-        async public void GetUserPlace(string PlaceName)
+         public void GetUserPlace(double lat, double longi)
         {
-            Geolocator geolocator = new Geolocator();
-            geolocator.DesiredAccuracy = PositionAccuracy.Default;
-            Geoposition myLocation = await geolocator.GetGeopositionAsync();
-            var PlaceLat = myLocation.Coordinate.Latitude;
-            var PlaceLong = myLocation.Coordinate.Longitude;
+            
 
             string uriJson = "http://partyonapp.com/API/getplaces/";
 
-            string uri = uriJson + "?qLat=" + PlaceLat + "&qLong=" + PlaceLong;
+            string uri = uriJson + "?qLat=" + lat + "&qLong=" + longi;
 
             WebClient client = new WebClient();
             client.DownloadStringCompleted += (s, a) =>

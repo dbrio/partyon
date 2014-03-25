@@ -21,6 +21,7 @@ namespace PartyOn
         // Constructor
         public MainPage()
         {
+            GetLocation();
             InitializeComponent();
             // Código de ejemplo para traducir ApplicationBar
             //BuildLocalizedApplicationBar();
@@ -57,6 +58,8 @@ namespace PartyOn
        
             if(e.Item.Name =="Home")
             {
+                (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).lati = PlaceLat;
+                (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).longi = placeLong;
                 (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).GetUserHomeCommand.Execute(null);
             }
             if (e.Item.Name == "Activity")
@@ -68,6 +71,8 @@ namespace PartyOn
 
        private void addPost(object sender, EventArgs e)
        {
+           (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).lati = PlaceLat;
+           (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).longi = PlaceLong;
            (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).GetUserPlaceCommand.Execute(null);
            NavigationService.Navigate(new Uri("/place.xaml", UriKind.Relative));
        }

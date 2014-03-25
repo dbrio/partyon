@@ -11,6 +11,9 @@ namespace PartyOn.viewModels
 {
     public class UserPlaceViewModel:NotificationEnabledObject
     {
+        public double lati, longi;
+        
+    
      bool isBusy;
         public bool IsBusy
         {
@@ -79,7 +82,7 @@ namespace PartyOn.viewModels
                     getUserPlaceCommand = new ActionCommand(() =>
                         {
                             isBusy = true;
-                            serviceModelPlace.GetUserPlace(PlaceName);
+                            serviceModelPlace.GetUserPlace(lati,longi);
                         });
                 }
                 return getUserPlaceCommand;
