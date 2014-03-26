@@ -84,10 +84,7 @@ namespace PartyOn
            NavigationService.Navigate(new Uri(uri, UriKind.Relative));
        }
 
-       private void ApplicationBarIconButton_Click(object sender, EventArgs e)
-       {
-
-       }
+     
 
        
 

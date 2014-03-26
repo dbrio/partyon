@@ -195,9 +195,14 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="cycleTitleSmall-06.png" />
+    <Content Include="iconicTitleSmall-05.png" />
     <Content Include="PartyOnIcon.png" />
+    <Content Include="plipTitleMedio-04.png" />
     <Content Include="Resources\fondo.png" />
     <Content Include="Assets\AppBar\post.png" />
+    <Content Include="SplashScreenImage.jpg" />
+    <Content Include="titleLarge-07-07.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">
