@@ -23,6 +23,10 @@ namespace PartyOn
         {
             GetLocation();
             InitializeComponent();
+
+            (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).lati = PlaceLat;
+            (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).longi = placeLong;
+            (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).GetUserHomeCommand.Execute(null);
             
             // Código de ejemplo para traducir ApplicationBar
             //BuildLocalizedApplicationBar();

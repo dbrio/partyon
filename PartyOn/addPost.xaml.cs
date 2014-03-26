@@ -25,7 +25,8 @@ namespace PartyOn
         
     {
         bool fisttime = false;
-
+        int vPlaceID;
+        double Lat, Long;
         private string nombreImagen = "imagen.jpg";
         private CameraCaptureTask camera = null;
         byte[] byteArray;
@@ -41,13 +42,17 @@ namespace PartyOn
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (NavigationContext.QueryString.ContainsKey("PlaceName"))
+            if (NavigationContext.QueryString.ContainsKey("PlaceName") && NavigationContext.QueryString.ContainsKey("PlaceID") && NavigationContext.QueryString.ContainsKey("Latitud") && NavigationContext.QueryString.ContainsKey("Longitud"))
             {
                 textPlace.Text= NavigationContext.QueryString["PlaceName"];
+                vPlaceID = Convert.ToInt16(NavigationContext.QueryString["PlaceID"]);
+                Lat = Convert.ToDouble(NavigationContext.QueryString["Latitud"]);
+                Long = Convert.ToDouble(NavigationContext.QueryString["Longitud"]);
             }
             else
             {
                 textPlace.Text = "Tabaco Bar 504";
+                vPlaceID = 1;
             }
 
 
@@ -186,10 +191,10 @@ namespace PartyOn
             Dictionary<string, object> data = new Dictionary<string, object>()
                     {
                         //{"PhotoPostDateTime", DateTime.Today},
-                        {"PhotoPost_PlaceID","1"},
+                        {"PhotoPost_PlaceID",vPlaceID},
                         {"PhotoPost_User","1"},
-                        {"PhotoPost_Lat","23232323"},
-                        {"PhotoPostLong","88888880"},
+                        {"PhotoPost_Lat",Lat},
+                        {"PhotoPostLong",Long},
                         {"PhotoPostDescription",txtMessage.Text},
                         {"PhotoPostPhoto",byteArray},
                     };

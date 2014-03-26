@@ -10,11 +10,13 @@ using Microsoft.Phone.Shell;
 using Windows.Devices.Geolocation;
 using Microsoft.Phone.Maps.Controls;
 using System.Windows.Media.Imaging;
+using PartyOn.viewModels;
 
 namespace PartyOn
 {
     public partial class place : PhoneApplicationPage
     {
+        double latit, longit;
         public place()
         {
             
@@ -47,21 +49,14 @@ namespace PartyOn
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if(NavigationContext.QueryString.ContainsKey("PlaceLat"))
+            if(NavigationContext.QueryString.ContainsKey("PlaceLat") && NavigationContext.QueryString.ContainsKey("PlaceLong"))
             {
-                var lati = NavigationContext.QueryString["PlaceLat"];
+                latit = Convert.ToDouble(NavigationContext.QueryString["PlaceLat"]);
+                longit = Convert.ToDouble(NavigationContext.QueryString["PlaceLong"]);
 
-                double Lati = double.Parse(lati);
-                (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).lati = Lati;
-            }
-            if (NavigationContext.QueryString.ContainsKey("PlaceLong"))
-            {
-                var longi = NavigationContext.QueryString["PlaceLong"];
-                double Longi = double.Parse(longi);
-
-                (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).longi = Longi;
+                (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).lati = latit;
+                (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).longi = longit;
                 (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).GetUserPlaceCommand.Execute(null);
-
             }
             else
             {
@@ -85,8 +80,10 @@ namespace PartyOn
             if (listBoxPlace.SelectedIndex == -1)
                 return;
 
-            string nPlace = listBoxPlace.Items[listBoxPlace.SelectedIndex].ToString();
-            string uri = string.Format("/addPost.xaml?PlaceName={0}", nPlace);
+            string nPlace = (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).UserPlaceList.ElementAtOrDefault(listBoxPlace.SelectedIndex).PlaceName;
+            int idPlace = (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).UserPlaceList.ElementAtOrDefault(listBoxPlace.SelectedIndex).PlaceID;
+           
+            string uri = string.Format("/addPost.xaml?PlaceName={0}&PlaceID={1}&Latitud={2}&Longitud={3}", nPlace, idPlace, latit, longit);
             NavigationService.Navigate(new Uri(uri, UriKind.Relative));
 
             listBoxPlace.SelectedIndex = -1;
