@@ -23,7 +23,7 @@
         
         <!--Template Home-->
         <DataTemplate x:Key="UserHomeTemple">
-            <Grid Margin="0,0,0,30">
+            <Grid Margin="0,0,0,50">
                 <Image Width="520" 
                        Height="390"
                        x:Name="PhotoPostPhoto"
