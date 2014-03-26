@@ -20,8 +20,12 @@ using System.Windows.Threading;
 
 namespace PartyOn
 {
+
     public partial class addPost : PhoneApplicationPage
+        
     {
+        bool fisttime = false;
+
         private string nombreImagen = "imagen.jpg";
         private CameraCaptureTask camera = null;
         byte[] byteArray;
@@ -31,7 +35,6 @@ namespace PartyOn
             
             
             camera = new CameraCaptureTask();
-            camera.Show();
             camera.Completed += new EventHandler<PhotoResult>(camera_Complete);
 
         }
@@ -45,6 +48,14 @@ namespace PartyOn
             else
             {
                 textPlace.Text = "Tabaco Bar 504";
+            }
+
+
+            if (fisttime == false)
+            {
+                fisttime = true;
+                camera.Show();
+
             }
         }
 
