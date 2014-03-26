@@ -23,6 +23,7 @@ namespace PartyOn
         {
             GetLocation();
             InitializeComponent();
+            
             // Código de ejemplo para traducir ApplicationBar
             //BuildLocalizedApplicationBar();
         }
@@ -71,10 +72,12 @@ namespace PartyOn
 
        private void addPost(object sender, EventArgs e)
        {
-           (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).lati = PlaceLat;
-           (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).longi = PlaceLong;
-           (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).GetUserPlaceCommand.Execute(null);
-           NavigationService.Navigate(new Uri("/place.xaml", UriKind.Relative));
+           //(App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).lati = PlaceLat;
+           //(App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).longi = PlaceLong;
+           //(App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).GetUserPlaceCommand.Execute(null);
+           string uri = string.Format("/place.xaml?PlaceLat={0}&PlaceLong={1}", PlaceLat, PlaceLong);
+
+           NavigationService.Navigate(new Uri(uri, UriKind.Relative));
        }
 
        private void ApplicationBarIconButton_Click(object sender, EventArgs e)

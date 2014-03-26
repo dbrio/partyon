@@ -38,14 +38,14 @@
         
         
         
-        <maps:Map Grid.Row="0" x:Name="mapsON"
+        <!--<maps:Map Grid.Row="0" x:Name="mapsON"
                   Background="Black"
                   LandmarksEnabled="True"
                   PedestrianFeaturesEnabled="True"
                   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                   ZoomLevel="16"
                   CartographicMode="Road"
-                  Margin="0,0,0,10"/>
+                  Margin="0,0,0,10"/>-->
 
         <ListBox x:Name="listBoxPlace" Grid.Row="1"
                      ItemsSource="{Binding UserPlaceList}"

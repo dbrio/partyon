@@ -36,6 +36,7 @@ namespace PartyOn.model.getPlace
                                 select new modelPlace
                                 {
                                     PlaceName = item["PlaceName"].Value<string>(),
+                                    PlaceID = item["PlaceID"].Value<int>(),
                                 };
                     var results = query.ToList();
 
