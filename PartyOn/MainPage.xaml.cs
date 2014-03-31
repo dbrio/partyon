@@ -18,11 +18,15 @@ namespace PartyOn
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        int uid;
+        string username;
         // Constructor
         public MainPage()
         {
             GetLocation();
             InitializeComponent();
+
+            this.Loaded += new RoutedEventHandler(MainPage_Loaded);
 
             (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).lati = PlaceLat;
             (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).longi = placeLong;
@@ -30,6 +34,11 @@ namespace PartyOn
             
             // Código de ejemplo para traducir ApplicationBar
             //BuildLocalizedApplicationBar();
+        }
+
+        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            NavigationService.RemoveBackEntry();
         }
 
 
@@ -89,8 +98,22 @@ namespace PartyOn
 
        }
 
-     
+       protected override void OnNavigatedTo(NavigationEventArgs e)
+       {
+           if (NavigationContext.QueryString.ContainsKey("uid") && NavigationContext.QueryString.ContainsKey("username"))
+           {
+               uid = Convert.ToInt16(NavigationContext.QueryString["uid"]);
+               username = Convert.ToString(NavigationContext.QueryString["username"]);
 
+               //MessageBox.Show(string.Format("{0} -> {1}", uid, username), "PartyOn", MessageBoxButton.OK);
+           }
+           else
+           {
+               MessageBox.Show("Aun no hay registro ");
+           }
+
+
+       }
        
 
         
