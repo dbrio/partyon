@@ -198,7 +198,7 @@ namespace PartyOn
                         {"PhotoPostDescription",txtMessage.Text},
                         {"PhotoPostPhoto",byteArray},
                     };
-            PostSubmitter post = new PostSubmitter() { url = "http://192.168.1.108:8000/API/savephotopost/", parameters = data };
+            PostSubmitter post = new PostSubmitter() { url = "http://www.partyonapp.com/API/savephotopost/", parameters = data };
             post.Submit();
 
         }
