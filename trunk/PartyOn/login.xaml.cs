@@ -72,7 +72,7 @@ namespace PartyOn
 
         private void HacerLogin()
         {
-            Uri url = new Uri(string.Format("http://192.168.1.109:8000/API/login/?username={0}&password={1}", txtUser.Text, txtPassword.Password), UriKind.Absolute);
+            Uri url = new Uri(string.Format("http://www.partyonapp.com/API/login/?username={0}&password={1}", txtUser.Text, txtPassword.Password), UriKind.Absolute);
             WebClient ClienteWeb = new WebClient();
             ClienteWeb.DownloadStringCompleted += ClienteWeb_DownloadStringCompleted;
             ClienteWeb.DownloadStringAsync(url);
