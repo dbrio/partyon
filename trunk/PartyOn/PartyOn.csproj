@@ -113,6 +113,8 @@
     <Compile Include="model\homeM\modelHome.cs" />
     <Compile Include="model\homeM\serviceModelHome.cs" />
     <Compile Include="model\homeM\UserHomeEventArg.cs" />
+    <Compile Include="model\userData\userDataDB.cs" />
+    <Compile Include="model\userData\userDataDbDataContext.cs" />
     <Compile Include="place.xaml.cs">
       <DependentUpon>place.xaml</DependentUpon>
     </Compile>
