@@ -31,7 +31,7 @@
             <RowDefinition Height="150"/>
             
         </Grid.RowDefinitions>
-
+<ProgressBar x:Name="pbAddPost" IsIndeterminate="True" Visibility="Collapsed" />
         <TextBlock x:Name="textPlace" Grid.Row="0" Margin="0,0,0,5"
                    />
         <Image Grid.Row="1" Margin="14,0,16,0" x:Name="pvwPhoto" Stretch="UniformToFill" VerticalAlignment="Center"/>

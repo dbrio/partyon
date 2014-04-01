@@ -17,6 +17,7 @@ namespace PartyOn
     public partial class place : PhoneApplicationPage
     {
         double latit, longit;
+        int uid;
         public place()
         {
             
@@ -53,6 +54,7 @@ namespace PartyOn
             {
                 latit = Convert.ToDouble(NavigationContext.QueryString["PlaceLat"]);
                 longit = Convert.ToDouble(NavigationContext.QueryString["PlaceLong"]);
+                uid = Convert.ToInt16(NavigationContext.QueryString["uid"]);
 
                 (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).lati = latit;
                 (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).longi = longit;
@@ -83,7 +85,7 @@ namespace PartyOn
             string nPlace = (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).UserPlaceList.ElementAtOrDefault(listBoxPlace.SelectedIndex).PlaceName;
             int idPlace = (App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).UserPlaceList.ElementAtOrDefault(listBoxPlace.SelectedIndex).PlaceID;
            
-            string uri = string.Format("/addPost.xaml?PlaceName={0}&PlaceID={1}&Latitud={2}&Longitud={3}", nPlace, idPlace, latit, longit);
+            string uri = string.Format("/addPost.xaml?PlaceName={0}&PlaceID={1}&Latitud={2}&Longitud={3}&uid={4}", nPlace, idPlace, latit, longit, uid);
             NavigationService.Navigate(new Uri(uri, UriKind.Relative));
 
             listBoxPlace.SelectedIndex = -1;

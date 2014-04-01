@@ -25,7 +25,7 @@ namespace PartyOn
         
     {
         bool fisttime = false;
-        int vPlaceID;
+        int vPlaceID, uid;
         double Lat, Long;
         private string nombreImagen = "imagen.jpg";
         private CameraCaptureTask camera = null;
@@ -37,7 +37,6 @@ namespace PartyOn
             
             camera = new CameraCaptureTask();
             camera.Completed += new EventHandler<PhotoResult>(camera_Complete);
-
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -48,6 +47,7 @@ namespace PartyOn
                 vPlaceID = Convert.ToInt16(NavigationContext.QueryString["PlaceID"]);
                 Lat = Convert.ToDouble(NavigationContext.QueryString["Latitud"]);
                 Long = Convert.ToDouble(NavigationContext.QueryString["Longitud"]);
+                uid = Convert.ToInt16(NavigationContext.QueryString["uid"]);
             }
             else
             {
@@ -64,66 +64,13 @@ namespace PartyOn
             }
         }
 
-      
-
-        //private static ManualResetEvent allDone = new ManualResetEvent(false);
-       
-        //private void UploadData()
-        //{
-        //    string webpageContent = string.Empty;
-
-
-        //    Uri url = new Uri("http://192.168.2.8:8000/API/APIsaveplace/", UriKind.RelativeOrAbsolute);
-
-        //    HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create("http://192.168.2.12:8000/API/savephotopost/");
-        //    webRequest.ContentType = "application/x-www-form-urlencoded";
-        //    webRequest.Method = "POST";
-        //    //webRequest.ContentLength = byteArray.Length;
-
-        //    webRequest.BeginGetRequestStream(new AsyncCallback(GetRequestStreamCallback), webRequest);
-
-        //}
-
-        //private static void GetRequestStreamCallback(IAsyncResult asynchronousResult)
-        //{
-        //    HttpWebRequest request = (HttpWebRequest)asynchronousResult.AsyncState;
-
-        //    Stream postStream = request.EndGetRequestStream(asynchronousResult);
-
-        //    string postData = "PlaceName=ManguitosWP82&PlaceLat=239231222&PlaceLong=98856578441";
-        //    byte[] byteArray = Encoding.UTF8.GetBytes(postData);
-
-        //    postStream.Write(byteArray, 0, postData.Length);
-        //    postStream.Close();
-
-        //    request.BeginGetResponse(new AsyncCallback(GetResponseCallback), request);
-
-        //}
-
-
-        //private static void GetResponseCallback(IAsyncResult asynchronousResult)
-        //{
-        //    HttpWebRequest request = (HttpWebRequest)asynchronousResult.AsyncState;
-
-        //    HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(asynchronousResult);
-        //    Stream streamResponse = response.GetResponseStream();
-        //    StreamReader streamReader = new StreamReader(streamResponse);
-        //    string responseString = streamReader.ReadToEnd();
-        //    Console.WriteLine(responseString);
-        //    Deployment.Current.Dispatcher.BeginInvoke(() => MessageBox.Show(responseString, "Respuesta del servidor web.", MessageBoxButton.OK));
-        //    streamResponse.Close();
-        //    streamReader.Close();
-
-        //    response.Close();
-        //    //allDone.Set();
-        //}
-
         private void camera_Complete(object sender, PhotoResult e)
         {
+            int ancho, alto;
+            decimal relacion;
             if(e.TaskResult==TaskResult.OK)
             {
-                //UploadData();
-                //GuardarEnAlmacenamientoAislado(e.ChosenPhoto);
+
                 try
                 {
                     BitmapImage image = new BitmapImage();
@@ -133,8 +80,52 @@ namespace PartyOn
                     using (MemoryStream ms = new MemoryStream())
                     {
                         WriteableBitmap btmMap = new WriteableBitmap(image);
-                        Extensions.SaveJpeg(btmMap, ms, image.PixelWidth, image.PixelHeight, 0, 100);
 
+                        if (image.PixelWidth > image.PixelHeight)
+                        {
+                            if (image.PixelWidth > 2000)
+                            {
+                                ancho = 2000;
+                                relacion = (Decimal)image.PixelHeight / (Decimal)image.PixelWidth;
+                                alto = Convert.ToInt16(image.PixelHeight * relacion);
+                            }
+                            else
+                            {
+                                ancho = image.PixelWidth;
+                                alto = image.PixelHeight;
+                            }
+                        }
+                        else if (image.PixelWidth < image.PixelHeight)
+                        {
+                            if (image.PixelHeight > 2000)
+                            {
+                                alto = 2000;
+                                relacion = (Decimal)image.PixelWidth / (Decimal)image.PixelHeight;
+                                ancho = Convert.ToInt16(image.PixelWidth * relacion);
+                            }
+                            else
+                            {
+                                ancho = image.PixelWidth;
+                                alto = image.PixelHeight;
+                            }
+                        }
+                        else
+                        {
+                            if (image.PixelHeight > 2000)
+                            {
+                                alto = 2000;
+                                relacion = (Decimal)image.PixelWidth / (Decimal)image.PixelHeight;
+                                ancho = Convert.ToInt16(image.PixelWidth * relacion);
+                            }
+                            else
+                            {
+                                ancho = image.PixelWidth;
+                                alto = image.PixelHeight;
+                            }
+                        }
+                        
+
+                        Extensions.SaveJpeg(btmMap, ms, ancho, alto, 0, 80);
                         byteArray = ms.ToArray();
                     }
                 }
@@ -145,65 +136,29 @@ namespace PartyOn
             }
         }
 
-       
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            camera.Show();
-            
-        }
-
-        //private void GuardarEnAlmacenamientoAislado(System.IO.Stream streamImagen)
-        //{
-        //    // Obtener instancia de Almacenamiento Aislado de la aplicacion.
-        //    using (IsolatedStorageFile isolatedStorage = IsolatedStorageFile.GetUserStoreForApplication())
-        //    {
-        //        // Eliminar la imagen si ya existe.
-        //        if (isolatedStorage.FileExists(nombreImagen))
-        //        {
-        //            isolatedStorage.DeleteFile(nombreImagen);
-        //        }
-
-        //        // Crear imagen en el Almacenamiento Aislado.
-        //        using (IsolatedStorageFileStream streamAlmacenamientoAislado = isolatedStorage.CreateFile(nombreImagen))
-        //        {
-        //            // Obtener mapa de bits a partir del stream.
-        //            BitmapImage bmpImagen = new BitmapImage();
-        //            bmpImagen.SetSource(streamImagen);
-
-        //            // Guardar mapa de bits en el Almacenamiento Aislado.
-        //            WriteableBitmap wb = new WriteableBitmap(bmpImagen);
-        //            wb.SaveJpeg(streamAlmacenamientoAislado, wb.PixelWidth, wb.PixelHeight, 0, 100);
-        //        }
-        //    }
-        //}
-
-       
-
-        private void cameraclick(object sender, EventArgs e)
+    
+       private void cameraclick(object sender, EventArgs e)
         {
             camera.Show();
         }
 
         private void addPostClick(object sender, EventArgs e)
         {
-            //MessageBox.Show("Aqui agregara el post");
-            //btnPost.IsEnabled = false;
+            this.Focus();
+            pbAddPost.Visibility = System.Windows.Visibility.Visible;
             Dictionary<string, object> data = new Dictionary<string, object>()
                     {
                         //{"PhotoPostDateTime", DateTime.Today},
                         {"PhotoPost_PlaceID",vPlaceID},
-                        {"PhotoPost_User","1"},
+                        {"PhotoPost_User",uid},
                         {"PhotoPost_Lat",Lat},
                         {"PhotoPostLong",Long},
                         {"PhotoPostDescription",txtMessage.Text},
                         {"PhotoPostPhoto",byteArray},
                     };
-            PostSubmitter post = new PostSubmitter() { url = "http://www.partyonapp.com/API/savephotopost/", parameters = data };
+            PostSubmitter post = new PostSubmitter() { url = "http://partyonapp.com/API/savephotopost/", parameters = data };
             post.Submit();
-
         }
-
-     
     }
 
     public class PostSubmitter
@@ -216,7 +171,7 @@ namespace PartyOn
 
         public void Submit()
         {
-            HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create(new Uri(url));
+            HttpWebRequest myRequest = (HttpWebRequest)WebRequest.Create(url);
             myRequest.ContentType = string.Format("multipart/form-data; boundary={0}", boundary);
             myRequest.Method = "POST";
 
@@ -243,6 +198,7 @@ namespace PartyOn
             writer.Flush();
 
             postStream.Close();
+
 
             request.BeginGetResponse(new AsyncCallback(GetREsponseCallback), request);
         }
