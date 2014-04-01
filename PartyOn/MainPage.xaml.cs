@@ -18,19 +18,13 @@ namespace PartyOn
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        int uid;
-        string username;
+        public int uid;
+        public string username;
         // Constructor
         public MainPage()
         {
-            GetLocation();
             InitializeComponent();
-
             this.Loaded += new RoutedEventHandler(MainPage_Loaded);
-
-            (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).lati = PlaceLat;
-            (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).longi = placeLong;
-            (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).GetUserHomeCommand.Execute(null);
             
             // Código de ejemplo para traducir ApplicationBar
             //BuildLocalizedApplicationBar();
@@ -39,6 +33,8 @@ namespace PartyOn
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             NavigationService.RemoveBackEntry();
+            GetLocation();
+
         }
 
 
@@ -50,6 +46,11 @@ namespace PartyOn
             PlaceLat = myLocation.Coordinate.Latitude;
             PlaceLong = myLocation.Coordinate.Longitude;
 
+            (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).lati = PlaceLat;
+            (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).longi = placeLong;
+            (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).GetUserHomeCommand.Execute(null);
+
+            //MessageBox.Show(string.Format("{0} > {1}", placeLat, placeLong), "geolocalizacion", MessageBoxButton.OK);
         }
 
         double placeLat;
@@ -88,7 +89,7 @@ namespace PartyOn
            //(App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).lati = PlaceLat;
            //(App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).longi = PlaceLong;
            //(App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).GetUserPlaceCommand.Execute(null);
-           string uri = string.Format("/place.xaml?PlaceLat={0}&PlaceLong={1}", PlaceLat, PlaceLong);
+           string uri = string.Format("/place.xaml?PlaceLat={0}&PlaceLong={1}&uid={2}", PlaceLat, PlaceLong, uid);
 
            NavigationService.Navigate(new Uri(uri, UriKind.Relative));
        }
