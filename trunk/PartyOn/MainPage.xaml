@@ -93,9 +93,12 @@
 
             <!--HeyDj-->
             <phone:PivotItem x:Name="HeyDj" Header="HeyDj">
-                <phone:LongListSelector>
-
-                </phone:LongListSelector>
+                <ListBox x:Name="dj"
+                         DataContext="{Binding Source={StaticResource vmSong}}"
+                         ItemsSource="{Binding UserSongList}"
+                         ItemTemplate="{StaticResource SongTemplate}">
+                    
+                </ListBox>
             </phone:PivotItem>
 
             <!--Profile-->

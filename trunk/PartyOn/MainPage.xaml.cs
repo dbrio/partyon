@@ -49,7 +49,7 @@ namespace PartyOn
             (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).lati = PlaceLat;
             (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).longi = placeLong;
             (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).GetUserHomeCommand.Execute(null);
-
+            
             //MessageBox.Show(string.Format("{0} > {1}", placeLat, placeLong), "geolocalizacion", MessageBoxButton.OK);
         }
 
@@ -81,6 +81,11 @@ namespace PartyOn
             {
                 (App.Current.Resources["vmUserActivity"] as viewModels.UserActivityViewModel).GetUserActivityCommand.Execute(null);
             } 
+           if (e.Item.Name == "HeyDj")
+           {
+               (App.Current.Resources["vmSong"] as viewModels.UserSongViewModel).GetUserSongCommand.Execute(null);
+
+           }
            
         }
 
