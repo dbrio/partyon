@@ -223,6 +223,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="cycleTitleSmall-06.png" />
+    <Content Include="fondo.png" />
     <Content Include="iconicTitleSmall-05.png" />
     <Content Include="PartyOnIcon.png" />
     <Content Include="plipTitleMedio-04.png" />
