@@ -11,10 +11,10 @@ namespace PartyOn.model.song
     public class ServiceSong
     {
         public event EventHandler<UserSongEverArg> GetUserSongCompleted;
-        public void GetUserSong()
+        public void GetUserSong(double lati, double longi)
         {
-            string uri = "http://www.partyonapp.com/API/heydj/?qLat=13.309102541101671&qLong=-87.18679750841795";
-
+            string uriweb = "http://www.partyonapp.com/API/heydj/";
+            string uri = uriweb + "?qLat=" + lati + "&qLong=" + longi; 
             WebClient client = new WebClient();
             client.DownloadStringCompleted += (s, a) =>
             {

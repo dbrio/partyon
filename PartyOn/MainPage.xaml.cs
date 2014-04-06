@@ -83,8 +83,19 @@ namespace PartyOn
             } 
            if (e.Item.Name == "HeyDj")
            {
+               (App.Current.Resources["vmSong"] as viewModels.UserSongViewModel).lati = placeLat;
+               (App.Current.Resources["vmSong"] as viewModels.UserSongViewModel).longi = placeLong;
                (App.Current.Resources["vmSong"] as viewModels.UserSongViewModel).GetUserSongCommand.Execute(null);
 
+           }
+           if (e.Item.Name == "Profile")
+           {
+
+               (App.Current.Resources["vmProfile"] as viewModels.UserProfileViewModel).id = uid;
+               (App.Current.Resources["vmProfile"] as viewModels.UserProfileViewModel).GetUserProfileCommand.Execute(null);
+               (App.Current.Resources["vmPerfil"] as viewModels.PerfilViewModel).id = uid;
+               (App.Current.Resources["vmPerfil"] as viewModels.PerfilViewModel).GetUserPerfilCommand.Execute(null);
+               
            }
            
         }

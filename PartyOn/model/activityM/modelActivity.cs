@@ -24,5 +24,6 @@ namespace PartyOn.model
         public int PhotoPost_PlaceID { get; set; }
         public string PhotoPost_Lat { get; set; }
         public string PhotoPost_PlaceLat { get; set; }
+        public string PhotoPostTimeSince { get; set; }
     }
 }
