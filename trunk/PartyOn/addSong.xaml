@@ -1,0 +1,43 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="PartyOn.Page1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid Margin="0,50,0,0">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Song name" Margin="10,0,0,0" Foreground="White"/>
+            <TextBox Grid.Row="1" Height="80"/>
+            <TextBlock Grid.Row="2" Text="Sing" Height="39" Margin="10,0,0,0" Foreground="White"/>
+            <TextBox Grid.Row="3"
+            	Margin="0, 20, 0, 0"
+            	x:Name="txtMessage"
+            	TextWrapping="Wrap"
+            	AcceptsReturn="True"
+            	VerticalScrollBarVisibility="Visible" Height="203"/>
+    </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Default" BackgroundColor="Black" Opacity=".2">
+            <shell:ApplicationBarIconButton x:Name="btnPost"  Text="Post" IconUri="/Assets/AppBar/check.png" Click="addPostClick" />
+            
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+
+
+</phone:PhoneApplicationPage>

@@ -123,6 +123,9 @@
     <Compile Include="model\song\UserSongEverArg.cs" />
     <Compile Include="model\userData\userDataDB.cs" />
     <Compile Include="model\userData\userDataDbDataContext.cs" />
+    <Compile Include="addSong.xaml.cs">
+      <DependentUpon>addSong.xaml</DependentUpon>
+    </Compile>
     <Compile Include="place.xaml.cs">
       <DependentUpon>place.xaml</DependentUpon>
     </Compile>
@@ -158,6 +161,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="addSong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
