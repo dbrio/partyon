@@ -7,8 +7,9 @@
     xmlns:activity ="clr-namespace:PartyOn.viewModels"
     xmlns:home="clr-namespace:PartyOn.viewModels.homeV"
     xmlns:place="clr-namespace:PartyOn.viewModels"
-    xmlns:porfile="clr-namespace:PartyOn.viewModels"
-    xmlns:song="clr-namespace:PartyOn.viewModels">
+    xmlns:perfil="clr-namespace:PartyOn.viewModels"
+    xmlns:song="clr-namespace:PartyOn.viewModels"
+    xmlns:profile="clr-namespace:PartyOn.viewModels">
     
     
     <!--Recursos de la aplicación-->
@@ -16,7 +17,8 @@
         <home:UserHomeViewModel x:Key="vmHome"/>
         <activity:UserActivityViewModel x:Key="vmUserActivity"/>
         <place:UserPlaceViewModel x:Key="vmPlace"/>
-        <porfile:UserProfileViewModel x:Key="vmProfile"/>
+        <perfil:PerfilViewModel x:Key="vmPerfil"/>
+        <profile:UserProfileViewModel x:Key="vmProfile"/>
         <song:UserSongViewModel x:Key="vmSong"/>
         <local:LocalizedStrings xmlns:local="clr-namespace:PartyOn" x:Key="LocalizedStrings"/>
         <Style TargetType="TextBlock">
@@ -26,9 +28,112 @@
         
          <!--Template Profile-->
         <DataTemplate x:Key="ProfileTemple">
-            <TextBlock Text="{Binding username}"/>
+            <Grid Margin="0,0,0,50">
+                <Image Width="520" 
+                       Height="390"
+                       x:Name="PhotoPostPhoto"
+                       Stretch="UniformToFill"
+                       Source="{Binding ultFotoTomada, StringFormat='http://partyonapp.com/upload_files/{0}'}" Opacity="0.3"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                        <Ellipse Grid.Row="0" Width="60" Height="60" Margin="0,20,0,10" VerticalAlignment="Center" >
+                            
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding photo, StringFormat='http://partyonapp.com/upload_files/{0}'}" Opacity="0.5"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding first_name}" HorizontalAlignment="Right" Margin="0,0,2,0"/>
+                        <TextBlock Grid.Column="1" Text="{Binding last_name}" HorizontalAlignment="Left" />
+                    </Grid>
+                        
+                        
+                        <TextBlock Grid.Row="2" Text="{Binding username}" HorizontalAlignment="Center"/>
+
+
+                    
+                    
+                </Grid>  
+                
+                
+
+            </Grid>
+                    
         </DataTemplate>
-        
+
+
+        <!--Template Perfil abajo-->
+        <DataTemplate x:Key="PlantillaPerfil">
+
+            <Grid>
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="390"/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--avatar-->
+                        <!--<Ellipse Grid.Column="0" Width="60" Height="60" Margin="0,20,0,10" VerticalAlignment="Center" >
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="{Binding PhotoPost_UserAvatar, StringFormat='http://partyonapp.com/upload_files/{0}'}" Opacity="0.5"/>
+                            </Ellipse.Fill>
+                        </Ellipse>-->
+
+                        <TextBlock Grid.Column="0" Margin="0,0,0,5" Foreground="#6E6E6E" 
+                                   Text="{Binding PhotoPost_UserName}" 
+                                   Opacity="1" FontSize="22" 
+                                   FontFamily="Segoe UI"
+                                   VerticalAlignment="Center"
+                                   />
+                        <TextBlock Grid.Column="2" Text="{Binding PhotoPostTimeSince}" VerticalAlignment="Center" TextAlignment="Right" Margin="0,0,0,10" Foreground="#585858" />
+
+                    </Grid>
+
+
+
+                    <Image Grid.Row="1" VerticalAlignment="Top"
+                           Width="520" Height="auto"
+                           x:Name="PhotoPostPhoto"
+                           Stretch="UniformToFill"
+                           Source="{Binding PhotoPostPhoto, StringFormat='http://partyonapp.com/upload_files/{0}'}" Margin="0,0,0,10"/>
+                    <TextBlock Grid.Row="2" VerticalAlignment="Bottom"  Foreground="#6E6E6E" Text="{Binding PhotoPostDescription}" FontSize="22" TextWrapping="Wrap" FontFamily="Segoe UI" Margin="0,0,0,15"/>
+
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="{Binding PhotoPost_PlaceName}" FontFamily="Segoe UI"  Margin="0,0,0,10" Foreground="#585858"/>
+                    </Grid>
+
+                </Grid>
+                <Line Stroke="#333333" VerticalAlignment="Bottom" X1="500" StrokeThickness="1" Opacity=".8"/>
+
+            </Grid>
+        </DataTemplate>
+
+
         <!--Template HeyDj-->
         <DataTemplate x:Key="SongTemplate">
             <Grid Margin="0,0,0,30">
@@ -131,7 +236,7 @@
                         <!--avatar-->
                         <Ellipse Grid.Column="0" Width="60" Height="60" Margin="0,20,0,10" VerticalAlignment="Center" >
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="http://www.partyonapp.com/webapp/static/img/dbrio.png" x:Name="avatar"/>
+                                <ImageBrush ImageSource="{Binding PhotoPost_UserAvatar, StringFormat='http://partyonapp.com/upload_files/{0}'}" Opacity="0.5"/>
                             </Ellipse.Fill>
                         </Ellipse>
 
@@ -141,7 +246,7 @@
                                    FontFamily="Segoe UI"
                                    VerticalAlignment="Center"
                                    />
-                        <TextBlock Grid.Column="2" Text="3 minutos" VerticalAlignment="Center" TextAlignment="Right" Margin="0,0,0,10" Foreground="#585858" />
+                        <TextBlock Grid.Column="2" Text="{Binding PhotoPostTimeSince}" VerticalAlignment="Center" TextAlignment="Right" Margin="0,0,0,10" Foreground="#585858" />
 
                     </Grid>
 

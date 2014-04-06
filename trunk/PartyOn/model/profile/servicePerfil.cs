@@ -1,21 +1,21 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
+using PartyOn.model.porfile;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
 
-namespace PartyOn.model
+namespace PartyOn.model.profile
 {
-    public class ServiceModel
+    public class servicePerfil
     {
-        public event EventHandler<UserActivityEventArgs> GetUserActivityCompleted;
-        public void GetUserActivity()
+        public event EventHandler<PerfilEverArg> GetUserPerfilCompleted;
+        public void GetUserPerfil(int id)
         {
-            string uri = "http://partyonapp.com/API/dataactivity/";
+            string uriweb = "http://www.partyonapp.com/API/userprofile/?uid=";
+            string uri = uriweb + id;
             WebClient client = new WebClient();
             client.DownloadStringCompleted += (s, a) =>
             {
@@ -27,28 +27,33 @@ namespace PartyOn.model
 
                     var doc = JObject.Parse(result);
 
-                    var query = from item in (JArray)doc["data"]
-                                select new modelActivity
+                   
+
+                    var query = from item in (JArray)doc["dataActivity"]
+                                select new modelProfile
                                 {
+                                    //username = item["username"].Value<string>(),
+
                                     PhotoPost_UserName = item["PhotoPost_UserName"].Value<string>(),
+                                    PhotoPostPhoto = item["PhotoPostPhoto"].Value<string>(),
                                     PhotoPostDescription = item["PhotoPostDescription"].Value<string>(),
                                     PhotoPost_PlaceName = item["PhotoPost_PlaceName"].Value<string>(),
-                                    PhotoPostDateTime = item["PhotoPostDateTime"].Value<string>(),
-                                    PhotoPostPhoto = item["PhotoPostPhoto"].Value<string>(),
-                                    PhotoPost_UserAvatar = item["PhotoPost_UserAvatar"].Value<string>(),
                                     PhotoPostTimeSince = item["PhotoPostTimeSince"].Value<string>(),
+
+
                                 };
+
                     var results = query.ToList();
 
-                    if(GetUserActivityCompleted != null)
+
+                    if (GetUserPerfilCompleted != null)
                     {
-                        GetUserActivityCompleted(this, new UserActivityEventArgs(results));
+                        GetUserPerfilCompleted(this, new PerfilEverArg(results));
                     }
                 }
             };
             client.DownloadStringAsync(new Uri(uri, UriKind.Absolute));
-            
+
         }
     }
-
 }

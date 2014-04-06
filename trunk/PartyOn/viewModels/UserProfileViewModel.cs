@@ -11,6 +11,7 @@ namespace PartyOn.viewModels
 {
     public class UserProfileViewModel:NotificationEnabledObject
     {
+        public int id;
          bool isBusy;
 
         public bool IsBusy
@@ -69,7 +70,7 @@ namespace PartyOn.viewModels
                     getUserProfileCommand = new ActionCommand(() =>
                         {
                             IsBusy = true;
-                            profileModel.GetUserProfile();
+                            profileModel.GetUserProfile(id);
                         });
                 }
                 return getUserProfileCommand;

@@ -113,7 +113,10 @@ namespace PartyOn
                         //MessageBox.Show(string.Format("Bienvenido {0}", usernameW), "PartyOn", MessageBoxButton.OK);
 
                         string uri = string.Format("/MainPage.xaml?uid={0}&username={1}", uidW, usernameW);
+                        string uriProfile = string.Format("/profile.xaml?uid={0}&username={1}", uidW);
+
                         NavigationService.Navigate(new Uri(uri, UriKind.Relative));
+                        NavigationService.Navigate(new Uri(uriProfile, UriKind.Relative));
                     }
                     else
                     {

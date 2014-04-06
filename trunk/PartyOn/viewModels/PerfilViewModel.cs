@@ -1,4 +1,5 @@
-﻿using PartyOn.model.song;
+﻿using PartyOn.model.porfile;
+using PartyOn.model.profile;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,12 +10,10 @@ using System.Threading.Tasks;
 
 namespace PartyOn.viewModels
 {
-    public class UserSongViewModel:NotificationEnabledObject
+   public class PerfilViewModel:NotificationEnabledObject
     {
-        public double lati, longi;
-        
-
-         bool isBusy;
+       public int id;
+        bool isBusy;
 
         public bool IsBusy
         {
@@ -26,56 +25,56 @@ namespace PartyOn.viewModels
             }
         }
 
-        ObservableCollection<modelSong> userSongList;
+        ObservableCollection<modelProfile> perfilLista;
 
-        public ObservableCollection<modelSong> UserSongList
+        public ObservableCollection<modelProfile> PerfilLista
         {
             get {
-                    if (userSongList == null)
+                    if (perfilLista == null)
                         {
-                            userSongList = new ObservableCollection<modelSong>();
+                            perfilLista = new ObservableCollection<modelProfile>();
                         }
                     if (DesignerProperties.IsInDesignTool)
                         {
                             for (int i = 0; i < 20; i++)
                             {
-                                userSongList.Add(new modelSong { SongPostName = Guid.NewGuid().ToString() });
+                                perfilLista.Add(new modelProfile { username = Guid.NewGuid().ToString() });
                             }
                         }
-                    return userSongList; 
+                    return perfilLista; 
                   }
             set
             {
-                userSongList = value;
+                perfilLista = value;
                 OnPropertyChange();
             }
         }
 
-        ServiceSong profileModel = new ServiceSong();
+        servicePerfil profileModel = new servicePerfil();
 
-        public UserSongViewModel()
+        public PerfilViewModel()
         {
-            profileModel.GetUserSongCompleted += (s, a) =>
+            profileModel.GetUserPerfilCompleted += (s, a) =>
                 {
-                    UserSongList = new ObservableCollection<modelSong>(a.ResultsSong);
+                    PerfilLista = new ObservableCollection<modelProfile>(a.ResultsPerfil);
                     IsBusy = false;
                 };
         }
 
-        ActionCommand getUserSongCommand;
-        public ActionCommand GetUserSongCommand
+        ActionCommand getUserPerfilCommand;
+        public ActionCommand GetUserPerfilCommand
         {
             get
             {
-                if (getUserSongCommand == null)
+                if (getUserPerfilCommand == null)
                 {
-                    getUserSongCommand = new ActionCommand(() =>
+                    getUserPerfilCommand = new ActionCommand(() =>
                         {
                             IsBusy = true;
-                            profileModel.GetUserSong(lati, longi);
+                            profileModel.GetUserPerfil(id);
                         });
                 }
-                return getUserSongCommand;
+                return getUserPerfilCommand;
             }
         }
 

@@ -11,9 +11,10 @@ namespace PartyOn.model.porfile
     public class serviceProfile
     {
         public event EventHandler<UserPorfileEventArg> GetUserProfileCompleted;
-        public void GetUserProfile()
+        public void GetUserProfile( int id)
         {
-            string uri = "http://www.partyonapp.com/API/userprofile/?uid=1";
+            string uriweb = "http://www.partyonapp.com/API/userprofile/?uid=";
+            string uri = uriweb + id;
             WebClient client = new WebClient();
             client.DownloadStringCompleted += (s, a) =>
             {
@@ -29,9 +30,17 @@ namespace PartyOn.model.porfile
                                 select new modelProfile
                                 {
                                     username = item["username"].Value<string>(),
-                                    
+                                    ultFotoTomada = item["ultFotoTomada"].Value<string>(),
+                                    first_name = item["first_name"].Value<string>(),
+                                    last_name = item["last_name"].Value<string>(),
+                                    photo = item["photo"].Value<string>(),
+
                                 };
+
+                    
+
                     var results = query.ToList();
+
 
                     if (GetUserProfileCompleted != null)
                     {
