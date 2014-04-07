@@ -62,10 +62,14 @@
 
         </Grid>
 
-        <Button Grid.Row="3" Margin="0,20,0,0" Click="Button_Click" x:Name="btnEntrar">entrar</Button>
-        <TextBlock Grid.Row="4" Text="Registrarse" Margin="30,40,0,0" Foreground="White"/>
+        <Button Grid.Row="3" Margin="0,20,0,0" 
+                Click="Button_Click" 
+                Background="#B4045F"
+                x:Name="btnEntrar" 
+                Opacity=".9"
+                BorderBrush="Transparent">Log ing</Button>
+        <TextBlock Grid.Row="4" Text="Registrarse" Margin="30,40,0,0" Foreground="White" />
         <TextBlock Grid.Row="4" Text="Recuperar contrasena" Margin="230,40,0,0" Foreground="White"/>
-
 
         <!--ContentPanel. Colocar aquí el contenido adicional-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
