@@ -30,6 +30,7 @@ namespace PartyOn
         private string nombreImagen = "imagen.jpg";
         private CameraCaptureTask camera = null;
         byte[] byteArray;
+        bool TomoFoto = false;
         public addPost()
         {
             InitializeComponent();
@@ -70,7 +71,7 @@ namespace PartyOn
             decimal relacion;
             if(e.TaskResult==TaskResult.OK)
             {
-
+                TomoFoto = true;
                 try
                 {
                     BitmapImage image = new BitmapImage();
@@ -144,9 +145,11 @@ namespace PartyOn
 
         private void addPostClick(object sender, EventArgs e)
         {
-            this.Focus();
-            pbAddPost.Visibility = System.Windows.Visibility.Visible;
-            Dictionary<string, object> data = new Dictionary<string, object>()
+            if (TomoFoto == true)
+            {
+                this.Focus();
+                pbAddPost.Visibility = System.Windows.Visibility.Visible;
+                Dictionary<string, object> data = new Dictionary<string, object>()
                     {
                         //{"PhotoPostDateTime", DateTime.Today},
                         {"PhotoPost_PlaceID",vPlaceID},
@@ -156,8 +159,13 @@ namespace PartyOn
                         {"PhotoPostDescription",txtMessage.Text},
                         {"PhotoPostPhoto",byteArray},
                     };
-            PostSubmitter post = new PostSubmitter() { url = "http://partyonapp.com/API/savephotopost/", parameters = data };
-            post.Submit();
+                PostSubmitter post = new PostSubmitter() { url = "http://partyonapp.com/API/savephotopost/", parameters = data };
+                post.Submit();
+            }
+            else
+            {
+                MessageBox.Show("You should take a picture.", "PartyOn", MessageBoxButton.OK);
+            }
         }
     }
 

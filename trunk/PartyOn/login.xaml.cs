@@ -57,9 +57,8 @@ namespace PartyOn
 
                     if (uidW > 0)
                     {
-                        //MessageBox.Show(string.Format("Bienvenido de nuevo {0}", usernameW), "PartyOn", MessageBoxButton.OK);
-
                         string uri = string.Format("/MainPage.xaml?uid={0}&username={1}", uidW, usernameW);
+                        pbLogin.Visibility = System.Windows.Visibility.Collapsed;
                         NavigationService.Navigate(new Uri(uri, UriKind.Relative));
                     }
                 }
@@ -67,6 +66,7 @@ namespace PartyOn
                 {
                     //Aún no hay datos de usuario guardados.
                 }
+                pbLogin.Visibility = System.Windows.Visibility.Collapsed;
             }
         }
 
@@ -76,6 +76,22 @@ namespace PartyOn
             WebClient ClienteWeb = new WebClient();
             ClienteWeb.DownloadStringCompleted += ClienteWeb_DownloadStringCompleted;
             ClienteWeb.DownloadStringAsync(url);
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            string logout;
+            if (NavigationContext.QueryString.ContainsKey("logout"))
+            {
+                logout = Convert.ToString(NavigationContext.QueryString["logout"]);
+                if (logout == "true")
+                {
+                    db.userDataDB2.DeleteAllOnSubmit(db.userDataDB2);
+                    db.SubmitChanges();
+
+                    NavigationService.RemoveBackEntry();
+                }
+            }
         }
 
         private void ClienteWeb_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
@@ -113,10 +129,8 @@ namespace PartyOn
                         //MessageBox.Show(string.Format("Bienvenido {0}", usernameW), "PartyOn", MessageBoxButton.OK);
 
                         string uri = string.Format("/MainPage.xaml?uid={0}&username={1}", uidW, usernameW);
-                        string uriProfile = string.Format("/profile.xaml?uid={0}&username={1}", uidW);
 
                         NavigationService.Navigate(new Uri(uri, UriKind.Relative));
-                        NavigationService.Navigate(new Uri(uriProfile, UriKind.Relative));
                     }
                     else
                     {

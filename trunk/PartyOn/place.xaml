@@ -14,30 +14,30 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True"
     DataContext="{Binding Source={StaticResource vmPlace}}">
-    
+
     <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
-    
+
     <phone:PhoneApplicationPage.Resources>
-        
+
         <DataTemplate x:Key="placeTemple">
 
             <TextBlock Text="{Binding PlaceName}" 
                        FontSize="22"
                        Foreground="White"
                        Margin="0,10,0,10"/>
-            
+
         </DataTemplate>
     </phone:PhoneApplicationPage.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="170"/>
             <RowDefinition/>
             <RowDefinition Height="180"/>
         </Grid.RowDefinitions>
-        
-        
-        
+
+
+
         <!--<maps:Map Grid.Row="0" x:Name="mapsON"
                   Background="Black"
                   LandmarksEnabled="True"
@@ -51,25 +51,33 @@
                      ItemsSource="{Binding UserPlaceList}"
                      ItemTemplate="{StaticResource placeTemple}"
                      VerticalAlignment="Top" SelectionChanged="listBoxPlace_SelectionChanged">
-            
+
         </ListBox>
 
         <StackPanel Grid.Row="2">
             <TextBlock Text="¿No encuentras lo que buscas?" 
                        HorizontalAlignment="Center"
                        Margin="0,10,0,0"/>
-            <TextBox Width="300" VerticalAlignment="Center" />
-            <Button 
+            <TextBox Width="300" VerticalAlignment="Center" x:Name="txtNewPlaceName">
+                <TextBox.InputScope>
+                    <InputScope>
+                        <InputScopeName NameValue="PersonalFullName"/>
+                    </InputScope>
+                </TextBox.InputScope>
+            </TextBox>
+            <Button x:Name="btnAddNewPlace"
             	Content="Agregar nuevo lugar"
             	BorderBrush="Black"
             	FontSize="20"
             	Foreground="#c3c3c3"
             	FontFamily="Meiryo UI"
-            	Margin="0" Height="69"/>
+            	Margin="0" Height="69"
+                Click="Button_Click" IsEnabled="True"/>
         </StackPanel>
+        <ProgressBar x:Name="pbPlaces" HorizontalAlignment="Left" Height="10" Margin="10,64,0,0" VerticalAlignment="Top" Width="460" IsIndeterminate="True" Visibility="Collapsed"/>
 
     </Grid>
-    
-    
+
+
 
 </phone:PhoneApplicationPage>

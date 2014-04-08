@@ -11,6 +11,8 @@ using PartyOn.Resources;
 using PartyOn.viewModels;
 using PartyOn.model;
 using Windows.Devices.Geolocation;
+using PartyOn.model.userData;
+using System.IO;
 
 
 
@@ -19,7 +21,6 @@ namespace PartyOn
     public partial class MainPage : PhoneApplicationPage
     {
         public int uid;
-        public string username;
         // Constructor
         public MainPage()
         {
@@ -105,24 +106,23 @@ namespace PartyOn
            //(App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).lati = PlaceLat;
            //(App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).longi = PlaceLong;
            //(App.Current.Resources["vmPlace"] as viewModels.UserPlaceViewModel).GetUserPlaceCommand.Execute(null);
-           string uri = string.Format("/place.xaml?PlaceLat={0}&PlaceLong={1}&uid={2}", PlaceLat, PlaceLong, uid);
+           string uri = string.Format("/place.xaml?PlaceLat={0}&PlaceLong={1}&uid={2}&padre=addPost", PlaceLat, PlaceLong, uid);
 
            NavigationService.Navigate(new Uri(uri, UriKind.Relative));
        }
 
        private void ApplicationBarIconButton_Click(object sender, EventArgs e)
        {
+           string uri = string.Format("/place.xaml?PlaceLat={0}&PlaceLong={1}&uid={2}&padre=addSong", PlaceLat, PlaceLong, uid);
 
+           NavigationService.Navigate(new Uri(uri, UriKind.Relative));
        }
 
        protected override void OnNavigatedTo(NavigationEventArgs e)
        {
-           if (NavigationContext.QueryString.ContainsKey("uid") && NavigationContext.QueryString.ContainsKey("username"))
+           if (NavigationContext.QueryString.ContainsKey("uid"))
            {
                uid = Convert.ToInt16(NavigationContext.QueryString["uid"]);
-               username = Convert.ToString(NavigationContext.QueryString["username"]);
-
-               //MessageBox.Show(string.Format("{0} -> {1}", uid, username), "PartyOn", MessageBoxButton.OK);
            }
            else
            {
@@ -147,13 +147,23 @@ namespace PartyOn
            
        }
 
-   
+       private void btnLogout_Click(object sender, EventArgs e)
+       {
+           MessageBoxResult resp = MessageBox.Show("¿Está seguro que desea cerrar la sesión?", "PartyOn", MessageBoxButton.OKCancel);
 
-      
+           if (resp == MessageBoxResult.OK)
+           {
+               NavigationService.Navigate(new Uri("/login.xaml?logout=true", UriKind.Relative));
+           }
 
-     
-       
+           //if (db.DatabaseExists())
+           //{
 
+           //    db.DeleteDatabase();
+           //    NavigationService.Navigate(new Uri("/login.xaml?logout=true", UriKind.Relative));
+           //}
+
+       }
         
         // Código de ejemplo para compilar una ApplicationBar traducida
         //private void BuildLocalizedApplicationBar()
