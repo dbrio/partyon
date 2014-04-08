@@ -36,28 +36,30 @@
                        Source="{Binding ultFotoTomada, StringFormat='http://partyonapp.com/upload_files/{0}'}" Opacity="0.3"/>-->
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="120"/>
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="30"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                        <Ellipse Grid.Row="0" Width="60" Height="60" Margin="0,20,0,10" VerticalAlignment="Center" >
+                        <Ellipse Grid.Row="0" Width="100" Height="100" Margin="0,0,0,3" VerticalAlignment="Center" Stroke="White" StrokeThickness="2">
                             
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="{Binding photo, StringFormat='http://partyonapp.com/upload_files/{0}'}" Opacity="0.5"/>
+                                <ImageBrush ImageSource="{Binding photo, StringFormat='http://partyonapp.com/upload_files/{0}'}"/>
                             </Ellipse.Fill>
                         </Ellipse>
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
+                            <!--<ColumnDefinition/>-->
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" Text="{Binding first_name}" HorizontalAlignment="Right" Margin="0,0,2,0"/>
                         <TextBlock Grid.Column="1" Text="{Binding last_name}" HorizontalAlignment="Left" />
+                        <!--<TextBlock Grid.Column="2" Text="{Binding username}" HorizontalAlignment="Left"  Foreground="Gray"/>-->
+
                     </Grid>
                         
                         
-                        <TextBlock Grid.Row="2" Text="{Binding username}" HorizontalAlignment="Center"/>
 
 
                     
