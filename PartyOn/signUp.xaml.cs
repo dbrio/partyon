@@ -21,5 +21,10 @@ namespace PartyOn
         {
 
         }
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/content/terms.xaml", UriKind.Relative));
+        }
     }
 }

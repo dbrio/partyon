@@ -153,7 +153,7 @@
 
         </Grid>
 
-        <CheckBox Content="I agree to the terms and privacy." HorizontalAlignment="Left" Margin="45,0,0,0" Grid.Row="7" VerticalAlignment="Top" Height="70" Width="430"/>
+        <CheckBox Content="I agree to the terms and privacy." HorizontalAlignment="Left" Margin="45,0,0,0" Grid.Row="7" VerticalAlignment="Top" Height="70" Width="430" Click="CheckBox_Click"/>
 
 
         <Button Grid.Row="8" Margin="0,20,0,0" 
