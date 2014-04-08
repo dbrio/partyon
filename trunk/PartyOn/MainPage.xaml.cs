@@ -131,6 +131,27 @@ namespace PartyOn
 
 
        }
+
+       private void listHome_SelectionChanged(object sender, SelectionChangedEventArgs e)
+       {
+           if(listHome.SelectedIndex != -1)
+           {
+               string nPlace = (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).UserHomeList.ElementAtOrDefault(listHome.SelectedIndex).PlaceName;
+               string latitud = (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).UserHomeList.ElementAtOrDefault(listHome.SelectedIndex).PlaceLat;
+               string longitud = (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).UserHomeList.ElementAtOrDefault(listHome.SelectedIndex).PlaceLong;
+
+               string uri = string.Format("/placeDirection.xaml?PlaceLat={0}&PlaceLong={1}&myPlace={2}&myLat={3}&myLongi={4}", latitud, longitud, nPlace, PlaceLat, placeLong);
+
+               NavigationService.Navigate(new Uri(uri, UriKind.Relative));
+           }
+           
+       }
+
+   
+
+      
+
+     
        
 
         
