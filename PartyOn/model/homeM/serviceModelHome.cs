@@ -38,6 +38,8 @@ namespace PartyOn.model.homeM
                                        LastPhoto = item["LastPhoto"].Value<string>(),
                                        PeopleNow = item["PeopleNow"].Value<int>(),
                                        LastPostDate = item["LastPostDate"].Value<string>(),
+                                       PlaceLat = item["PlaceLat"].Value<string>(),
+                                       PlaceLong = item["PlaceLong"].Value<string>(),
 
                                    };
                        var results = query.ToList();

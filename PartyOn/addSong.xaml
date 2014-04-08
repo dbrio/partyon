@@ -33,7 +33,7 @@
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Default" BackgroundColor="Black" Opacity=".2">
-            <shell:ApplicationBarIconButton x:Name="btnPost"  Text="Post" IconUri="/Assets/AppBar/check.png" Click="addPostClick" />
+            <shell:ApplicationBarIconButton x:Name="btnPost"  Text="Post" IconUri="/Assets/AppBar/check.png" />
             
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

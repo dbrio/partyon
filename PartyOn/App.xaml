@@ -28,12 +28,12 @@
         
          <!--Template Profile-->
         <DataTemplate x:Key="ProfileTemple">
-            <Grid Margin="0,0,0,50">
-                <Image Width="520" 
+            <Grid Margin="0,0,0,50" Background="Transparent" Width="520" Height="350">
+                <!--<Image Width="520" 
                        Height="390"
                        x:Name="PhotoPostPhoto"
                        Stretch="UniformToFill"
-                       Source="{Binding ultFotoTomada, StringFormat='http://partyonapp.com/upload_files/{0}'}" Opacity="0.3"/>
+                       Source="{Binding ultFotoTomada, StringFormat='http://partyonapp.com/upload_files/{0}'}" Opacity="0.3"/>-->
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="100"/>

@@ -68,10 +68,11 @@
 
             <!--Home-->
             <phone:PivotItem x:Name="Home" Header="Home" Margin="0,0,-13,0" Background="Black">
-                <phone:LongListSelector ItemsSource="{Binding  UserHomeList}" 
+                <ListBox x:Name="listHome" ItemsSource="{Binding  UserHomeList}" 
                          ItemTemplate="{StaticResource UserHomeTemple}" 
                          Height="593" VerticalAlignment="Top"
- Margin="0,-13,0,0"/>
+ Margin="0,-13,0,0" SelectionChanged="listHome_SelectionChanged"
+                         />
             </phone:PivotItem>
 
             <!--Activity-->
@@ -104,21 +105,25 @@
             <!--Profile-->
             <phone:PivotItem x:Name="Profile" Header="Profile" Margin="12,28,12,74">
                 <Grid>
-                   
+
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="180"/>
+                        <RowDefinition Height="131"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
                     <ListBox Grid.Row="0"
                              DataContext="{Binding Source={StaticResource vmProfile}}"
                              ItemsSource="{Binding UserProfileList}"
-                             ItemTemplate="{StaticResource ProfileTemple}" Margin="-20,-36,-20,0" Grid.ColumnSpan="3" Height="186" VerticalAlignment="Top" RenderTransformOrigin="0.0,0.0"/>
+                             ItemTemplate="{StaticResource ProfileTemple}" Margin="-20,-36,-20,0" Height="164" VerticalAlignment="Top" RenderTransformOrigin="0.0,0.0"/>
 
-                    <phone:LongListSelector Grid.Row="1"
+                    <phone:LongListSelector
                              DataContext="{Binding Source={StaticResource vmPerfil}}"
                              ItemsSource="{Binding PerfilLista}"
-                             ItemTemplate="{StaticResource PlantillaPerfil}" Grid.ColumnSpan="3"/>
+                             ItemTemplate="{StaticResource PlantillaPerfil}" Margin="-0.044,0.008,0.044,0" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto" Grid.Row="1">
+                        <phone:LongListSelector.RenderTransform>
+                            <CompositeTransform Rotation="-0.229"/>
+                        </phone:LongListSelector.RenderTransform>
+                    </phone:LongListSelector>
 
                 </Grid>
 
