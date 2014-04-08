@@ -149,7 +149,7 @@ namespace PartyOn
 
        private void btnLogout_Click(object sender, EventArgs e)
        {
-           MessageBoxResult resp = MessageBox.Show("¿Está seguro que desea cerrar la sesión?", "PartyOn", MessageBoxButton.OKCancel);
+           MessageBoxResult resp = MessageBox.Show("Are you sure you want to log out?", "PartyOn", MessageBoxButton.OKCancel);
 
            if (resp == MessageBoxResult.OK)
            {
@@ -162,6 +162,23 @@ namespace PartyOn
            //    db.DeleteDatabase();
            //    NavigationService.Navigate(new Uri("/login.xaml?logout=true", UriKind.Relative));
            //}
+
+       }
+
+       private void btnEditaProfile_Click(object sender, EventArgs e)
+       {
+           NavigationService.Navigate(new Uri("/content/editProfile.xaml", UriKind.Relative));
+       }
+
+       private void btnPrivacy_Click(object sender, EventArgs e)
+       {
+           NavigationService.Navigate(new Uri("/content/privacy.xaml", UriKind.Relative));
+
+       }
+
+       private void btnTerm_Click(object sender, EventArgs e)
+       {
+           NavigationService.Navigate(new Uri("/content/terms.xaml", UriKind.Relative));
 
        }
         
