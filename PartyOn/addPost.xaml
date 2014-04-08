@@ -41,7 +41,13 @@
                  x:Name="txtMessage"
                  TextWrapping="Wrap"
                  AcceptsReturn="True"
-                 VerticalScrollBarVisibility="Visible"/>
+                 VerticalScrollBarVisibility="Visible">
+            <TextBox.InputScope>
+                <InputScope>
+                    <InputScopeName NameValue="Chat"/>
+                </InputScope>
+            </TextBox.InputScope>
+        </TextBox>
     </Grid>
    
     

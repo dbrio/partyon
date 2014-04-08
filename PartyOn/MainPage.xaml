@@ -138,6 +138,9 @@
             <shell:ApplicationBarIconButton  Text="Music" IconUri="/Assets/AppBar/music.png" Click="ApplicationBarIconButton_Click"/>
             <shell:ApplicationBarIconButton  IconUri="/Assets/AppBar/sync.png" Text="Refresh"/>
             <shell:ApplicationBarIconButton  IconUri="/Assets/AppBar/feature.settings.png" Text="Settings"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="btnLogout" Text="Logout" Click="btnLogout_Click"/>
+            </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 
