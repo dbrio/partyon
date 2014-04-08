@@ -114,7 +114,7 @@
                     <ListBox Grid.Row="0"
                              DataContext="{Binding Source={StaticResource vmProfile}}"
                              ItemsSource="{Binding UserProfileList}"
-                             ItemTemplate="{StaticResource ProfileTemple}" Margin="-20,-36,-20,0" Height="164" VerticalAlignment="Top" RenderTransformOrigin="0.0,0.0"/>
+                             ItemTemplate="{StaticResource ProfileTemple}" Margin="-40,-40,0,0" Height="144" VerticalAlignment="Top" RenderTransformOrigin="0.0,0.0"/>
 
                     <phone:LongListSelector
                              DataContext="{Binding Source={StaticResource vmPerfil}}"
