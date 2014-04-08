@@ -117,7 +117,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Column="0" Text="{Binding PhotoPost_PlaceName}" FontFamily="Segoe UI"  Margin="0,0,0,10" Foreground="#585858"/>
+                        <TextBlock Grid.Column="0" Text="{Binding PhotoPost_PlaceName}" FontFamily="Segoe UI"  Margin="0,0,0,30" Foreground="White"/>
                     </Grid>
 
                 </Grid>
@@ -227,9 +227,9 @@
                         </Grid.ColumnDefinitions>
 
                         <!--avatar-->
-                        <Ellipse Grid.Column="0" Width="60" Height="60" Margin="0,20,0,10" VerticalAlignment="Center" >
+                        <Ellipse Grid.Column="0" Width="60" Height="60" Margin="-10,20,0,10" VerticalAlignment="Center" >
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="{Binding PhotoPost_UserAvatar, StringFormat='http://partyonapp.com/upload_files/{0}'}" />
+                                <ImageBrush ImageSource="{Binding PhotoPost_UserAvatar, StringFormat='http://partyonapp.com/upload_files/{0}'}"/>
                             </Ellipse.Fill>
                         </Ellipse>
 
@@ -250,7 +250,7 @@
                            x:Name="PhotoPostPhoto"
                            Stretch="UniformToFill"
                            Source="{Binding PhotoPostPhoto, StringFormat='http://partyonapp.com/upload_files/{0}'}" Margin="0,0,0,10"/>
-                    <TextBlock Grid.Row="2" VerticalAlignment="Bottom"  Foreground="#6E6E6E" Text="{Binding PhotoPostDescription}" FontSize="22" TextWrapping="Wrap" FontFamily="Segoe UI" Margin="0,0,0,15"/>
+                    <TextBlock Grid.Row="2" VerticalAlignment="Bottom"  Foreground="#6E6E6E" Text="{Binding PhotoPostDescription}" FontSize="22" TextWrapping="Wrap" FontFamily="Segoe UI" Margin="10,0,0,15"/>
 
                     <Grid Grid.Row="3">
                         <Grid.ColumnDefinitions>
@@ -258,7 +258,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Column="0" Text="{Binding PhotoPost_PlaceName}" FontFamily="Segoe UI"  Margin="0,0,0,10" Foreground="#585858"/>
+                        <TextBlock Grid.Column="0" Text="{Binding PhotoPost_PlaceName}" FontFamily="Segoe UI"  Margin="10,0,0,10" Foreground="White"/>
                     </Grid>
 
                 </Grid>
