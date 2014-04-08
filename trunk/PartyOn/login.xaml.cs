@@ -164,5 +164,15 @@ namespace PartyOn
             HacerLogin();
         }
 
+        private void btnSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/signUp.xaml", UriKind.Relative));
+        }
+
+        private void btnForgotPassword_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

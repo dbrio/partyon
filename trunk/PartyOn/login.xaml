@@ -23,7 +23,8 @@
             <RowDefinition Height="70"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="120"/>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
 
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
@@ -70,12 +71,22 @@
 
         <Button Grid.Row="3" Margin="0,20,0,0" 
                 Click="Button_Click" 
-                Background="#B4045F"
+                Background="#8A0886"
                 x:Name="btnEntrar" 
                 Opacity=".9"
                 BorderBrush="Transparent">Log ing</Button>
-        <TextBlock Grid.Row="4" Text="Registrarse" Margin="30,40,0,0" Foreground="White" />
-        <TextBlock Grid.Row="4" Text="Recuperar contrasena" Margin="230,40,0,0" Foreground="White"/>
+        <Button Grid.Row="4" 
+                    x:Name="btnSignUp"
+                    BorderBrush="Transparent" Click="btnSignUp_Click">
+            New here? Sign up
+        </Button>
+        <Button Grid.Row="5" 
+                x:Name="btnForgotPassword"
+                BorderBrush="Transparent" Click="btnForgotPassword_Click">
+            Forgot your password?
+        </Button>
+        <!--<TextBlock Grid.Row="4" Text="New here? Sign up" Margin="30,40,0,0" Foreground="White" />-->
+        <!--<TextBlock Grid.Row="4" Text="Forgot your password?" Margin="230,40,0,0" Foreground="White"/>-->
 
         <!--ContentPanel. Colocar aquí el contenido adicional-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">

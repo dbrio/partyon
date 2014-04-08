@@ -133,12 +133,24 @@
 
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True"  Mode="Default" BackgroundColor="Black" Opacity=".2">
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True"  Mode="Default" BackgroundColor="Black" Opacity=".9">
             <shell:ApplicationBarIconButton  Text="Post" IconUri="/Assets/AppBar/post.png" Click="addPost" />
             <shell:ApplicationBarIconButton  Text="Music" IconUri="/Assets/AppBar/music.png" Click="ApplicationBarIconButton_Click"/>
             <shell:ApplicationBarIconButton  IconUri="/Assets/AppBar/sync.png" Text="Refresh"/>
-            <shell:ApplicationBarIconButton  IconUri="/Assets/AppBar/feature.settings.png" Text="Settings"/>
+            <!--<shell:ApplicationBarIconButton  IconUri="/Assets/AppBar/feature.settings.png" Text="Settings"/>-->
+            
             <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem
+                    x:Name="btnEditaProfile" Text="edit Profile" Click="btnEditaProfile_Click"/>
+                
+                <shell:ApplicationBarMenuItem
+                    x:Name="btnPrivacy"
+                    Text="Privacy Policy" Click="btnPrivacy_Click"
+                    />
+                <shell:ApplicationBarMenuItem
+                    x:Name="btnTerm"
+                    Text="Terms of Use" Click="btnTerm_Click"
+                    />
                 <shell:ApplicationBarMenuItem x:Name="btnLogout" Text="Logout" Click="btnLogout_Click"/>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>

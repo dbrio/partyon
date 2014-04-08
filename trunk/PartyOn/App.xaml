@@ -57,17 +57,8 @@
                         <TextBlock Grid.Column="1" Text="{Binding last_name}" HorizontalAlignment="Left" />
                         <!--<TextBlock Grid.Column="2" Text="{Binding username}" HorizontalAlignment="Left"  Foreground="Gray"/>-->
 
-                    </Grid>
-                        
-                        
-
-
-                    
-                    
-                </Grid>  
-                
-                
-
+                    </Grid>     
+                </Grid> 
             </Grid>
                     
         </DataTemplate>
@@ -238,7 +229,7 @@
                         <!--avatar-->
                         <Ellipse Grid.Column="0" Width="60" Height="60" Margin="0,20,0,10" VerticalAlignment="Center" >
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="{Binding PhotoPost_UserAvatar, StringFormat='http://partyonapp.com/upload_files/{0}'}" Opacity="0.5"/>
+                                <ImageBrush ImageSource="{Binding PhotoPost_UserAvatar, StringFormat='http://partyonapp.com/upload_files/{0}'}" />
                             </Ellipse.Fill>
                         </Ellipse>
 
