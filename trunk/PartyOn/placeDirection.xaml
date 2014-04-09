@@ -16,8 +16,19 @@
     shell:SystemTray.IsVisible="True" Loaded="PhoneApplicationPage_Loaded">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <maps:Map Grid.Row="0" x:Name="mapPlace"
+        <Grid Grid.Row="0" Background="#333">
+            <TextBlock x:Name="directionTo" 
+                       VerticalAlignment= "Center"
+                       Foreground="White"
+                       HorizontalAlignment="Center"
+Margin="146,10,146,0"/>
+        </Grid>
+        <maps:Map Grid.Row="1" x:Name="mapPlace"
                   Background="Black"
                   LandmarksEnabled="True"
                   PedestrianFeaturesEnabled="True"
@@ -25,10 +36,8 @@
                   ZoomLevel="16"
                   CartographicMode="Road"
                   Margin="0,0,0,10">
-            
-        </maps:Map>
 
- 
+        </maps:Map>
     </Grid>
 
 </phone:PhoneApplicationPage>
