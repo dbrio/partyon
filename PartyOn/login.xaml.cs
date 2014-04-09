@@ -92,6 +92,17 @@ namespace PartyOn
                     NavigationService.RemoveBackEntry();
                 }
             }
+            else if (NavigationContext.QueryString.ContainsKey("username") && NavigationContext.QueryString.ContainsKey("pass"))
+            {
+                txtUser.Text = Convert.ToString(NavigationContext.QueryString["username"]);
+                txtPassword.Password = Convert.ToString(NavigationContext.QueryString["pass"]);
+                NavigationService.RemoveBackEntry();
+
+                pbLogin.Visibility = System.Windows.Visibility.Visible;
+                btnEntrar.IsEnabled = false;
+                HacerLogin();
+
+            }
         }
 
         private void ClienteWeb_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
@@ -136,6 +147,7 @@ namespace PartyOn
                     {
                         MessageBox.Show("Username or password incorrect, please try again.", "PartyOn", MessageBoxButton.OK);
                         txtPassword.Password = "";
+                        btnEntrar.IsEnabled = true;
                     }
                 }
                 catch (Exception ex)

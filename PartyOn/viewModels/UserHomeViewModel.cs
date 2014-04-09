@@ -1,4 +1,5 @@
-﻿using PartyOn.model.homeM;
+﻿using Microsoft.Phone.Shell;
+using PartyOn.model.homeM;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -45,7 +46,7 @@ namespace PartyOn.viewModels.homeV
                {
                    UserHomeList = new ObservableCollection<modelHome>(a.ResultsHome);
                    isBusy = false;
-
+                   UpdateTile();
                };
        }
 
@@ -64,6 +65,34 @@ namespace PartyOn.viewModels.homeV
                 }
                 return getUserHomeCommand;
             }
+        }
+
+        private void UpdateTile()
+        {
+            //ShellTile tile = ShellTile.ActiveTiles.First();
+            //if (tile != null)
+            //{
+            //    //CycleTileData cycleData = new CycleTileData()
+            //    //{
+            //    //    Title = "PartyOn",
+            //    //    Count = userHomeList.Count(),
+            //    //    SmallBackgroundImage = new Uri("cycleTitleSmall-06.png", UriKind.Relative),
+            //    //    CycleImages = new Uri[] 
+            //    //    {
+            //    //        new Uri("http://partyonapp.com/media/PhotoPosts/sentPhoto_12.jpg", UriKind.Absolute),
+            //    //        new Uri("http://partyonapp.com/media/PhotoPosts/sentPhoto_11.jpg", UriKind.Absolute),
+            //    //        new Uri("http://partyonapp.com/media/PhotoPosts/sentPhoto_10.jpg", UriKind.Absolute),
+            //    //    }
+            //    //};
+            //    //tile.Update(cycleData);
+            //    //IconicTileData iconicTile = new IconicTileData()
+            //    //{
+            //    //    Count = userHomeList.Count(),
+            //    //    WideContent1 = string.Format("{0} near places", userHomeList.Count.ToString()),
+            //    //    WideContent2 = string.Format("Last Update: {0}", DateTime.Now.ToString())
+            //    //};
+            //    //tile.Update(iconicTile);
+            //}   
         }
     }
 }
