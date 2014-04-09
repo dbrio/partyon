@@ -71,7 +71,7 @@
 
         <Button Grid.Row="3" Margin="0,20,0,0" 
                 Click="Button_Click" 
-                Background="#8A0886"
+                Background="#04B486"
                 x:Name="btnEntrar" 
                 Opacity=".9"
                 BorderBrush="Transparent">Log ing</Button>
