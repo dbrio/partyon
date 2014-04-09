@@ -43,7 +43,7 @@ namespace PartyOn
 
         private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
-            directionTo.Text = "Direction to: " + PlaceName;
+            directionTo.Text = "Directions to " + PlaceName;
             Microsoft.Phone.Maps.MapsSettings.ApplicationContext.ApplicationId = "ff9f3fa5-b169-4641-b951-014d35f1b18d";
             Microsoft.Phone.Maps.MapsSettings.ApplicationContext.AuthenticationToken = "TDJ3taacDooeNQzK3ZTOyg";
 

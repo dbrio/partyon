@@ -265,6 +265,11 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Tiles\icono1.png" />
+    <Content Include="Assets\Tiles\window phone-05.png" />
+    <Content Include="Assets\Tiles\window phone-06.png" />
+    <Content Include="Assets\Tiles\window phone-07.png" />
+    <Content Include="Assets\Tiles\window phone-08.png" />
     <Content Include="cycleTitleSmall-06.png" />
     <Content Include="fondo.png" />
     <Content Include="iconicTitleSmall-05.png" />
