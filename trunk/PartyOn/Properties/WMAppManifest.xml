@@ -24,7 +24,8 @@
           <SmallImageURI IsRelative="true" IsResource="false">cycleTitleSmall-06.png</SmallImageURI>
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">plipTitleMedio-04.png</BackgroundImageURI>
-          <Title>PartyOn</Title>
+          <Title>
+          </Title>
           <BackContent>
           </BackContent>
           <BackBackgroundImageURI IsRelative="true" IsResource="false">

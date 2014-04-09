@@ -122,6 +122,7 @@
     <Compile Include="model\homeM\modelHome.cs" />
     <Compile Include="model\homeM\serviceModelHome.cs" />
     <Compile Include="model\homeM\UserHomeEventArg.cs" />
+    <Compile Include="model\modelValidator.cs" />
     <Compile Include="model\profile\modelProfile.cs" />
     <Compile Include="model\profile\PerfilEverArg.cs" />
     <Compile Include="model\profile\servicePerfil.cs" />
