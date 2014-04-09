@@ -167,7 +167,7 @@ namespace PartyOn
 
        private void btnEditaProfile_Click(object sender, EventArgs e)
        {
-           NavigationService.Navigate(new Uri("/content/editProfile.xaml", UriKind.Relative));
+           NavigationService.Navigate(new Uri("/editProfile.xaml", UriKind.Relative));
        }
 
        private void btnPrivacy_Click(object sender, EventArgs e)
