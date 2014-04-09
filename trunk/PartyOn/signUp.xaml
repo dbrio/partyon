@@ -157,6 +157,7 @@
 
 
         <Button x:Name="btnEntrar"  Grid.Row="8" Margin="0,20,0,0" Foreground="White"
+                FontSize="40"
                 Click="btnEntrar_Click" 
                 Background="#04B486"
                 Opacity="1"

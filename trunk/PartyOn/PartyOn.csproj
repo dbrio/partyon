@@ -97,7 +97,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="content\editProfile.xaml.cs">
+    <Compile Include="editProfile.xaml.cs">
       <DependentUpon>editProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="content\privacy.xaml.cs">
@@ -172,7 +172,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="content\editProfile.xaml">
+    <Page Include="editProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
