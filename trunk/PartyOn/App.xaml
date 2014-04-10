@@ -227,9 +227,10 @@
                         </Grid.ColumnDefinitions>
 
                         <!--avatar-->
-                        <Ellipse Grid.Column="0" Width="60" Height="60" Margin="-10,20,0,10" VerticalAlignment="Center" >
+                        <Ellipse Grid.Column="0" Width="60" Height="60" Margin="-10,20,0,10" VerticalAlignment="Center" Stretch="UniformToFill">
                             <Ellipse.Fill>
-                                <ImageBrush ImageSource="{Binding PhotoPost_UserAvatar, StringFormat='http://partyonapp.com/upload_files/{0}'}"/>
+                                <ImageBrush ImageSource="{Binding PhotoPost_UserAvatar, StringFormat='http://partyonapp.com/upload_files/{0}'}" Stretch="UniformToFill">
+                                </ImageBrush>
                             </Ellipse.Fill>
                         </Ellipse>
 
