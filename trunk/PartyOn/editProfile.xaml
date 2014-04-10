@@ -9,12 +9,14 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
+    shell:SystemTray.BackgroundColor="Black"
+    shell:SystemTray.ForegroundColor="#8A0886"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -22,8 +24,8 @@
 
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="PartyOn" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="Edit Profile" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Foreground="White" Text="PartyOn" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Foreground="White" Text="Edit Profile" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
             <ProgressBar x:Name="pbEditProfile" Visibility="Collapsed" Height="10" IsIndeterminate="True"/>
         </StackPanel>
 
@@ -35,7 +37,9 @@
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
             
-            <Button x:Name="btnEditPic" Grid.Row="0" VerticalAlignment="Center" 
+            <Button x:Name="btnEditPic" Grid.Row="0" 
+                    Foreground="White"
+                    VerticalAlignment="Center" 
                     HorizontalAlignment="Center"
                     FontSize="30"
                     BorderBrush="Transparent"
@@ -54,9 +58,13 @@
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Password:"
+                    <TextBlock  Grid.Column="0" Text="Password:"
                                VerticalAlignment="Center"/>
-                    <PasswordBox Grid.Column="1" x:Name="txtPassword" Margin="0,0,-7,15"/>
+                    <PasswordBox Foreground="White" Background="gray" 
+                                 Grid.Column="1"
+                                 x:Name="txtPassword" 
+                                 Margin="0,0,-7,15"
+                                 BorderBrush="#333333"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
@@ -64,9 +72,13 @@
                         <ColumnDefinition Width="100"/>
                         <ColumnDefinition Width="356"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="Password:"
+                    <TextBlock  Grid.Column="0" Text="Password:"
                                VerticalAlignment="Center"/>
-                    <PasswordBox Grid.Column="1" x:Name="txtPassword2" Margin="0,0,-7,15"/>
+                    <PasswordBox Background="Gray"
+                                 Foreground="White" Grid.Column="1" 
+                                 x:Name="txtPassword2" 
+                                 Margin="0,0,-7,15"
+                                 BorderBrush="#333333"/>
                 </Grid>
 
             </Grid>
@@ -78,7 +90,7 @@
             	FontSize="40"
             	Foreground="White"
             	FontFamily="Meiryo UI"
-            	Margin="120,0" Height="92"
+            	Margin="150,5,53,3" Height="92"
                 IsEnabled="True" Click="btnOk_Click"/>
 
         </Grid>

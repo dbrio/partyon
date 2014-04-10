@@ -9,12 +9,14 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
+    shell:SystemTray.BackgroundColor="Black"
+    shell:SystemTray.ForegroundColor="#8A0886"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -22,14 +24,14 @@
 
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="PartyOn" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="Privacy Policy" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Foreground="White" Text="PartyOn" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Foreground="White" Text="Privacy Policy" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
             
         </StackPanel>
 
         <!--ContentPanel. Colocar aquí el contenido adicional-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock TextWrapping="Wrap" Margin="0,30,0,0">
+            <TextBlock Foreground="#f3f3f3" TextWrapping="Wrap" Margin="0,30,0,0">
 
 
             </TextBlock>
