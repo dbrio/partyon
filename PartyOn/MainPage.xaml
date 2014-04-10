@@ -52,7 +52,7 @@
 
         <!--se define la interfas -->
         <!--se define la interfas -->
-        <phone:Pivot x:Name="pivotPrincipal" Foreground="White" Grid.Row="1" Background="Black" SelectionChanged="Pivot_SelectionChanged">
+        <phone:Pivot x:Name="pivotPrincipal" Foreground="White" Grid.Row="1" Background="Black" SelectionChanged="Pivot_SelectionChanged" LoadedPivotItem="Pivot_LoadedPivotItem">
             <phone:Pivot.HeaderTemplate>
                 <DataTemplate>
                     <Grid Height="85" Width="auto">

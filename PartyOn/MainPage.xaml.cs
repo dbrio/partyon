@@ -87,11 +87,35 @@ namespace PartyOn
             get { return placeLong; }
             set { placeLong = value; }
         }
-        
-       //private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
-       // {
-       //     pivotActivo1 = e.Item.Name.ToString();
-       // }
+
+        private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
+        {
+            string namePivo = e.Item.Name.ToString();
+
+            if (namePivo == "Home")
+            {
+                pivotActivo1 = 0;
+            }
+            else if (namePivo == "Activity")
+            {
+                pivotActivo1 = 1;
+            }
+            else if (namePivo == "Tends")
+            {
+                pivotActivo1 = 2;
+            }
+            else if (namePivo == "HeyDj")
+            {
+                pivotActivo1 = 3;
+            }
+            else if (namePivo == "Profile")
+            {
+                pivotActivo1 = 4;
+            }
+
+            CargarDatosActualizados(pivotActivo1);
+
+        }
 
        private void CargarDatosActualizados(int pivotActivo)
        {
@@ -120,15 +144,15 @@ namespace PartyOn
                (App.Current.Resources["vmSong"] as viewModels.UserSongViewModel).GetUserSongCommand.Execute(null);
 
            }
-           //if (pivotActivo == 4)
-           //{
+           if (pivotActivo == 4)
+           {
 
-           //    (App.Current.Resources["vmProfile"] as viewModels.UserProfileViewModel).id = uid;
-           //    (App.Current.Resources["vmProfile"] as viewModels.UserProfileViewModel).GetUserProfileCommand.Execute(null);
-           //    (App.Current.Resources["vmPerfil"] as viewModels.PerfilViewModel).id = uid;
-           //    (App.Current.Resources["vmPerfil"] as viewModels.PerfilViewModel).GetUserPerfilCommand.Execute(null);
+               (App.Current.Resources["vmProfile"] as viewModels.UserProfileViewModel).id = uid;
+               (App.Current.Resources["vmProfile"] as viewModels.UserProfileViewModel).GetUserProfileCommand.Execute(null);
+               (App.Current.Resources["vmPerfil"] as viewModels.PerfilViewModel).id = uid;
+               (App.Current.Resources["vmPerfil"] as viewModels.PerfilViewModel).GetUserPerfilCommand.Execute(null);
 
-           //}
+           }
        }
 
        private void addPost(object sender, EventArgs e)
