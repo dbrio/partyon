@@ -138,6 +138,7 @@
             <shell:ApplicationBarIconButton  Text="Post" IconUri="/Assets/AppBar/post.png" Click="addPost" />
             <shell:ApplicationBarIconButton  Text="Music" IconUri="/Assets/AppBar/music.png" Click="ApplicationBarIconButton_Click"/>
             <shell:ApplicationBarIconButton  IconUri="/Assets/AppBar/sync.png" Text="Refresh"/>
+            <shell:ApplicationBarIconButton x:Name="btnShareApp"  IconUri="/Assets/AppBar/share.png" Click="btnShareApp_Click" Text="Share"/>
             <!--<shell:ApplicationBarIconButton  IconUri="/Assets/AppBar/feature.settings.png" Text="Settings"/>-->
 
             <shell:ApplicationBar.MenuItems>

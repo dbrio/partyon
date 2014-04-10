@@ -14,6 +14,7 @@ using Windows.Devices.Geolocation;
 using PartyOn.model.userData;
 using System.IO;
 using Microsoft.Phone.Net.NetworkInformation;
+using Microsoft.Phone.Tasks;
 
 
 
@@ -198,6 +199,20 @@ namespace PartyOn
        private void btnTerm_Click(object sender, EventArgs e)
        {
            NavigationService.Navigate(new Uri("/content/terms.xaml", UriKind.Relative));
+
+       }
+
+       private void btnShareApp_Click(object sender, EventArgs e)
+       {
+           ShareStatusTask statusTask = new ShareStatusTask();
+           statusTask.Status = "I share photos of my parties with #PartyOn for #WindowsPhone, it's easy to use, try it.";
+           statusTask.Show();
+
+           //ShareLinkTask linkTask = new ShareLinkTask();
+           //linkTask.Title = "Probando...";
+           //linkTask.LinkUri = new Uri("http://www.google.com", UriKind.Absolute);
+           //linkTask.Message = "¿Sera que funciona correctamente esto?";
+           //linkTask.Show();
 
        }
         
