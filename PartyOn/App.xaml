@@ -9,6 +9,8 @@
     xmlns:place="clr-namespace:PartyOn.viewModels"
     xmlns:perfil="clr-namespace:PartyOn.viewModels"
     xmlns:song="clr-namespace:PartyOn.viewModels"
+    
+  
     xmlns:profile="clr-namespace:PartyOn.viewModels">
     
     
@@ -53,8 +55,8 @@
                             <ColumnDefinition/>
                             <!--<ColumnDefinition/>-->
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="{Binding first_name}" HorizontalAlignment="Right" Margin="0,0,2,0"/>
-                        <TextBlock Grid.Column="1" Text="{Binding last_name}" HorizontalAlignment="Left" />
+                        <TextBlock Foreground="White" Grid.Column="0" Text="{Binding first_name}" HorizontalAlignment="Right" Margin="0,0,2,0"/>
+                        <TextBlock Foreground="White" Grid.Column="1" Text="{Binding last_name}" HorizontalAlignment="Left" />
                         <!--<TextBlock Grid.Column="2" Text="{Binding username}" HorizontalAlignment="Left"  Foreground="Gray"/>-->
 
                     </Grid>     

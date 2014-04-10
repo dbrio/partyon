@@ -11,6 +11,8 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
+    shell:SystemTray.BackgroundColor="Black"
+    shell:SystemTray.ForegroundColor="#8A0886"
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True"
     DataContext="{Binding Source={StaticResource vmPlace}}">
@@ -29,7 +31,7 @@
         </DataTemplate>
     </phone:PhoneApplicationPage.Resources>
 
-    <Grid>
+    <Grid Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="170"/>
             <RowDefinition/>
@@ -56,7 +58,11 @@
                        Foreground="#04B486"
                        HorizontalAlignment="Center"
                        Margin="104,10,103,0" Height="25"/>
-            <TextBox Width="300" VerticalAlignment="Center" x:Name="txtNewPlaceName">
+            <TextBox Width="300" VerticalAlignment="Center" 
+                     Background="Gray"
+                     Foreground="White"
+                     BorderBrush="#333333"
+                     x:Name="txtNewPlaceName">
                 <TextBox.InputScope>
                     <InputScope>
                         <InputScopeName NameValue="PersonalFullName"/>
