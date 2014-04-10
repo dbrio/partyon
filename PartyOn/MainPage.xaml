@@ -14,11 +14,11 @@
     shell:SystemTray.IsVisible="True"
     DataContext="{Binding  Source={StaticResource vmHome}}">
 
-    <shell:SystemTray.ProgressIndicator>
+    <!--<shell:SystemTray.ProgressIndicator>
         <shell:ProgressIndicator IsIndeterminate="True"
                                  IsVisible="{Binding IsBusy}"/>
 
-    </shell:SystemTray.ProgressIndicator>
+    </shell:SystemTray.ProgressIndicator>-->
 
     <phone:PhoneApplicationPage.Resources>
 
@@ -76,7 +76,7 @@
             </phone:PivotItem>
 
             <!--Activity-->
-            
+
             <phone:PivotItem x:Name="Activity" Header="Activity"  DataContext="{Binding Source={StaticResource vmUserActivity}}" Margin="0,10,-13,0">
                 <ListBox ItemsSource="{Binding  UserActivityList}"
                          ItemTemplate="{StaticResource UserActivityTemplate}" 
@@ -139,11 +139,11 @@
             <shell:ApplicationBarIconButton  Text="Music" IconUri="/Assets/AppBar/music.png" Click="ApplicationBarIconButton_Click"/>
             <shell:ApplicationBarIconButton  IconUri="/Assets/AppBar/sync.png" Text="Refresh"/>
             <!--<shell:ApplicationBarIconButton  IconUri="/Assets/AppBar/feature.settings.png" Text="Settings"/>-->
-            
+
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem
                     x:Name="btnEditaProfile" Text="edit Profile" Click="btnEditaProfile_Click"/>
-                
+
                 <shell:ApplicationBarMenuItem
                     x:Name="btnPrivacy"
                     Text="Privacy Policy" Click="btnPrivacy_Click"

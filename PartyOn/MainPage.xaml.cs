@@ -22,6 +22,7 @@ namespace PartyOn
     public partial class MainPage : PhoneApplicationPage
     {
         public int uid;
+        public string username;
         bool isNetwork = NetworkInterface.GetIsNetworkAvailable();
         // Constructor
         public MainPage()
@@ -90,9 +91,9 @@ namespace PartyOn
        
             if(e.Item.Name =="Home")
             {
-                (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).lati = PlaceLat;
-                (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).longi = placeLong;
-                (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).GetUserHomeCommand.Execute(null);
+                //(App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).lati = PlaceLat;
+                //(App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).longi = placeLong;
+                //(App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).GetUserHomeCommand.Execute(null);
             }
             if (e.Item.Name == "Activity")
             {
@@ -139,6 +140,7 @@ namespace PartyOn
            if (NavigationContext.QueryString.ContainsKey("uid"))
            {
                uid = Convert.ToInt16(NavigationContext.QueryString["uid"]);
+               username = Convert.ToString(NavigationContext.QueryString["username"]);
            }
            else
            {
@@ -183,7 +185,8 @@ namespace PartyOn
 
        private void btnEditaProfile_Click(object sender, EventArgs e)
        {
-           NavigationService.Navigate(new Uri("/editProfile.xaml", UriKind.Relative));
+           string uri = string.Format("/editProfile.xaml?uid={0}&username={1}", uid, username);
+           NavigationService.Navigate(new Uri(uri, UriKind.Relative));
        }
 
        private void btnPrivacy_Click(object sender, EventArgs e)
