@@ -13,6 +13,7 @@ using PartyOn.model;
 using Windows.Devices.Geolocation;
 using PartyOn.model.userData;
 using System.IO;
+using Microsoft.Phone.Net.NetworkInformation;
 
 
 
@@ -21,6 +22,7 @@ namespace PartyOn
     public partial class MainPage : PhoneApplicationPage
     {
         public int uid;
+        bool isNetwork = NetworkInterface.GetIsNetworkAvailable();
         // Constructor
         public MainPage()
         {
@@ -33,23 +35,37 @@ namespace PartyOn
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            NavigationService.RemoveBackEntry();
-            GetLocation();
-
+            if (!isNetwork)
+            {
+                MessageBox.Show("Network not available to get data.", "PartyOn", MessageBoxButton.OK);
+            }
+            else
+            {
+                NavigationService.RemoveBackEntry();
+                GetLocation();
+            }
         }
 
 
         async public void GetLocation()
         {
             Geolocator geolocator = new Geolocator();
-            geolocator.DesiredAccuracy = PositionAccuracy.Default;
-            Geoposition myLocation = await geolocator.GetGeopositionAsync();
-            PlaceLat = myLocation.Coordinate.Latitude;
-            PlaceLong = myLocation.Coordinate.Longitude;
+            if (geolocator.LocationStatus == PositionStatus.Disabled || geolocator.LocationStatus == PositionStatus.NotAvailable)
+            {
+                MessageBox.Show("Location services are disabled. To enable them, Goto Settings - Location - Enable Location Services.", "PartyOn", MessageBoxButton.OK);
+            }
+            else
+            {
+                geolocator.DesiredAccuracy = PositionAccuracy.Default;
+                Geoposition myLocation = await geolocator.GetGeopositionAsync();
+                PlaceLat = myLocation.Coordinate.Latitude;
+                PlaceLong = myLocation.Coordinate.Longitude;
 
-            (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).lati = PlaceLat;
-            (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).longi = placeLong;
-            (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).GetUserHomeCommand.Execute(null);
+                (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).lati = PlaceLat;
+                (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).longi = placeLong;
+                (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).GetUserHomeCommand.Execute(null);
+            }
+            
             
             //MessageBox.Show(string.Format("{0} > {1}", placeLat, placeLong), "geolocalizacion", MessageBoxButton.OK);
         }
