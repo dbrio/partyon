@@ -25,6 +25,7 @@ namespace PartyOn
         public int uid;
         public string username;
         bool isNetwork = NetworkInterface.GetIsNetworkAvailable();
+        int pivotActivo1;
         // Constructor
         public MainPage()
         {
@@ -87,37 +88,48 @@ namespace PartyOn
             set { placeLong = value; }
         }
         
-       private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
-        {
-       
-            if(e.Item.Name =="Home")
-            {
-                //(App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).lati = PlaceLat;
-                //(App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).longi = placeLong;
-                //(App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).GetUserHomeCommand.Execute(null);
-            }
-            if (e.Item.Name == "Activity")
-            {
-                (App.Current.Resources["vmUserActivity"] as viewModels.UserActivityViewModel).GetUserActivityCommand.Execute(null);
-            } 
-           if (e.Item.Name == "HeyDj")
+       //private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
+       // {
+       //     pivotActivo1 = e.Item.Name.ToString();
+       // }
+
+       private void CargarDatosActualizados(int pivotActivo)
+       {
+           if (pivotActivo == 0)
+           {
+               (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).lati = PlaceLat;
+               (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).longi = placeLong;
+               (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).GetUserHomeCommand.Execute(null);
+           }
+           if (pivotActivo == 1)
+           {
+               (App.Current.Resources["vmUserActivity"] as viewModels.UserActivityViewModel).GetUserActivityCommand.Execute(null);
+           }
+           if (pivotActivo == 2)
+           {
+               //Trends
+               //(App.Current.Resources["vmSong"] as viewModels.UserSongViewModel).lati = placeLat;
+               //(App.Current.Resources["vmSong"] as viewModels.UserSongViewModel).longi = placeLong;
+               //(App.Current.Resources["vmSong"] as viewModels.UserSongViewModel).GetUserSongCommand.Execute(null);
+
+           }
+           if (pivotActivo == 3)
            {
                (App.Current.Resources["vmSong"] as viewModels.UserSongViewModel).lati = placeLat;
                (App.Current.Resources["vmSong"] as viewModels.UserSongViewModel).longi = placeLong;
                (App.Current.Resources["vmSong"] as viewModels.UserSongViewModel).GetUserSongCommand.Execute(null);
 
            }
-           if (e.Item.Name == "Profile")
-           {
+           //if (pivotActivo == 4)
+           //{
 
-               (App.Current.Resources["vmProfile"] as viewModels.UserProfileViewModel).id = uid;
-               (App.Current.Resources["vmProfile"] as viewModels.UserProfileViewModel).GetUserProfileCommand.Execute(null);
-               (App.Current.Resources["vmPerfil"] as viewModels.PerfilViewModel).id = uid;
-               (App.Current.Resources["vmPerfil"] as viewModels.PerfilViewModel).GetUserPerfilCommand.Execute(null);
-               
-           }
-           
-        }
+           //    (App.Current.Resources["vmProfile"] as viewModels.UserProfileViewModel).id = uid;
+           //    (App.Current.Resources["vmProfile"] as viewModels.UserProfileViewModel).GetUserProfileCommand.Execute(null);
+           //    (App.Current.Resources["vmPerfil"] as viewModels.PerfilViewModel).id = uid;
+           //    (App.Current.Resources["vmPerfil"] as viewModels.PerfilViewModel).GetUserPerfilCommand.Execute(null);
+
+           //}
+       }
 
        private void addPost(object sender, EventArgs e)
        {
@@ -214,6 +226,16 @@ namespace PartyOn
            //linkTask.Message = "¿Sera que funciona correctamente esto?";
            //linkTask.Show();
 
+       }
+
+       private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+       {
+           pivotActivo1 = pivotPrincipal.SelectedIndex;
+       }
+
+       private void btnRefresh_Click(object sender, EventArgs e)
+       {
+           CargarDatosActualizados(pivotActivo1);
        }
         
         // Código de ejemplo para compilar una ApplicationBar traducida
