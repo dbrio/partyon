@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
-  <DefaultLanguage xmlns="" code="es-ES" />
-  <App xmlns="" ProductID="{91292cc7-0717-4d74-bca6-2b6adf7b9822}" Title="PartyOn" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="PartyOn author" Description="Sample description" Publisher="PartyOn" PublisherID="{c1dba1ac-1512-406f-a056-fbc4e92948b5}">
+  <DefaultLanguage xmlns="" code="es-419" />
+  <App xmlns="" ProductID="{91292cc7-0717-4d74-bca6-2b6adf7b9822}" Title="PartyOn" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="PartyOn author" Description="PartyOn is the best place to share photos of your parties." Publisher="PartyOn" PublisherID="{c1dba1ac-1512-406f-a056-fbc4e92948b5}">
     <IconPath IsRelative="true" IsResource="false">PartyOnIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
