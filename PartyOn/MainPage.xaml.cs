@@ -106,11 +106,11 @@ namespace PartyOn
             }
             else if (namePivo == "HeyDj")
             {
-                pivotActivo1 = 3;
+                pivotActivo1 = 2;
             }
             else if (namePivo == "Profile")
             {
-                pivotActivo1 = 4;
+                pivotActivo1 = 3;
             }
 
             CargarDatosActualizados(pivotActivo1);
@@ -129,7 +129,7 @@ namespace PartyOn
            {
                (App.Current.Resources["vmUserActivity"] as viewModels.UserActivityViewModel).GetUserActivityCommand.Execute(null);
            }
-           if (pivotActivo == 2)
+           if (pivotActivo == 222)
            {
                //Trends
                //(App.Current.Resources["vmSong"] as viewModels.UserSongViewModel).lati = placeLat;
@@ -137,14 +137,14 @@ namespace PartyOn
                //(App.Current.Resources["vmSong"] as viewModels.UserSongViewModel).GetUserSongCommand.Execute(null);
 
            }
-           if (pivotActivo == 3)
+           if (pivotActivo == 2)
            {
                (App.Current.Resources["vmSong"] as viewModels.UserSongViewModel).lati = placeLat;
                (App.Current.Resources["vmSong"] as viewModels.UserSongViewModel).longi = placeLong;
                (App.Current.Resources["vmSong"] as viewModels.UserSongViewModel).GetUserSongCommand.Execute(null);
 
            }
-           if (pivotActivo == 4)
+           if (pivotActivo == 3)
            {
 
                (App.Current.Resources["vmProfile"] as viewModels.UserProfileViewModel).id = uid;
