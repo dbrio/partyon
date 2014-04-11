@@ -49,7 +49,7 @@ namespace PartyOn
             }
             else
             {
-                MessageBox.Show("Write the song name.", "PartyOn", MessageBoxButton.OK);
+                MessageBox.Show("Write the name of the song.", "PartyOn", MessageBoxButton.OK);
             }
             
         }

@@ -34,13 +34,13 @@ namespace PartyOn
                 }
                 else
                 {
-                    MessageBox.Show("Passwords are different", "PartyOn", MessageBoxButton.OK);
+                    MessageBox.Show("Not matching passwords.", "PartyOn", MessageBoxButton.OK);
                 }
                
             }
             else
             {
-                MessageBox.Show("You must enter all data before proceeding", "PartyOn", MessageBoxButton.OK);
+                MessageBox.Show("You must enter all data before proceeding.", "PartyOn", MessageBoxButton.OK);
             }
         }
 
@@ -60,13 +60,13 @@ namespace PartyOn
             }
             else
             {
-                MessageBox.Show("Error, this username is already in PartyOn.", "PartyOn", MessageBoxButton.OK);
+                MessageBox.Show("Error, this username is already registered in PartyOn.", "PartyOn", MessageBoxButton.OK);
             }
         }
 
         private void DisponibleUsuario()
         {
-            string uriJson = "http://partyonapp.com/API/comprobarusername/";
+            string uriJson = "http://www.partyonapp.com/API/comprobarusername/";
             string uri = uriJson + "?uname=" + txtUserName.Text;
 
             WebClient client = new WebClient();

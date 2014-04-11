@@ -46,7 +46,7 @@
 
             <TextBlock Grid.Column="0"
                        
-                       Text="User" Margin="0,10"
+                       Text="Username" Margin="0,10"
                        HorizontalAlignment="Center"
                        Foreground="White"/>
             <TextBox Grid.Column="1" 
@@ -87,18 +87,18 @@
                 Background="#04B486"
                 x:Name="btnEntrar" 
                 Opacity="1"
-                BorderBrush="Transparent" Grid.RowSpan="2">Log ing</Button>
+                BorderBrush="Transparent" Grid.RowSpan="2">Sign in</Button>
         <Button Grid.Row="4" 
                 Foreground="White"
                     x:Name="btnSignUp"
                     BorderBrush="Transparent" Click="btnSignUp_Click">
-            New here? Sign up
+            Sign up
         </Button>
         <Button Grid.Row="5" 
                 Foreground="White"
                 x:Name="btnForgotPassword"
                 BorderBrush="Transparent" Click="btnForgotPassword_Click">
-            Forgot your password?
+            Forgot password?
         </Button>
         <!--<TextBlock Grid.Row="4" Text="New here? Sign up" Margin="30,40,0,0" Foreground="White" />-->
         <!--<TextBlock Grid.Row="4" Text="Forgot your password?" Margin="230,40,0,0" Foreground="White"/>-->

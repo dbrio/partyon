@@ -149,13 +149,13 @@
 
                 <shell:ApplicationBarMenuItem
                     x:Name="btnPrivacy"
-                    Text="Privacy Policy" Click="btnPrivacy_Click"
+                    Text="Privacy" Click="btnPrivacy_Click"
                     />
                 <shell:ApplicationBarMenuItem
                     x:Name="btnTerm"
                     Text="Terms of Use" Click="btnTerm_Click"
                     />
-                <shell:ApplicationBarMenuItem x:Name="btnLogout" Text="Logout" Click="btnLogout_Click"/>
+                <shell:ApplicationBarMenuItem x:Name="btnLogout" Text="Sign out" Click="btnLogout_Click"/>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
