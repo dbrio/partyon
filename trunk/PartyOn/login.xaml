@@ -52,7 +52,7 @@
             <TextBox Grid.Column="1" 
                      Foreground="Gray"
                      Background="White"
-                     x:Name="txtUser" Margin="0,0,36,0">
+                     x:Name="txtUser" Margin="0,-10,36,0">
                 <TextBox.InputScope>
                     <InputScope>
                         <InputScopeName NameValue="LogOnName"/>
@@ -76,28 +76,28 @@
             <PasswordBox Grid.Column="1" 
                          Foreground="gray"
                          Background="White"
-                         x:Name="txtPassword" Margin="0,0,36,0"/>
+                         x:Name="txtPassword" Margin="0,-10,36,0"/>
 
         </Grid>
 
-        <Button Grid.Row="3" Margin="0,20,0,60" 
-                FontSize="40"
+        <Button Grid.Row="3" Margin="100,20,35,0" 
+                FontSize="30"
                 Foreground="White"
                 Click="Button_Click" 
                 Background="#04B486"
                 x:Name="btnEntrar" 
                 Opacity="1"
-                BorderBrush="Transparent" Grid.RowSpan="2">Sign in</Button>
+                BorderBrush="Transparent">Sign in</Button>
         <Button Grid.Row="4" 
                 Foreground="White"
                     x:Name="btnSignUp"
-                    BorderBrush="Transparent" Click="btnSignUp_Click">
+                    BorderBrush="Transparent" Click="btnSignUp_Click" Margin="60,0,0,0">
             Sign up
         </Button>
         <Button Grid.Row="5" 
                 Foreground="White"
                 x:Name="btnForgotPassword"
-                BorderBrush="Transparent" Click="btnForgotPassword_Click">
+                BorderBrush="Transparent" Click="btnForgotPassword_Click" Margin="60,0,0,0">
             Forgot password?
         </Button>
         <!--<TextBlock Grid.Row="4" Text="New here? Sign up" Margin="30,40,0,0" Foreground="White" />-->
