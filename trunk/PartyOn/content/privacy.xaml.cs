@@ -16,5 +16,10 @@ namespace PartyOn.content
         {
             InitializeComponent();
         }
+
+        //private void check(object sender, EventArgs e)
+        //{
+        //    NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+        //}
     }
 }

@@ -9,6 +9,8 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
+     shell:SystemTray.BackgroundColor="Black"
+    shell:SystemTray.ForegroundColor="#fffd"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
@@ -31,7 +33,9 @@
 
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="PartyOn" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"
+            <TextBlock Text="PartyOn" Margin="9,-7,0,0" 
+                       Foreground="White"
+                       Style="{StaticResource PhoneTextTitle1Style}"
                        HorizontalAlignment="Center"/>
             <ProgressBar Visibility="Collapsed" x:Name="pbLogin" Height="10" IsIndeterminate="True"/>
         </StackPanel>
@@ -44,10 +48,14 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0"
+                       
                        Text="First Name" Margin="0,10"
                        HorizontalAlignment="Center"
                        Foreground="White"/>
-            <TextBox Grid.Column="1" x:Name="txtFirstName" Margin="0,0,36,0">
+            <TextBox Grid.Column="1" 
+                     Background="White"
+                     Foreground="Gray"
+                     x:Name="txtFirstName" Margin="0,0,36,0">
                 <TextBox.InputScope>
                     <InputScope>
                         <InputScopeName NameValue="PersonalFullName"/>
@@ -69,7 +77,10 @@
                        Text="Last Name" Margin="0,10"
                        HorizontalAlignment="Center"
                        Foreground="White"/>
-            <TextBox Grid.Column="1" x:Name="txtLastName" Margin="0,0,36,0">
+            <TextBox Grid.Column="1" x:Name="txtLastName" 
+                     Background="White"
+                     Foreground="Gray"
+                     Margin="0,0,36,0">
                 <TextBox.InputScope>
                     <InputScope>
                         <InputScopeName NameValue="PersonalFullName"/>
@@ -91,7 +102,10 @@
                        Text="Username" Margin="0,10"
                        HorizontalAlignment="Center"
                        Foreground="White"/>
-            <TextBox Grid.Column="1" x:Name="txtUserName" Margin="0,0,36,0">
+            <TextBox Grid.Column="1" 
+                     Background="White"
+                     Foreground="Gray"
+                     x:Name="txtUserName" Margin="0,0,36,0">
                 <TextBox.InputScope>
                     <InputScope>
                         <InputScopeName NameValue="EmailUserName"/>
@@ -114,7 +128,10 @@
                        Text="E-mail" Margin="0,10"
                        HorizontalAlignment="Center"
                        Foreground="White"/>
-            <TextBox Grid.Column="1" x:Name="txtEmail" Margin="0,0,36,0">
+            <TextBox Grid.Column="1" 
+                     Background="White"
+                     Foreground="Gray"
+                     x:Name="txtEmail" Margin="0,0,36,0">
                 <TextBox.InputScope>
                     <InputScope>
                         <InputScopeName NameValue="EmailSmtpAddress"/>
@@ -135,7 +152,10 @@
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" Height="37" Margin="9,23,9,10"
                        Foreground="White"/>
-            <PasswordBox Grid.Column="1" x:Name="txtPassword" Margin="0,0,36,0"/>
+            <PasswordBox Grid.Column="1" 
+                         Background="White"
+                         Foreground="Gray"
+                         x:Name="txtPassword" Margin="0,0,36,0"/>
 
         </Grid>
         <Grid Grid.Row="6">
@@ -149,11 +169,17 @@
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" Height="37" Margin="9,23,9,10"
                        Foreground="White"/>
-            <PasswordBox Grid.Column="1" x:Name="txtPassword2" Margin="0,0,36,0"/>
+            <PasswordBox Grid.Column="1" 
+                         Background="White"
+                         Foreground="Gray"
+                         x:Name="txtPassword2" Margin="0,0,36,0"/>
 
         </Grid>
 
-        <CheckBox Content="I agree to the terms and privacy." HorizontalAlignment="Left" Margin="45,0,0,0" Grid.Row="7" VerticalAlignment="Top" Height="70" Width="430" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+        <CheckBox Content="I agree to the terms and privacy." 
+                  Background="White"
+                  Foreground="White"
+                  HorizontalAlignment="Left" Margin="45,0,0,0" Grid.Row="7" VerticalAlignment="Top" Height="70" Width="430" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
 
 
         <Button x:Name="btnEntrar"  Grid.Row="8" Margin="0,20,0,0" Foreground="White"

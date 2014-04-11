@@ -9,8 +9,6 @@
     xmlns:place="clr-namespace:PartyOn.viewModels"
     xmlns:perfil="clr-namespace:PartyOn.viewModels"
     xmlns:song="clr-namespace:PartyOn.viewModels"
-    
-  
     xmlns:profile="clr-namespace:PartyOn.viewModels">
     
     

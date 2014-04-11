@@ -11,8 +11,8 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    shell:SystemTray.BackgroundColor="Black"
-    shell:SystemTray.ForegroundColor="#8A0886"
+     shell:SystemTray.BackgroundColor="Black"
+    shell:SystemTray.ForegroundColor="#fffd"
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True"
     DataContext="{Binding Source={StaticResource vmPlace}}">
@@ -33,12 +33,16 @@
 
     <Grid Background="Black">
         <Grid.RowDefinitions>
-            <RowDefinition Height="170"/>
+            <RowDefinition Height="115"/>
             <RowDefinition/>
             <RowDefinition Height="180"/>
         </Grid.RowDefinitions>
 
-
+        <TextBlock Text="Pick up a place"
+                   Foreground="White"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   FontSize="40" Margin="0,44,0,0" Height="53" Width="372"/>
 
         <!--<maps:Map Grid.Row="0" x:Name="mapsON"
                   Background="Black"
@@ -51,7 +55,7 @@
 
         <ListBox x:Name="listBoxPlace" Grid.Row="1"
                      ItemsSource="{Binding UserPlaceList}"
-                     ItemTemplate="{StaticResource placeTemple}" SelectionChanged="listBoxPlace_SelectionChanged" Margin="0,0,0,18"/>
+                     ItemTemplate="{StaticResource placeTemple}" SelectionChanged="listBoxPlace_SelectionChanged" Margin="15,0,0,18"/>
 
         <StackPanel Grid.Row="1" Margin="0,405,0,0" Grid.RowSpan="2">
             <TextBlock Text="¿No encuentras lo que buscas?" 

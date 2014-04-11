@@ -11,6 +11,7 @@ using Newtonsoft.Json.Linq;
 using PartyOn.model;
 using System.Text;
 using System.Diagnostics;
+using Microsoft.Phone.Tasks;
 
 namespace PartyOn
 {
@@ -144,7 +145,9 @@ namespace PartyOn
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             btnEntrar.IsEnabled = true;
-            NavigationService.Navigate(new Uri("/content/terms.xaml", UriKind.Relative));
+            WebBrowserTask webTerms = new WebBrowserTask();
+            webTerms.Uri = new Uri("http://www.partyonapp.com/user/password/reset/sendmail/", UriKind.Absolute);
+            webTerms.Show();
         }
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
