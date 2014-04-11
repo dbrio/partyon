@@ -228,13 +228,19 @@ namespace PartyOn
 
        private void btnPrivacy_Click(object sender, EventArgs e)
        {
-           NavigationService.Navigate(new Uri("/content/privacy.xaml", UriKind.Relative));
+           
+           WebBrowserTask webTerms = new WebBrowserTask();
+           webTerms.Uri = new Uri("http://www.partyonapp.com/API/privacy/", UriKind.Absolute);
+           webTerms.Show();
 
        }
 
        private void btnTerm_Click(object sender, EventArgs e)
        {
-           NavigationService.Navigate(new Uri("/content/terms.xaml", UriKind.Relative));
+          
+           WebBrowserTask webTerms = new WebBrowserTask();
+           webTerms.Uri = new Uri("http://www.partyonapp.com/API/terms/", UriKind.Absolute);
+           webTerms.Show();
 
        }
 

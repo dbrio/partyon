@@ -146,7 +146,7 @@ namespace PartyOn
         {
             btnEntrar.IsEnabled = true;
             WebBrowserTask webTerms = new WebBrowserTask();
-            webTerms.Uri = new Uri("http://www.partyonapp.com/user/password/reset/sendmail/", UriKind.Absolute);
+            webTerms.Uri = new Uri("http://www.partyonapp.com/API/terms/", UriKind.Absolute);
             webTerms.Show();
         }
 
