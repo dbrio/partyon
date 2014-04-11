@@ -164,7 +164,7 @@ namespace PartyOn
             }
             else
             {
-                MessageBox.Show("You should take a picture.", "PartyOn", MessageBoxButton.OK);
+                MessageBox.Show("Photo required.", "PartyOn", MessageBoxButton.OK);
             }
         }
     }
@@ -219,7 +219,7 @@ namespace PartyOn
             StreamReader streamReader = new StreamReader(streamResponse);
             string responseString = streamReader.ReadToEnd();
             Console.WriteLine(responseString);
-            Deployment.Current.Dispatcher.BeginInvoke(() => MessageBox.Show(responseString, "Respuesta del servidor web.", MessageBoxButton.OK));
+            Deployment.Current.Dispatcher.BeginInvoke(() => MessageBox.Show(responseString, "PartyOn", MessageBoxButton.OK));
             streamResponse.Close();
             streamReader.Close();
             response.Close();

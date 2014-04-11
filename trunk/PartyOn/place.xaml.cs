@@ -107,7 +107,7 @@ namespace PartyOn
             }
             else
             {
-                MessageBox.Show("Write the name of the new place.", "PartyOn", MessageBoxButton.OK);
+                MessageBox.Show("Specify the name of the new place in the text box.", "PartyOn", MessageBoxButton.OK);
             }
         }
 

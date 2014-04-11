@@ -174,7 +174,7 @@ namespace PartyOn
 
        protected override void OnNavigatedTo(NavigationEventArgs e)
        {
-           if (NavigationContext.QueryString.ContainsKey("uid"))
+           if (NavigationContext.QueryString.ContainsKey("uid") && NavigationContext.QueryString.ContainsKey("username"))
            {
                uid = Convert.ToInt16(NavigationContext.QueryString["uid"]);
                username = Convert.ToString(NavigationContext.QueryString["username"]);
@@ -204,7 +204,7 @@ namespace PartyOn
 
        private void btnLogout_Click(object sender, EventArgs e)
        {
-           MessageBoxResult resp = MessageBox.Show("Are you sure you want to log out?", "PartyOn", MessageBoxButton.OKCancel);
+           MessageBoxResult resp = MessageBox.Show("Are you sure you want to sign out?", "PartyOn", MessageBoxButton.OKCancel);
 
            if (resp == MessageBoxResult.OK)
            {

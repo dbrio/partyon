@@ -38,7 +38,7 @@
             <RowDefinition Height="180"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Pick up a place"
+        <TextBlock Text="Where you at"
                    Foreground="White"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
@@ -58,15 +58,15 @@
                      ItemTemplate="{StaticResource placeTemple}" SelectionChanged="listBoxPlace_SelectionChanged" Margin="15,0,0,18"/>
 
         <StackPanel Grid.Row="1" Margin="0,405,0,0" Grid.RowSpan="2">
-            <TextBlock Text="¿No encuentras lo que buscas?" 
+            <TextBlock Text="Can't find the place you are looking for?" 
                        Foreground="#04B486"
                        HorizontalAlignment="Center"
-                       Margin="104,10,103,0" Height="25"/>
+                       Margin="10,10,10,0" Height="25"/>
             <TextBox Width="300" VerticalAlignment="Center" 
                      Background="Gray"
                      Foreground="White"
                      BorderBrush="#333333"
-                     x:Name="txtNewPlaceName">
+x:Name="txtNewPlaceName">
                 <TextBox.InputScope>
                     <InputScope>
                         <InputScopeName NameValue="PersonalFullName"/>
