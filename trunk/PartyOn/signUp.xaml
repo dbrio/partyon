@@ -32,11 +32,11 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="PartyOn" Margin="9,-7,0,0" 
+        <StackPanel Grid.Row="0" Margin="12,17,0,10">
+            <TextBlock Text="PartyOn" Margin="113,-7,104,0" 
                        Foreground="White"
                        Style="{StaticResource PhoneTextTitle1Style}"
-                       HorizontalAlignment="Center"/>
+                       HorizontalAlignment="Center" Height="100"/>
             <ProgressBar Visibility="Collapsed" x:Name="pbLogin" Height="10" IsIndeterminate="True"/>
         </StackPanel>
         <Grid Grid.Row="1">
