@@ -7,6 +7,8 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using PartyOn.Resources;
+using System.Threading;
+using System.Globalization;
 
 namespace PartyOn
 {
@@ -54,6 +56,9 @@ namespace PartyOn
                 // y consumirán energía de la batería cuando el usuario no esté usando el teléfono.
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
+
+            Thread.CurrentThread.CurrentCulture = (CultureInfo)Thread.CurrentThread.CurrentCulture.Clone();
+            Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator = "."; 
 
         }
 
