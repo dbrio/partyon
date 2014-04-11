@@ -9,8 +9,8 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    shell:SystemTray.BackgroundColor="Black"
-    shell:SystemTray.ForegroundColor="#8A0886"
+     shell:SystemTray.BackgroundColor="Black"
+    shell:SystemTray.ForegroundColor="#fffd"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
@@ -18,24 +18,71 @@
     <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
     <Grid x:Name="LayoutRoot" Background="Black">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="145"/>
+            <RowDefinition Height="0"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+        <StackPanel Grid.Row="0" Margin="12,17,0,12">
             <TextBlock Foreground="White" Text="PartyOn" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock Foreground="White" Text="Privacy Policy" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-            
+
         </StackPanel>
 
         <!--ContentPanel. Colocar aquí el contenido adicional-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock Foreground="#f3f3f3" TextWrapping="Wrap" Margin="0,30,0,0">
 
+        <ScrollViewer Grid.Row="2" Margin="0,0,0,8">
+            <TextBlock 
+                
+                TextWrapping="Wrap"
+                       
+TextAlignment="Left"                       Foreground="#f3f3f3" Height="1950" Margin="10,0,10,10">
+                PartyOn.com has established this privacy policy to explain to you how your information is protected, collected and used, which may be updated by PartyOn.com from time to time. PartyOn.com will provide notice of materially significant changes to this privacy policy by posting notice on the PartyOn.com site.
+1. Protecting your privacy
+We don't share your information with third parties for marketing purposes.
+
+We don't engage in cross-marketing or link-referral programs with other sites.
+
+We don't employ tracking devices for marketing purposes ("cookies", "web beacons," single-pixel gifs).
+
+We don't send you unsolicited communications for marketing purposes.
+
+Keep your password safe, it is your responsibility.
+
+PartyOn.com does not knowingly collect any information from persons under the age of 13. If PartyOn.com learns that a posting is by a person under the age of 13, PartyOn.com will remove that post.
+
+PartyOn.com, or people who post on PartyOn.com, may provide links to third party websites, which may have different privacy practices. We are not responsible for, nor have any control over, the privacy policies of those third party websites, and encourage all users to read the privacy policies of each and every website visited.
+2. Data we collect
+We may collect contact information, such as name(s), location(s), website(s) and username(s) for contact purposes.
+Please do not post any personal information on PartyOn.com's posts that you expect to keep private.
+Our web logs collect standard web log entries for each page served, including your IP address, page URL, and timestamp. Web logs help us to diagnose problems with our server, to administer the PartyOn.com site, and to otherwise provide our service to you.
+3. Data we store
+All contents are stored in our database, unless deleted by the user.
+Our web logs and other records are stored indefinitely.
+Although we make good faith efforts to store the information in a secure operating environment that is not available to the public, we cannot guarantee complete security.
+
+4. Archiving and display of PartyOn.com postings by search engines and other sites
+Search engines and other sites not affiliated with PartyOn.com - including google.com - archive or otherwise make available PartyOn.com postings, including resumes.
+5. Circumstances in which PartyOn.com may release information
+PartyOn.com may disclose information about its users if required to do so by law or in the good faith belief that such disclosure is reasonably necessary to respond to subpoenas, court orders, or other legal process.
+PartyOn.com may also disclose information about its users to law enforcement officers or others, in the good faith belief that such disclosure is reasonably necessary to: enforce our Terms of Use; respond to claims that any posting or other content violates the rights of third-parties; or protect the rights, property, or personal safety of PartyOn.com, its users or the general public.
+6. International Users
+By visiting our web site and providing us with data, you acknowledge and agree that due to the international dimension of PartyOn.com we may use the data collected in the course of our relationship for the purposes identified in this policy or in our other communications with you, including the transmission of information outside your resident jurisdiction. In addition, please understand that such data may be stored on servers located in the United States. By providing us with your data, you consent to the transfer of such data.
+Edited: April 10th, 2014
 
             </TextBlock>
-        </Grid>
+        </ScrollViewer>
+
+
+
     </Grid>
+
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Default" BackgroundColor="Black" Opacity=".2" ForegroundColor="White">
+            <shell:ApplicationBarIconButton x:Name="btnPost"  Text="Post" IconUri="/Assets/AppBar/check.png" Click="check" />
+            
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
 
 </phone:PhoneApplicationPage>

@@ -16,6 +16,7 @@ using System.Collections.ObjectModel;
 using PartyOn;
 using System.Text;
 using Newtonsoft.Json.Linq;
+using Microsoft.Phone.Tasks;
 
 namespace PartyOn
 {
@@ -183,7 +184,9 @@ namespace PartyOn
 
         private void btnForgotPassword_Click(object sender, RoutedEventArgs e)
         {
-
+            WebBrowserTask webTerms = new WebBrowserTask();
+            webTerms.Uri = new Uri("http://www.partyonapp.com/user/password/reset/sendmail/", UriKind.Absolute);
+            webTerms.Show();
         }
 
     }
