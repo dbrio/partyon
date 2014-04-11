@@ -179,9 +179,9 @@ namespace PartyOn
                uid = Convert.ToInt16(NavigationContext.QueryString["uid"]);
                username = Convert.ToString(NavigationContext.QueryString["username"]);
            }
-           else
+           else if (NavigationContext.QueryString.ContainsKey("uid"))
            {
-               MessageBox.Show("Aun no hay registro ");
+               uid = Convert.ToInt16(NavigationContext.QueryString["uid"]);
            }
 
 
