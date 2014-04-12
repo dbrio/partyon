@@ -43,6 +43,7 @@
                    Foreground="White"
                    HorizontalAlignment="Left"
                    VerticalAlignment="Top"
+                   FontFamily="Yu Gothic Light"
                    FontSize="40" Margin="15,44,0,0" Height="53" Width="357"/>
 
         <!--<maps:Map Grid.Row="0" x:Name="mapsON"
@@ -62,7 +63,9 @@
             <TextBlock Text="Can't find the place you are looking for?" 
                        Foreground="#04B486"
                        HorizontalAlignment="Center"
-                       Margin="10,10,10,0" Height="25"/>
+                       Margin="10,10,10,0" 
+                       FontFamily="Yu Gothic Light"
+                       Height="25"/>
             <TextBox Width="300" VerticalAlignment="Center" 
                      Background="Gray"
                      Foreground="White"
@@ -80,9 +83,11 @@ x:Name="txtNewPlaceName">
             	BorderBrush="Black"
             	FontSize="20"
             	Foreground="White"
-            	FontFamily="Meiryo UI"
+            	FontFamily="Yu Gothic Light"
             	Margin="120,0" Height="92"
-                Click="Button_Click" IsEnabled="True"/>
+                Click="Button_Click" 
+                    
+                    IsEnabled="True"/>
         </StackPanel>
         <ProgressBar x:Name="pbPlaces" HorizontalAlignment="Left" Height="10" Margin="10,64,0,0" VerticalAlignment="Top" Width="460" IsIndeterminate="True" Visibility="Collapsed"/>
 

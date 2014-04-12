@@ -29,6 +29,7 @@
                        VerticalAlignment= "Center"
                        Foreground="White"
                        HorizontalAlignment="Center"
+                       FontFamily="Yu Gothic Light"
 Margin="20,5,20,0" FontSize="25"/>
         </Grid>
         <maps:Map Grid.Row="1" x:Name="mapPlace"

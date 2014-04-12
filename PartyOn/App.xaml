@@ -186,7 +186,7 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Grid.Row="1" HorizontalAlignment="Center" Background="#111111" Width="500" Height="120" Opacity=".7">
-                        <TextBlock Text="{Binding PlaceName}" FontSize="50" Foreground="White" HorizontalAlignment="Center"
+                        <TextBlock Text="{Binding PlaceName}" FontSize="45" Foreground="White" HorizontalAlignment="Center"
                                    FontFamily="Yu Gothic Light"/>
                     </StackPanel>
 
