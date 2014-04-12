@@ -53,8 +53,9 @@
                             <ColumnDefinition/>
                             <!--<ColumnDefinition/>-->
                         </Grid.ColumnDefinitions>
-                        <TextBlock Foreground="White" Grid.Column="0" Text="{Binding first_name}" HorizontalAlignment="Right" Margin="0,0,2,0"/>
-                        <TextBlock Foreground="White" Grid.Column="1" Text="{Binding last_name}" HorizontalAlignment="Left" />
+                        <TextBlock Foreground="White" Grid.Column="0" Text="{Binding first_name}" HorizontalAlignment="Right" Margin="0,0,2,0" FontFamily="Yu Gothic Light"/>
+                        <TextBlock Foreground="White" Grid.Column="1" Text="{Binding last_name}" HorizontalAlignment="Left" 
+                                   FontFamily="Yu Gothic Light"/>
                         <!--<TextBlock Grid.Column="2" Text="{Binding username}" HorizontalAlignment="Left"  Foreground="Gray"/>-->
 
                     </Grid>     
@@ -95,10 +96,11 @@
                         <TextBlock Grid.Column="0" Margin="0,0,0,5" Foreground="#6E6E6E" 
                                    Text="{Binding PhotoPost_UserName}" 
                                    Opacity="1" FontSize="22" 
-                                   FontFamily="Segoe UI"
+                                   FontFamily="Yu Gothic Light"
                                    VerticalAlignment="Center"
+                                   
                                    />
-                        <TextBlock Grid.Column="2" Text="{Binding PhotoPostTimeSince}" VerticalAlignment="Center" TextAlignment="Right" Margin="0,0,0,10" Foreground="#585858" />
+                        <TextBlock Grid.Column="2" Text="{Binding PhotoPostTimeSince}" VerticalAlignment="Center" TextAlignment="Right" Margin="0,0,0,10" Foreground="#585858"  FontFamily="Yu Gothic Light"/>
 
                     </Grid>
 
@@ -117,7 +119,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Column="0" Text="{Binding PhotoPost_PlaceName}" FontFamily="Segoe UI"  Margin="0,0,0,30" Foreground="White"/>
+                        <TextBlock Grid.Column="0" Text="{Binding PhotoPost_PlaceName}" FontFamily="Yu Gothic Light"  Margin="0,0,0,30" Foreground="White"/>
                     </Grid>
 
                 </Grid>
@@ -137,10 +139,12 @@
                 
                 <StackPanel Grid.Row="0" x:Name="Song" Margin="0,0,0,20">
                     <TextBlock Text="{Binding SongPostName}"
+                               FontFamily="Yu Gothic Light"
                                Foreground="White" FontSize="33"
                                HorizontalAlignment="Left"
                                TextWrapping="Wrap"/>
                     <TextBlock Text="{Binding SongPostQuote}"
+                               FontFamily="Yu Gothic Light"
                                Foreground="#A3A2A3" FontSize="22"
                                HorizontalAlignment="Left"
                                TextWrapping="Wrap"
@@ -153,6 +157,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="{Binding Username}"
+                               FontFamily="Yu Gothic Light"
                                HorizontalAlignment="Left"
                                Foreground="#6E6E6E"
                                Margin="10,0,0,0"/>
@@ -170,7 +175,8 @@
                        Height="390"
                        x:Name="PhotoPostPhoto"
                        Stretch="UniformToFill"
-                       Source="{Binding LastPhoto, StringFormat='http://partyonapp.com/upload_files/{0}'}" Opacity="0.9"/>
+                       Source="{Binding LastPhoto, StringFormat='http://partyonapp.com/upload_files/{0}'}" Opacity="0.9"
+                       />
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="200"/>
@@ -180,7 +186,8 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Grid.Row="1" HorizontalAlignment="Center" Background="#111111" Width="500" Height="120" Opacity=".7">
-                        <TextBlock Text="{Binding PlaceName}" FontSize="50" Foreground="White" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding PlaceName}" FontSize="50" Foreground="White" HorizontalAlignment="Center"
+                                   FontFamily="Yu Gothic Light"/>
                     </StackPanel>
 
                     <Grid Grid.Row="2">
@@ -191,12 +198,12 @@
 
                         <StackPanel  Margin="0,0,80,0" Grid.Column="0" HorizontalAlignment="Right">
                             <TextBlock  Text="{Binding PeopleNow}" FontSize="32" Foreground="White"/>
-                            <TextBlock  Text="Posts" Foreground="#c3c3c3" />
+                            <TextBlock  Text="Posts" Foreground="#c3c3c3" FontFamily="Yu Gothic Light"/>
                         </StackPanel>
 
                         <StackPanel Margin="0,0,80,0" Grid.Column="1" HorizontalAlignment="Left">
                             <TextBlock  Text="{Binding LastPostDate, StringFormat=DD/MM/YY}" FontSize="32" Foreground="White"/>
-                            <TextBlock  Text="Last update" Foreground="#c3c3c3" HorizontalAlignment="Center"/>
+                            <TextBlock  Text="Last update" Foreground="#c3c3c3" HorizontalAlignment="Center" FontFamily="Yu Gothic Light"/>
                         </StackPanel>
                     </Grid>
                 </Grid>
@@ -234,13 +241,14 @@
                             </Ellipse.Fill>
                         </Ellipse>
 
-                        <TextBlock Grid.Column="1" Margin="0,0,0,5" Foreground="#6E6E6E" 
+                        <TextBlock Grid.Column="1" Margin="0,0,0,5" Foreground="#D8D8D8" 
                                    Text="{Binding PhotoPost_UserName}" 
                                    Opacity="1" FontSize="22" 
-                                   FontFamily="Segoe UI"
+                                   FontFamily="Yu Gothic Light"
                                    VerticalAlignment="Center"
                                    />
-                        <TextBlock Grid.Column="2" Text="{Binding PhotoPostTimeSince}" VerticalAlignment="Center" TextAlignment="Right" Margin="0,0,0,10" Foreground="#585858" />
+                        <TextBlock Grid.Column="2" Text="{Binding PhotoPostTimeSince}" VerticalAlignment="Center" TextAlignment="Right" Margin="0,0,0,10" Foreground="#D8D8D8" 
+                                   FontFamily="Yu Gothic Light"/>
 
                     </Grid>
 
@@ -251,7 +259,7 @@
                            x:Name="PhotoPostPhoto"
                            Stretch="UniformToFill"
                            Source="{Binding PhotoPostPhoto, StringFormat='http://partyonapp.com/upload_files/{0}'}" Margin="0,0,0,10"/>
-                    <TextBlock Grid.Row="2" VerticalAlignment="Bottom"  Foreground="#6E6E6E" Text="{Binding PhotoPostDescription}" FontSize="22" TextWrapping="Wrap" FontFamily="Segoe UI" Margin="10,0,0,15"/>
+                    <TextBlock Grid.Row="2" VerticalAlignment="Bottom"  Foreground="#D8D8D8" Text="{Binding PhotoPostDescription}" FontSize="20" TextWrapping="Wrap" FontFamily="Segoe UI" Margin="10,0,0,15"/>
 
                     <Grid Grid.Row="3">
                         <Grid.ColumnDefinitions>
@@ -259,7 +267,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Column="0" Text="{Binding PhotoPost_PlaceName}" FontFamily="Segoe UI"  Margin="10,0,0,10" Foreground="White"/>
+                        <TextBlock Grid.Column="0" Text="{Binding PhotoPost_PlaceName}" FontFamily="Yu Gothic Light"  Margin="10,0,0,10" Foreground="Gray" FontSize="22"/>
                     </Grid>
 
                 </Grid>
