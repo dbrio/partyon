@@ -10,13 +10,14 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     
-     shell:SystemTray.BackgroundColor="Black"
-    shell:SystemTray.ForegroundColor="#fffd"
+     shell:SystemTray.BackgroundColor="Transparent"
+    shell:SystemTray.ForegroundColor="Transparent"
+    shell:SystemTray.Opacity="0"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
 
-    <Grid Background="Black">
+    <Grid Background="Black" Margin="0,55,0,0">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -25,7 +26,7 @@
             <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" 
-                   Text="Name of the song" Margin="10,0,0,0" Foreground="White"/>
+                   Text="Name of the song" Margin="10,0,0,0" Foreground="White" Height="30" VerticalAlignment="Bottom"/>
         <TextBox Grid.Row="1" Height="80" 
                  Background="White"
                  Foreground="Gray"

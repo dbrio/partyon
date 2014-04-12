@@ -7,8 +7,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-     shell:SystemTray.BackgroundColor="Black"
-    shell:SystemTray.ForegroundColor="#fffd"
+    shell:SystemTray.BackgroundColor="Transparent"
+    shell:SystemTray.ForegroundColor="Transparent"
+    shell:SystemTray.Opacity="0"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -57,7 +58,7 @@
                 <DataTemplate>
                     <Grid Height="85" Width="auto">
                         <StackPanel Background="Transparent" Margin="-23,0,0,0" HorizontalAlignment="Left" Width="auto" >
-                            <TextBlock Text="{Binding}" Margin="8,0,8,0" FontSize="50" FontFamily="Segoe UI Light" Foreground="#F2F2F2"/>
+                            <TextBlock Text="{Binding}" Margin="8,15,8,0" FontSize="50" FontFamily="Yu Gothic Light" Foreground="#F2F2F2"/>
 
                         </StackPanel>
                     </Grid>
@@ -69,20 +70,20 @@
             </phone:Pivot.Background>-->
 
             <!--Home-->
-            <phone:PivotItem x:Name="Home" Header="Home" Margin="0,0,-13,0" Background="Black">
+            <phone:PivotItem x:Name="Home" Header="Home" Margin="0,15,-13,0" Background="Black">
                 <ListBox x:Name="listHome" ItemsSource="{Binding  UserHomeList}" 
                          ItemTemplate="{StaticResource UserHomeTemple}" 
                          Height="621" VerticalAlignment="Top"
- Margin="0,-19,0,0" SelectionChanged="listHome_SelectionChanged"
+ Margin="0,0,0,0" SelectionChanged="listHome_SelectionChanged"
                          />
             </phone:PivotItem>
 
             <!--Activity-->
 
-            <phone:PivotItem x:Name="Activity" Header="Activity"  DataContext="{Binding Source={StaticResource vmUserActivity}}" Margin="0,0,-13,0">
+            <phone:PivotItem x:Name="Activity" Header="Activity"  DataContext="{Binding Source={StaticResource vmUserActivity}}" Margin="0,15,-13,0">
                 <ListBox ItemsSource="{Binding  UserActivityList}"
                          ItemTemplate="{StaticResource UserActivityTemplate}" 
-                         Margin="0,-19,0,0" Height="621" 
+                         Margin="0,-1,0,0" Height="621" 
                          VerticalAlignment="Top"
                          SelectedItem="http://www.google.com"/>
             </phone:PivotItem>
@@ -97,7 +98,7 @@
 
             <!--HeyDj-->
             <phone:PivotItem x:Name="HeyDj" Header="HeyDj"
-                             Margin="0,0,-13,0"
+                             Margin="8,15,-12,0"
                              >
                 <ListBox x:Name="dj"
                          Margin="0,0,0,67"
@@ -107,7 +108,7 @@
             </phone:PivotItem>
 
             <!--Profile-->
-            <phone:PivotItem x:Name="Profile" Header="Profile" Margin="12,28,12,74">
+            <phone:PivotItem x:Name="Profile" Header="Profile" Margin="12,38,12,74">
                 <Grid>
 
                     <Grid.RowDefinitions>

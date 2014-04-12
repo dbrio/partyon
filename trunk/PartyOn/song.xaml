@@ -10,8 +10,9 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     
-     shell:SystemTray.BackgroundColor="Black"
-    shell:SystemTray.ForegroundColor="#fffd"
+     shell:SystemTray.BackgroundColor="Transparent"
+    shell:SystemTray.ForegroundColor="Transparent"
+    shell:SystemTray.Opacity="0"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True"
