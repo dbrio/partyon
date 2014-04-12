@@ -25,7 +25,6 @@
 
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Foreground="White" Text="PartyOn" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock Foreground="White" Text="Edit Profile" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"
                        FontFamily="Yu Gothic Light"/>
             <ProgressBar x:Name="pbEditProfile" Visibility="Collapsed" Height="10" IsIndeterminate="True"
