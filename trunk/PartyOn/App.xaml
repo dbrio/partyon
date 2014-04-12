@@ -41,7 +41,7 @@
                         <RowDefinition Height="30"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                        <Ellipse Grid.Row="0" Width="100" Height="100" Margin="0,0,0,3" VerticalAlignment="Center" Stroke="White" StrokeThickness="2">
+                        <Ellipse Grid.Row="0" Width="100" Height="100" Margin="0,0,0,3" VerticalAlignment="Center" Stroke="White" StrokeThickness="1">
                             
                             <Ellipse.Fill>
                                 <ImageBrush ImageSource="{Binding photo, StringFormat='http://partyonapp.com/upload_files/{0}'}"/>
