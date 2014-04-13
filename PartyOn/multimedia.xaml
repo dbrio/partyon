@@ -22,7 +22,9 @@
 
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="Set picture" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Height="130"/>
+            <TextBlock Text="Set picture" 
+                       
+FontFamily="Yu Gothic Light"                       Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Height="130"/>
         </StackPanel>
         <!--ContentPanel. Colocar aquí el contenido adicional-->
 
@@ -39,7 +41,9 @@
                 <Image Grid.Column="0"
                        Height="48"
                        Source="Resources/camera.png" Margin="8,26,7,0" VerticalAlignment="Top"/>
-                <Button Grid.Column="1"
+                <Button 
+                    FontFamily="Yu Gothic Light"
+                    Grid.Column="1"
                         
                     BorderBrush="Transparent" Margin="0,0,133,0">
                     take a photo
@@ -54,7 +58,9 @@
                 <Image Grid.Column="0"
                        Height="48"
                        Source="Resources/images.png" Margin="5,0,5,26" VerticalAlignment="Bottom"/>
-                <Button Grid.Column="1"
+                <Button 
+                    Grid.Column="1"
+                    FontFamily="Yu Gothic Light"
                     BorderBrush="Transparent" Margin="0,0,58,0">
                     choose from albums
                 </Button>

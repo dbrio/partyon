@@ -49,6 +49,7 @@
                        HorizontalAlignment="Center"
                        Foreground="White"/>-->
         <TextBlock 
+            FontFamily="Yu Gothic Light"
 Foreground="White"            Text="UserName" Grid.Row="1" Margin="25,15,0,10"/>
 
         <TextBox
@@ -83,6 +84,8 @@ Foreground="White"            Text="UserName" Grid.Row="1" Margin="25,15,0,10"/>
                        VerticalAlignment="Center" Height="37" Margin="9,23,9,10"
                        Foreground="White"/>-->
         <TextBlock 
+            
+            FontFamily="Yu Gothic Light"
             Grid.Row="2" 
 Foreground="White"            Text="Password" Margin="25,65,0,30" Grid.RowSpan="2"/>
         <PasswordBox
