@@ -49,13 +49,13 @@ namespace PartyOn
                 Lat = Convert.ToDouble(NavigationContext.QueryString["Latitud"]);
                 Long = Convert.ToDouble(NavigationContext.QueryString["Longitud"]);
                 uid = Convert.ToInt16(NavigationContext.QueryString["uid"]);
-            }
-            else
-            {
-                textPlace.Text = "Tabaco Bar 504";
-                vPlaceID = 1;
-            }
 
+                if (vPlaceID == 0)
+                {
+                    MessageBox.Show("Please add a new place.", "PartyOn", MessageBoxButton.OK);
+                    NavigationService.GoBack();
+                }
+            }
 
             if (fisttime == false)
             {

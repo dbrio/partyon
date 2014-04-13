@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace PartyOn.viewModels.homeV
 {
@@ -47,6 +48,11 @@ namespace PartyOn.viewModels.homeV
                    UserHomeList = new ObservableCollection<modelHome>(a.ResultsHome);
                    isBusy = false;
                    UpdateTile();
+
+                   if (userHomeList.Count < 1)
+                   {
+                       MessageBox.Show("No nearby places where you are, add a new place by creating a new post.", "PartyOn", MessageBoxButton.OK);
+                   }
                };
        }
 

@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace PartyOn.viewModels
 {
@@ -40,6 +41,12 @@ namespace PartyOn.viewModels
                        userPlaceList.Add(new modelPlace { PlaceName = Guid.NewGuid().ToString() });
                    }
                }
+               if (userPlaceList.Count < 1)
+               {
+                   userPlaceList.Add(new modelPlace { PlaceID = 0, PlaceLat = "0.0", PlaceLong = "0.0", PlaceName = "No nearby places, add new one." });
+                   MessageBox.Show("No nearby places where you are, add a new place by creating a new post.", "PartyOn", MessageBoxButton.OK);
+
+               }
                return userPlaceList;
            }
            set
@@ -56,6 +63,8 @@ namespace PartyOn.viewModels
        {
            serviceModelPlace.GetUserPlaceComplete += (s, a) =>
                {
+                   
+
                    UserPlaceList = new ObservableCollection<modelPlace>(a.ResultsPlace);
                    isBusy = false;
 
