@@ -49,13 +49,13 @@
                         </Ellipse>
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="*"/>
+                         
                             <!--<ColumnDefinition/>-->
                         </Grid.ColumnDefinitions>
-                        <TextBlock Foreground="White" Grid.Column="0" Text="{Binding first_name}" HorizontalAlignment="Right" Margin="0,0,2,0" FontFamily="Yu Gothic Light"/>
-                        <TextBlock Foreground="White" Grid.Column="1" Text="{Binding last_name}" HorizontalAlignment="Left" 
-                                   FontFamily="Yu Gothic Light"/>
+                        <TextBlock Foreground="White" Grid.Column="0" Text="{Binding first_name}" HorizontalAlignment="Center" Margin="0,0,2,0" FontFamily="Yu Gothic Light"/>
+                        <!--<TextBlock Foreground="White" Grid.Column="1" Text="{Binding last_name}" HorizontalAlignment="Left" 
+                                   FontFamily="Yu Gothic Light"/>-->
                         <!--<TextBlock Grid.Column="2" Text="{Binding username}" HorizontalAlignment="Left"  Foreground="Gray"/>-->
 
                     </Grid>     
@@ -93,7 +93,7 @@
                             </Ellipse.Fill>
                         </Ellipse>-->
 
-                        <TextBlock Grid.Column="0" Margin="0,0,0,5" Foreground="#6E6E6E" 
+                        <TextBlock Grid.Column="0" Margin="10,0,0,5" Foreground="#6E6E6E" 
                                    Text="{Binding PhotoPost_UserName}" 
                                    Opacity="1" FontSize="22" 
                                    FontFamily="Yu Gothic Light"
@@ -111,7 +111,7 @@
                            x:Name="PhotoPostPhoto"
                            Stretch="UniformToFill"
                            Source="{Binding PhotoPostPhoto, StringFormat='http://partyonapp.com/upload_files/{0}'}" Margin="0,0,0,10"/>
-                    <TextBlock Grid.Row="2" VerticalAlignment="Bottom"  Foreground="#6E6E6E" Text="{Binding PhotoPostDescription}" FontSize="22" TextWrapping="Wrap" FontFamily="Segoe UI" Margin="0,0,0,15"/>
+                    <TextBlock Grid.Row="2" VerticalAlignment="Bottom"  Foreground="#6E6E6E" Text="{Binding PhotoPostDescription}" FontSize="22" TextWrapping="Wrap" FontFamily="Segoe UI" Margin="10,0,0,15"/>
 
                     <Grid Grid.Row="3">
                         <Grid.ColumnDefinitions>
@@ -119,7 +119,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Grid.Column="0" Text="{Binding PhotoPost_PlaceName}" FontFamily="Yu Gothic Light"  Margin="0,0,0,30" Foreground="White"/>
+                        <TextBlock Grid.Column="0" Text="{Binding PhotoPost_PlaceName}" FontFamily="Yu Gothic Light"  Margin="10,0,0,30" Foreground="White"/>
                     </Grid>
 
                 </Grid>
