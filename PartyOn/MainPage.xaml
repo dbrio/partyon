@@ -139,10 +139,10 @@
 
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True"  Mode="Default" BackgroundColor="Black" Opacity=".8" ForegroundColor="White">
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True"  Mode="Default" BackgroundColor="Black" Opacity=".8" ForegroundColor="White" >
             <shell:ApplicationBarIconButton  Text="Post" IconUri="/Assets/AppBar/post.png" Click="addPost"  />
             <shell:ApplicationBarIconButton  Text="Music" IconUri="/Assets/AppBar/music.png" Click="ApplicationBarIconButton_Click"/>
-            <shell:ApplicationBarIconButton x:Name="btnRefresh" Click="btnRefresh_Click"  IconUri="/Assets/AppBar/sync.png" Text="Refresh"/>
+            <shell:ApplicationBarIconButton x:Name="btnRefresh" Click="btnRefresh_Click"  IconUri="/Assets/AppBar/sync.png" Text="Refresh" />
             <shell:ApplicationBarIconButton x:Name="btnShareApp"  IconUri="/Assets/AppBar/share.png" Click="btnShareApp_Click" Text="Share"/>
             <!--<shell:ApplicationBarIconButton  IconUri="/Assets/AppBar/feature.settings.png" Text="Settings"/>-->
 
