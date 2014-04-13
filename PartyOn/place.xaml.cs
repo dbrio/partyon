@@ -90,7 +90,6 @@ namespace PartyOn
             {
                  uri = string.Format("/addSong.xaml?PlaceName={0}&PlaceID={1}&Latitud={2}&Longitud={3}&uid={4}", nPlace, idPlace, latit, longit, uid);
             }
-           
             
             NavigationService.Navigate(new Uri(uri, UriKind.Relative));
 

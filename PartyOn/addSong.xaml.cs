@@ -32,6 +32,12 @@ namespace PartyOn
                 uid = Convert.ToInt16(NavigationContext.QueryString["uid"]);
                 PlaceName = Convert.ToString(NavigationContext.QueryString["PlaceName"]);
                 PlaceID = Convert.ToInt16(NavigationContext.QueryString["PlaceID"]);
+
+                if (PlaceID == 0)
+                {
+                    MessageBox.Show("Please add a new place.", "PartyOn", MessageBoxButton.OK);
+                    NavigationService.GoBack();
+                }
             }
             else
             {
