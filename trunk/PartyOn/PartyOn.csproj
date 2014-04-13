@@ -286,8 +286,10 @@
     <Content Include="PartyOnIcon.png" />
     <Content Include="plipTitleMedio-04.png" />
     <Content Include="README_FIRST.txt" />
+    <Content Include="Resources\camera.png" />
     <Content Include="Resources\fondo.png" />
     <Content Include="Assets\AppBar\post.png" />
+    <Content Include="Resources\images.png" />
     <Content Include="SplashScreenImage.jpg" />
     <Content Include="titleLarge-07-07.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />

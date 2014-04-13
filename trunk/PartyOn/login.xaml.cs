@@ -73,7 +73,7 @@ namespace PartyOn
 
         private void HacerLogin()
         {
-            Uri url = new Uri(string.Format("http://www.partyonapp.com/API/login/?username={0}&password={1}", txtUser.Text, txtPassword.Text), UriKind.Absolute);
+            Uri url = new Uri(string.Format("http://www.partyonapp.com/API/login/?username={0}&password={1}", txtUser.Text, txtPassword.Password), UriKind.Absolute);
             WebClient ClienteWeb = new WebClient();
             ClienteWeb.DownloadStringCompleted += ClienteWeb_DownloadStringCompleted;
             ClienteWeb.DownloadStringAsync(url);
@@ -96,7 +96,7 @@ namespace PartyOn
             else if (NavigationContext.QueryString.ContainsKey("username") && NavigationContext.QueryString.ContainsKey("pass"))
             {
                 txtUser.Text = Convert.ToString(NavigationContext.QueryString["username"]);
-                txtPassword.Text = Convert.ToString(NavigationContext.QueryString["pass"]);
+                txtPassword.Password = Convert.ToString(NavigationContext.QueryString["pass"]);
                 NavigationService.RemoveBackEntry();
 
                 pbLogin.Visibility = System.Windows.Visibility.Visible;
@@ -147,7 +147,7 @@ namespace PartyOn
                     else
                     {
                         MessageBox.Show("Username or password incorrect, please try again.", "PartyOn", MessageBoxButton.OK);
-                        txtPassword.Text = "";
+                        txtPassword.Password = "";
                         btnEntrar.IsEnabled = true;
                     }
                 }
@@ -164,7 +164,7 @@ namespace PartyOn
             else
             {
                 MessageBox.Show("Username or password incorrect, please try again.", "PartyOn", MessageBoxButton.OK);
-                txtPassword.Text = "";
+                txtPassword.Password = "";
                 pbLogin.Visibility = System.Windows.Visibility.Collapsed;
                 btnEntrar.IsEnabled = true;
             }
