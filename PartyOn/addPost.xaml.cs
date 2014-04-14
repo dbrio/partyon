@@ -29,15 +29,91 @@ namespace PartyOn
         double Lat, Long;
         private string nombreImagen = "imagen.jpg";
         private CameraCaptureTask camera = null;
+        private PhotoChooserTask Album = null;
         byte[] byteArray;
         bool TomoFoto = false;
+        string tipo;
         public addPost()
         {
             InitializeComponent();
-            
-            
+
             camera = new CameraCaptureTask();
             camera.Completed += new EventHandler<PhotoResult>(camera_Complete);
+
+            Album = new PhotoChooserTask();
+            Album.Completed += new EventHandler<PhotoResult>(Album_complete);
+        }
+
+        private void Album_complete(object sender, PhotoResult e)
+        {
+            int ancho, alto;
+            decimal relacion;
+            if (e.TaskResult == TaskResult.OK)
+            {
+                TomoFoto = true;
+                try
+                {
+                    BitmapImage image = new BitmapImage();
+                    image.SetSource(e.ChosenPhoto);
+                    pvwPhoto.Source = image;
+
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        WriteableBitmap btmMap = new WriteableBitmap(image);
+
+                        if (image.PixelWidth > image.PixelHeight)
+                        {
+                            if (image.PixelWidth > 2000)
+                            {
+                                ancho = 2000;
+                                relacion = (Decimal)image.PixelHeight / (Decimal)image.PixelWidth;
+                                alto = Convert.ToInt16(image.PixelHeight * relacion);
+                            }
+                            else
+                            {
+                                ancho = image.PixelWidth;
+                                alto = image.PixelHeight;
+                            }
+                        }
+                        else if (image.PixelWidth < image.PixelHeight)
+                        {
+                            if (image.PixelHeight > 2000)
+                            {
+                                alto = 2000;
+                                relacion = (Decimal)image.PixelWidth / (Decimal)image.PixelHeight;
+                                ancho = Convert.ToInt16(image.PixelWidth * relacion);
+                            }
+                            else
+                            {
+                                ancho = image.PixelWidth;
+                                alto = image.PixelHeight;
+                            }
+                        }
+                        else
+                        {
+                            if (image.PixelHeight > 2000)
+                            {
+                                alto = 2000;
+                                relacion = (Decimal)image.PixelWidth / (Decimal)image.PixelHeight;
+                                ancho = Convert.ToInt16(image.PixelWidth * relacion);
+                            }
+                            else
+                            {
+                                ancho = image.PixelWidth;
+                                alto = image.PixelHeight;
+                            }
+                        }
+
+
+                        Extensions.SaveJpeg(btmMap, ms, ancho, alto, 0, 80);
+                        byteArray = ms.ToArray();
+                    }
+                }
+                catch (ArgumentException x)
+                {
+                    Console.WriteLine(x.Message);
+                }
+            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -49,6 +125,7 @@ namespace PartyOn
                 Lat = Convert.ToDouble(NavigationContext.QueryString["Latitud"]);
                 Long = Convert.ToDouble(NavigationContext.QueryString["Longitud"]);
                 uid = Convert.ToInt16(NavigationContext.QueryString["uid"]);
+                tipo = Convert.ToString(NavigationContext.QueryString["tipo"]);
 
                 if (vPlaceID == 0)
                 {
@@ -60,7 +137,15 @@ namespace PartyOn
             if (fisttime == false)
             {
                 fisttime = true;
-                camera.Show();
+
+                if (tipo == "Album")
+                {
+                    Album.Show();
+                }
+                else if (tipo == "Camara")
+                {
+                    camera.Show();
+                }
 
             }
         }
@@ -140,7 +225,14 @@ namespace PartyOn
     
        private void cameraclick(object sender, EventArgs e)
         {
-            camera.Show();
+            if (tipo == "Album")
+            {
+                Album.Show();
+            }
+            else if (tipo == "Camara")
+            {
+                camera.Show();
+            }
         }
 
         private void addPostClick(object sender, EventArgs e)

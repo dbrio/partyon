@@ -9,15 +9,16 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
+    Background="Black"
     
-     shell:SystemTray.BackgroundColor="Transparent"
+     shell:SystemTray.BackgroundColor="Black"
     shell:SystemTray.ForegroundColor="Transparent"
     shell:SystemTray.Opacity="0"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
 
-    <Grid Background="Black" Margin="0,55,0,0">
+    <Grid Background="Black">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -25,23 +26,23 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" 
-                   Text="Name of the song" Margin="10,0,0,0" Foreground="White" Height="30" VerticalAlignment="Bottom"/>
+        <TextBlock Grid.Row="1" 
+                   Text="Name of the song" Margin="10,0,0,65" Foreground="White" Height="30" VerticalAlignment="Bottom"/>
         <TextBox Grid.Row="1" Height="80" 
                  Background="White"
                  Foreground="Gray"
-                 x:Name="txtSongName">
+                 x:Name="txtSongName" Margin="0,60,0,0" Grid.RowSpan="2">
             <TextBox.InputScope>
                 <InputScope>
                     <InputScopeName NameValue="PersonalFullName"/>
                 </InputScope>
             </TextBox.InputScope>
         </TextBox>
-        <TextBlock Grid.Row="2" Text="Write the song out" Height="39" Margin="10,0,0,0" Foreground="White"/>
+        <TextBlock Grid.Row="3" Text="Write the song out" Height="39" Margin="10,15,0,146" Foreground="White"/>
         <TextBox Grid.Row="3"
                  Background="White"
                  Foreground="Gray"
-            	Margin="0, 20, 0, 0"
+            	Margin="0,65,0,-68"
             	x:Name="txtSongQuote"
             	TextWrapping="Wrap"
             	AcceptsReturn="True"

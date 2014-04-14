@@ -67,8 +67,8 @@
                        FontFamily="Yu Gothic Light"
                        Height="25"/>
             <TextBox Width="300" VerticalAlignment="Center" 
-                     Background="Gray"
-                     Foreground="White"
+                     Background="White"
+                     Foreground="Gray"
                      BorderBrush="#333333"
 x:Name="txtNewPlaceName">
                 <TextBox.InputScope>
