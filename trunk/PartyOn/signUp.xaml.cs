@@ -145,9 +145,7 @@ namespace PartyOn
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             btnEntrar.IsEnabled = true;
-            WebBrowserTask webTerms = new WebBrowserTask();
-            webTerms.Uri = new Uri("http://www.partyonapp.com/API/terms/", UriKind.Absolute);
-            webTerms.Show();
+            
         }
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
@@ -184,6 +182,13 @@ namespace PartyOn
             MessageBox.Show("New user added successfully.", "PartyOn", MessageBoxButton.OK);
             string uri = string.Format("/login.xaml?username={0}&pass={1}", txtUserName.Text, txtPassword.Password);
             NavigationService.Navigate(new Uri(uri, UriKind.Relative));
+        }
+
+        private void btnRead_Click(object sender, RoutedEventArgs e)
+        {
+            WebBrowserTask webTerms = new WebBrowserTask();
+            webTerms.Uri = new Uri("http://www.partyonapp.com/API/terms/", UriKind.Absolute);
+            webTerms.Show();
         }
     }
 }

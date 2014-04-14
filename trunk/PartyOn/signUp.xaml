@@ -30,6 +30,7 @@
             <RowDefinition Height="70"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="120"/>
+
         </Grid.RowDefinitions>
 
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
@@ -191,11 +192,31 @@
 
         </Grid>
 
-        <CheckBox Content="I agree to the terms and privacy." 
-                  Background="White"
+        <Grid Grid.Row="7">
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition/>
+                <ColumnDefinition Width="110"/>
+            </Grid.ColumnDefinitions>
+
+            <CheckBox Content="I agree to the terms." 
+                  Background="Red"
                   FontFamily="Yu Gothic Light"
                   Foreground="White"
-                  HorizontalAlignment="Left" Margin="45,0,0,0" Grid.Row="7" VerticalAlignment="Top" Height="70" Width="430" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+                  HorizontalAlignment="Left" Margin="100,0,0,0"
+                      Grid.Column="0"
+                      VerticalAlignment="Top" Height="70" Width="270" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+
+            <Button 
+                    Foreground="White"
+                x:Name="btnRead"
+                
+                    Margin="360,0,15,0"
+                    BorderBrush="Transparent" Grid.ColumnSpan="2" Click="btnRead_Click">
+                read
+            </Button>
+        </Grid>
+
 
 
         <Button x:Name="btnEntrar" 
