@@ -91,12 +91,12 @@ namespace PartyOn
         private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
         {
             string namePivo = e.Item.Name.ToString();
-
+            pivotActivo1 = 100;
             if (namePivo == "Home")
             {
-                pivotActivo1 = 0;
+                pivotActivo1 = 100;
             }
-            else if (namePivo == "Activity")
+            if (namePivo == "Activity")
             {
                 pivotActivo1 = 1;
             }

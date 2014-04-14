@@ -50,7 +50,7 @@
                        Foreground="White"/>-->
         <TextBlock 
             FontFamily="Yu Gothic Light"
-Foreground="White"            Text="UserName" Grid.Row="1" Margin="25,15,0,10"/>
+Foreground="White"            Text="Username" Grid.Row="1" Margin="25,15,0,10"/>
 
         <TextBox
                 Grid.Row="2"

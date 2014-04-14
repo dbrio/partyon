@@ -15,6 +15,7 @@ namespace PartyOn.viewModels.homeV
         public double lati, longi;
 
         bool isBusy;
+        bool primeraVez = true;
         public bool IsBusy
         {
             get{ return isBusy;}
@@ -29,6 +30,11 @@ namespace PartyOn.viewModels.homeV
         {
            get
            {
+               if (userHomeList == null)
+               {
+                   userHomeList = new ObservableCollection<modelHome>();
+               }
+
                return userHomeList;
            }
            set
@@ -49,13 +55,16 @@ namespace PartyOn.viewModels.homeV
                    isBusy = false;
                    UpdateTile();
 
-                   if (userHomeList.Count < 1)
+                   if (userHomeList.Count < 1 && primeraVez == true)
                    {
-                      
+                       primeraVez = false;
                        MessageBox.Show("No nearby places where you are, add a new place by creating a new post.", "PartyOn", MessageBoxButton.OK);
                        userHomeList.Add(new modelHome { PlaceID = 0, PlaceLat = "0.0", PlaceLong = "0.0", PlaceName = "be the first.", LastPhoto = "Resources/fondo.png", PeopleNow = 0, LastPostDate = "0/00/00" });
                    }
-
+                   //else if (userHomeList.Count < 1 && primeraVez == false)
+                   //{
+                       
+                   //}
                };
        }
 

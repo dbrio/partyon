@@ -11,10 +11,13 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
+    shell:SystemTray.BackgroundColor="Transparent"
+    shell:SystemTray.ForegroundColor="Transparent"
+    shell:SystemTray.Opacity="0"
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="Black">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -41,11 +44,12 @@ FontFamily="Yu Gothic Light"                       Margin="9,-7,0,0" Style="{Sta
                 <Image Grid.Column="0"
                        Height="48"
                        Source="Resources/camera.png" Margin="8,26,7,0" VerticalAlignment="Top"/>
-                <Button 
+                <Button x:Name="btnPhoto" 
                     FontFamily="Yu Gothic Light"
                     Grid.Column="1"
+                        Foreground="White"
                         
-                    BorderBrush="Transparent" Margin="0,0,133,0">
+                    BorderBrush="Transparent" Margin="0,0,133,0" Click="btnPhoto_Click">
                     take a photo
                 </Button>
             </Grid>
@@ -58,10 +62,10 @@ FontFamily="Yu Gothic Light"                       Margin="9,-7,0,0" Style="{Sta
                 <Image Grid.Column="0"
                        Height="48"
                        Source="Resources/images.png" Margin="5,0,5,26" VerticalAlignment="Bottom"/>
-                <Button 
+                <Button x:Name="btnChoose"
                     Grid.Column="1"
-                    FontFamily="Yu Gothic Light"
-                    BorderBrush="Transparent" Margin="0,0,58,0">
+                    FontFamily="Yu Gothic Light" Click="btnChoose_Click"
+                    Foreground="White" BorderBrush="Transparent" Margin="0,0,58,0">
                     choose from albums
                 </Button>
             </Grid>

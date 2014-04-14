@@ -84,11 +84,11 @@ namespace PartyOn
 
             if (padre == "addPost")
             {
-                 uri = string.Format("/addPost.xaml?PlaceName={0}&PlaceID={1}&Latitud={2}&Longitud={3}&uid={4}", nPlace, idPlace, latit, longit, uid);
+                 uri = string.Format("/multimedia.xaml?PlaceName={0}&PlaceID={1}&Latitud={2}&Longitud={3}&uid={4}&padre={5}", nPlace, idPlace, latit, longit, uid, padre);
             }
             else if (padre == "addSong")
             {
-                 uri = string.Format("/addSong.xaml?PlaceName={0}&PlaceID={1}&Latitud={2}&Longitud={3}&uid={4}", nPlace, idPlace, latit, longit, uid);
+                uri = string.Format("/addSong.xaml?PlaceName={0}&PlaceID={1}&Latitud={2}&Longitud={3}&uid={4}&padre={5}", nPlace, idPlace, latit, longit, uid, padre);
             }
             
             NavigationService.Navigate(new Uri(uri, UriKind.Relative));
