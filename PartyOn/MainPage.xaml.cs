@@ -246,15 +246,15 @@ namespace PartyOn
 
        private void btnShareApp_Click(object sender, EventArgs e)
        {
-           ShareStatusTask statusTask = new ShareStatusTask();
-           statusTask.Status = "I share photos of my parties with #PartyOn for #WindowsPhone, it's easy to use, try it.";
-           statusTask.Show();
+           //ShareStatusTask statusTask = new ShareStatusTask();
+           //statusTask.Status = "I share photos of my parties with #PartyOn for #WindowsPhone, it's easy to use, try it.";
+           //statusTask.Show();
 
-           //ShareLinkTask linkTask = new ShareLinkTask();
-           //linkTask.Title = "Probando...";
-           //linkTask.LinkUri = new Uri("http://www.google.com", UriKind.Absolute);
-           //linkTask.Message = "¿Sera que funciona correctamente esto?";
-           //linkTask.Show();
+           ShareLinkTask linkTask = new ShareLinkTask();
+           linkTask.Title = "PartyOn";
+           linkTask.LinkUri = new Uri("http://www.windowsphone.com/s?appid=ff9f3fa5-b169-4641-b951-014d35f1b18d", UriKind.Absolute);
+           linkTask.Message = "I share photos of my parties with #PartyOn @partyon_app for #WindowsPhone, it's easy to use, try it.";
+           linkTask.Show();
 
        }
 
