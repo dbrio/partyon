@@ -184,7 +184,7 @@ namespace PartyOn
             NavigationService.Navigate(new Uri(uri, UriKind.Relative));
         }
 
-        private void btnRead_Click(object sender, RoutedEventArgs e)
+        private void hlTerms_Click(object sender, RoutedEventArgs e)
         {
             WebBrowserTask webTerms = new WebBrowserTask();
             webTerms.Uri = new Uri("http://www.partyonapp.com/API/terms/", UriKind.Absolute);

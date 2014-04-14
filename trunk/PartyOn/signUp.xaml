@@ -196,25 +196,18 @@
             <Grid.ColumnDefinitions>
 
                 <ColumnDefinition/>
-                <ColumnDefinition Width="110"/>
+                
             </Grid.ColumnDefinitions>
 
-            <CheckBox Content="I agree to the terms." 
-                  Background="Red"
+            <CheckBox 
+                  Background="Transparent"
                   FontFamily="Yu Gothic Light"
-                  Foreground="White"
+                  Foreground="Aqua"
                   HorizontalAlignment="Left" Margin="100,0,0,0"
                       Grid.Column="0"
-                      VerticalAlignment="Top" Height="70" Width="270" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
-
-            <Button 
-                    Foreground="White"
-                x:Name="btnRead"
-                
-                    Margin="360,0,15,0"
-                    BorderBrush="Transparent" Grid.ColumnSpan="2" Click="btnRead_Click">
-                read
-            </Button>
+                      VerticalAlignment="Top" Height="70" Width="359" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked">
+                <HyperlinkButton x:Name="hlTerms" Click="hlTerms_Click"  Content="I agree to the terms."/>
+            </CheckBox>
         </Grid>
 
 
