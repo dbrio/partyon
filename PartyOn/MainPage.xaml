@@ -17,16 +17,16 @@
     shell:SystemTray.IsVisible="True"
     DataContext="{Binding  Source={StaticResource vmHome}}">
 
-    <!--<shell:SystemTray.ProgressIndicator>
+    <shell:SystemTray.ProgressIndicator>
         <shell:ProgressIndicator IsIndeterminate="True"
-                                 IsVisible="{Binding IsBusy} "/>
+                                 IsVisible="{Binding IsBusy}"/>
 
-    </shell:SystemTray.ProgressIndicator>-->
+    </shell:SystemTray.ProgressIndicator>
 
-    <phone:PhoneApplicationPage.Resources>
+    <!--<phone:PhoneApplicationPage.Resources>
 
 
-    </phone:PhoneApplicationPage.Resources>
+    </phone:PhoneApplicationPage.Resources>-->
 
     <Grid Background="Transparent">
         <Grid.Resources>
@@ -139,7 +139,7 @@
 
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True"  Mode="Default" BackgroundColor="Black" Opacity=".8" ForegroundColor="White" >
+        <shell:ApplicationBar x:Name="aplicationbar" IsVisible="True" IsMenuEnabled="True"  Mode="Default" BackgroundColor="Black" Opacity=".8" ForegroundColor="White" >
             <shell:ApplicationBarIconButton  Text="Post" IconUri="/Assets/AppBar/post.png" Click="addPost"  />
             <shell:ApplicationBarIconButton  Text="Music" IconUri="/Assets/AppBar/music.png" Click="ApplicationBarIconButton_Click"/>
             <shell:ApplicationBarIconButton x:Name="btnRefresh" Click="btnRefresh_Click"  IconUri="/Assets/AppBar/sync.png" Text="Refresh" />

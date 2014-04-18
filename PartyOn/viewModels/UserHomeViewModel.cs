@@ -13,9 +13,9 @@ namespace PartyOn.viewModels.homeV
     public class UserHomeViewModel:NotificationEnabledObject
     {
         public double lati, longi;
-
-        bool isBusy;
         bool primeraVez = true;
+        bool isBusy;
+        
         public bool IsBusy
         {
             get{ return isBusy;}
@@ -53,6 +53,8 @@ namespace PartyOn.viewModels.homeV
                {
                    UserHomeList = new ObservableCollection<modelHome>(a.ResultsHome);
                    isBusy = false;
+
+                   
                    UpdateTile();
 
                    if (userHomeList.Count < 1 && primeraVez == true)
