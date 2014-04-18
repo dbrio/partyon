@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
@@ -13,19 +14,16 @@ namespace PartyOn.model.homeM
     {
         public event EventHandler<UserHomeEventArg> GetUserHomeComplete;
 
-         public void GetUserHome(double latitud, double longitud)
+         public async void GetUserHome(double latitud, double longitud)
         {
 
             string uriJson = "http://partyonapp.com/API/datahome/";
 
             string uri =  uriJson +"?qLat="+ latitud +"&qLong="+ longitud; 
 
-            WebClient client = new WebClient();
-            client.DownloadStringCompleted += (s, a) =>
-                {
-                   if (a.Error == null && !a.Cancelled)
-                   {
-                       var result = a.Result;
+            HttpClient client = new HttpClient();
+            
+                       var result = await client.GetStringAsync(uri);
 
                        //serialize Home
 
@@ -49,8 +47,6 @@ namespace PartyOn.model.homeM
                            GetUserHomeComplete(this, new UserHomeEventArg(results));
                        }
                    }
-                };
-            client.DownloadStringAsync(new Uri(uri, UriKind.Absolute));
-        }
+               
     }
 }

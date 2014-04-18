@@ -47,6 +47,8 @@ namespace PartyOn
                 NavigationService.RemoveBackEntry();
                 GetLocation();
             }
+
+        
         }
 
 
@@ -68,7 +70,8 @@ namespace PartyOn
                 (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).longi = placeLong;
                 (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).GetUserHomeCommand.Execute(null);
             }
-            
+
+           
             
             //MessageBox.Show(string.Format("{0} > {1}", placeLat, placeLong), "geolocalizacion", MessageBoxButton.OK);
         }
@@ -87,6 +90,8 @@ namespace PartyOn
             get { return placeLong; }
             set { placeLong = value; }
         }
+
+        
 
         private void Pivot_LoadedPivotItem(object sender, PivotItemEventArgs e)
         {

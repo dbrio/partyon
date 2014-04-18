@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 using PartyOn;
+using System.Net.Http;
 
 namespace PartyOn.model.getPlace
 {
@@ -14,7 +15,7 @@ namespace PartyOn.model.getPlace
     {
         public event EventHandler<UserPlaceEvertArg> GetUserPlaceComplete;
 
-         public void GetUserPlace(double lat, double longi)
+         public async void GetUserPlace(double lat, double longi)
         {
             
 
@@ -22,12 +23,9 @@ namespace PartyOn.model.getPlace
 
             string uri = uriJson + "?qLat=" + lat + "&qLong=" + longi;
 
-            WebClient client = new WebClient();
-            client.DownloadStringCompleted += (s, a) =>
-            {
-                if (a.Error == null && !a.Cancelled)
-                {
-                    var result = a.Result;
+            HttpClient client = new HttpClient();
+
+            var result = await client.GetStringAsync(uri);
 
                     //serialize Home
 
@@ -46,8 +44,6 @@ namespace PartyOn.model.getPlace
                         GetUserPlaceComplete(this, new UserPlaceEvertArg(results));
                     }
                 }
-            };
-            client.DownloadStringAsync(new Uri(uri, UriKind.Absolute));
-        }
+           
     }
 }

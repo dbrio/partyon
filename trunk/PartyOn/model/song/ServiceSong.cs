@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,16 +12,14 @@ namespace PartyOn.model.song
     public class ServiceSong
     {
         public event EventHandler<UserSongEverArg> GetUserSongCompleted;
-        public void GetUserSong(double lati, double longi)
+        public async void GetUserSong(double lati, double longi)
         {
             string uriweb = "http://www.partyonapp.com/API/heydj/";
             string uri = uriweb + "?qLat=" + lati + "&qLong=" + longi; 
-            WebClient client = new WebClient();
-            client.DownloadStringCompleted += (s, a) =>
-            {
-                if (a.Error == null && !a.Cancelled)
-                {
-                    var result = a.Result;
+
+            HttpClient client = new HttpClient();
+            
+                    var result = await client.GetStringAsync(uri);
 
                     //serialize Activity
 
@@ -40,10 +39,7 @@ namespace PartyOn.model.song
                     {
                         GetUserSongCompleted(this, new UserSongEverArg(results));
                     }
-                }
-            };
-            client.DownloadStringAsync(new Uri(uri, UriKind.Absolute));
-
+              
         }
     }
 }

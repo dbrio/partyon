@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,16 +13,14 @@ namespace PartyOn.model.profile
     public class servicePerfil
     {
         public event EventHandler<PerfilEverArg> GetUserPerfilCompleted;
-        public void GetUserPerfil(int id)
+        public async void GetUserPerfil(int id)
         {
             string uriweb = "http://www.partyonapp.com/API/userprofile/?uid=";
             string uri = uriweb + id;
-            WebClient client = new WebClient();
-            client.DownloadStringCompleted += (s, a) =>
-            {
-                if (a.Error == null && !a.Cancelled)
-                {
-                    var result = a.Result;
+
+            HttpClient client = new HttpClient();
+            
+                    var result = await client.GetStringAsync(uri);
 
                     //serialize Activity
 
@@ -50,9 +49,6 @@ namespace PartyOn.model.profile
                     {
                         GetUserPerfilCompleted(this, new PerfilEverArg(results));
                     }
-                }
-            };
-            client.DownloadStringAsync(new Uri(uri, UriKind.Absolute));
 
         }
     }
