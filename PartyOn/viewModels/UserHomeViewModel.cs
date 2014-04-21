@@ -61,7 +61,7 @@ namespace PartyOn.viewModels.homeV
                    {
                        primeraVez = false;
                        MessageBox.Show("No nearby places where you are, add a new place by creating a new post.", "PartyOn", MessageBoxButton.OK);
-                       userHomeList.Add(new modelHome { PlaceID = 0, PlaceLat = "0.0", PlaceLong = "0.0", PlaceName = "be the first.", LastPhoto = "Resources/fondo.png", PeopleNow = 0, LastPostDate = "0/00/00" });
+                       userHomeList.Add(new modelHome { PlaceID = 0, PlaceLat = "0.0", PlaceLong = "0.0", PlaceName = "be the first.", LastPhoto = "PhotoPosts/nofoto.jpg", PeopleNow = 0, LastPostDate = "0/00/00" });
                    }
                    //else if (userHomeList.Count < 1 && primeraVez == false)
                    //{

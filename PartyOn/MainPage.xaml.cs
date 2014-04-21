@@ -66,6 +66,7 @@ namespace PartyOn
                 PlaceLat = myLocation.Coordinate.Latitude;
                 PlaceLong = myLocation.Coordinate.Longitude;
 
+
                 (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).lati = PlaceLat;
                 (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).longi = placeLong;
                 (App.Current.Resources["vmHome"] as viewModels.homeV.UserHomeViewModel).GetUserHomeCommand.Execute(null);
@@ -289,4 +290,5 @@ namespace PartyOn
         //    ApplicationBar.MenuItems.Add(appBarMenuItem);
         //}
     }
+
 }

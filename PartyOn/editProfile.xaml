@@ -63,7 +63,7 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock  Grid.Column="0" Text="Password:"
                                VerticalAlignment="Center"/>
-                    <PasswordBox Foreground="White" Background="gray" 
+                    <PasswordBox Foreground="Gray" Background="White" 
                                  Grid.Column="1"
                                  x:Name="txtPassword" 
                                  Margin="0,0,-7,15"
@@ -77,8 +77,8 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock  Grid.Column="0" Text="Password:"
                                VerticalAlignment="Center"/>
-                    <PasswordBox Background="Gray"
-                                 Foreground="White" Grid.Column="1" 
+                    <PasswordBox Background="White"
+                                 Foreground="Gray" Grid.Column="1" 
                                  x:Name="txtPassword2" 
                                  Margin="0,0,-7,15"
                                  BorderBrush="#333333"/>
