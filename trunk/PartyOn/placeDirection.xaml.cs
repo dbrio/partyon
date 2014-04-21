@@ -11,6 +11,7 @@ using Windows.Devices.Geolocation;
 using Microsoft.Phone.Maps.Controls;
 using Microsoft.Phone.Maps.Toolkit;
 using Microsoft.Phone.Maps.Services;
+using System.Device.Location;
 
 namespace PartyOn
 {
@@ -25,7 +26,8 @@ namespace PartyOn
         public placeDirection()
         {
             InitializeComponent();
-            
+
+           
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -47,7 +49,11 @@ namespace PartyOn
             Microsoft.Phone.Maps.MapsSettings.ApplicationContext.ApplicationId = "ff9f3fa5-b169-4641-b951-014d35f1b18d";
             Microsoft.Phone.Maps.MapsSettings.ApplicationContext.AuthenticationToken = "TDJ3taacDooeNQzK3ZTOyg";
 
+
+
             GenerarMap();
+
+            
         }
 
         void GenerarMap()
@@ -61,6 +67,8 @@ namespace PartyOn
             myCoordinates.Add(new System.Device.Location.GeoCoordinate(lat, longi));
             myCoordinates.Add(new System.Device.Location.GeoCoordinate(myLat, myLongi));
 
+            
+
             //myGeocode = new GeocodeQuery();
             //myGeocode.GeoCoordinate = new System.Device.Location.GeoCoordinate(myLat, myLongi);
             //myGeocode.QueryCompleted += myGeocode_QueryCompleted;
@@ -72,7 +80,7 @@ namespace PartyOn
             myQuery.QueryAsync();
             mapPlace.Center = new System.Device.Location.GeoCoordinate(myLat, myLongi);
 
-
+           
             MapLayer myLayer = new MapLayer();
 
             Pushpin myPushpin = new Pushpin();
@@ -97,6 +105,15 @@ namespace PartyOn
 
             mapPlace.Layers.Add(myLayer);
 
+            //Animacion del mapa
+            mapPlace.SetView(new System.Device.Location.GeoCoordinate()
+            {
+                Latitude = lat,
+                Longitude = longi
+            }, 16, Microsoft.Phone.Maps.Controls.MapAnimationKind.Parabolic);
+
+
+            
         }
 
         // void myGeocode_QueryCompleted(object sender, QueryCompletedEventArgs<IList<MapLocation>> e)
@@ -111,6 +128,8 @@ namespace PartyOn
         //    }
         //}
 
+
+
           void myQuery_QueryCompleted(object sender, QueryCompletedEventArgs<Route> e)
          {
              if (e.Error == null)
@@ -121,9 +140,10 @@ namespace PartyOn
                  myQuery.Dispose();
              }
          }
-
+  
 
        
 
     }
+
 }
